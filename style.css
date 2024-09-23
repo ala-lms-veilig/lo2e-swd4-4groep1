@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    width: 50px; /* Adjust the logo size */
+    height: auto;
+    margin-right: 10px; /* Space between logo and text */
+}
+
+header .logo h1 {
+    font-size: 24px;
+    color: #333; /* Darker color for better visibility */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #d90429;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #a30722; /* Darker shade on hover */
+}
+
+main {
+    padding: 20px;
+    font-size: 18px; /* Set base font size for the main content */
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.main-text {
+    width: 60%;
+}
+
+.image-box {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px; /* Space below the image */
+}
+
+.image-text {
+    background-color: #f5f5f5;
+    padding: 10px;
+    font-size: inherit; /* Ensure it inherits the same font size as the rest of the main content */
+    color: #333;
+}
+
+.additional-text {
+    margin-top: 20px;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
