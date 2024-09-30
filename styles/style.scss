@@ -29,14 +29,14 @@ header {
     align-items: center;
 
     img {
-      width: 50px; // Adjust the logo size
+      width: 50px; 
       height: auto;
-      margin-right: 10px; // Space between logo and text
+      margin-right: 10px; 
     }
 
     h1 {
       font-size: 24px;
-      color: $text-color; // Darker color for better visibility
+      color: $text-color; 
     }
   }
 }
@@ -60,7 +60,7 @@ nav {
         transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: $primary-hover-color; // Darker shade on hover
+          background-color: $primary-hover-color; 
         }
       }
     }
@@ -97,13 +97,13 @@ nav {
         align-items: center;
         font-size: 24px;
         color: $text-color;
-        margin-bottom: 10px; // Space below the image
+        margin-bottom: 10px; 
       }
 
       .image-text {
         background-color: $background-color;
         padding: 20px;
-        font-size: inherit; // Ensure it inherits the same font size as the rest of the main content
+        font-size: inherit; 
         color: $text-color;
       }
     }
