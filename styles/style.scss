@@ -67,6 +67,32 @@ nav {
   }
 }
 
+// Footer
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $background-color;
+  padding: 15px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 50px; 
+      height: auto;
+      margin-right: 10px; 
+    }
+
+    h1 {
+      font-size: 24px;
+      color: $text-color; 
+    }
+  }
+}
+
 // index Main
 #index-main {
   padding: 20px;
