@@ -50,7 +50,7 @@ header {
   padding: 15px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-  .logo {
+  .logo a{
     display: flex;
     align-items: center;
 
@@ -160,7 +160,9 @@ main {
 
 //plattegrond
 #plattegrond_main {
-  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //news

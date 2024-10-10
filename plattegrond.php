@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>plattegrond</title>
+    <title>Plattegrond</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    
+    <?php require 'includes/header.php'; ?>
 
-    <?php require 'includes/header.php' ?>
-
-    <main>
+    <main id="plattegrond_main">
         <svg width="425" height="400" xmlns="http://www.w3.org/2000/svg">
             <!-- Define the grid dimensions -->
             <rect width="425" height="400" fill="white"/>

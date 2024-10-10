@@ -23,16 +23,16 @@ header {
   padding: 15px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-header .logo {
+header .logo a {
   display: flex;
   align-items: center;
 }
-header .logo img {
+header .logo a img {
   width: 50px;
   height: auto;
   margin-right: 10px;
 }
-header .logo h1 {
+header .logo a h1 {
   font-size: 24px;
   color: #333;
 }
@@ -147,7 +147,9 @@ main {
 }
 
 #plattegrond_main {
-  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #news_main {
