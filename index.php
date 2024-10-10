@@ -14,10 +14,10 @@
         <section>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, dui et finibus congue.</p>
             <article>
-                <button>Melding maken</button>
-                <button>Meldingen bekijken</button>
+                <button id="meldingMaken">Maken</button>
+                <button id="incidentenBekijken">Bekijken</button>
             </article>
-            <button>Enquête</button>
+            <button id="enquête">Enquête</button>
         </section>
     </main>
 
