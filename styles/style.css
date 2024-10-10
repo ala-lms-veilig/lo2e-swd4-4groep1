@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -111,4 +112,32 @@ main {
 }
 #index_main section button:hover {
   background-color: #a30722;
+}
+
+#plattegrond_main {
+  background-color: #333;
+}
+
+#news_main {
+  background-color: #333;
+}
+
+#contact_main {
+  background-color: #333;
+}
+
+#melding-maken_main {
+  background-color: #333;
+}
+
+#meldingen_main {
+  background-color: #333;
+}
+
+#enquêtes_main {
+  background-color: #333;
+}
+
+#account_main {
+  background-color: #333;
 }/*# sourceMappingURL=style.css.map */
