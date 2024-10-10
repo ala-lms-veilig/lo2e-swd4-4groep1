@@ -39,28 +39,32 @@ header {
       color: $text-color; 
     }
   }
-}
 
-// Navigation
-nav {
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-
-    li {
-      display: inline;
-
-      a {
-        text-decoration: none;
-        padding: 10px 15px;
-        background-color: $primary-color;
-        color: white;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: $primary-hover-color; 
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+  
+      li {
+        display: inline;
+  
+        a {
+          text-decoration: none;
+          padding: 10px 15px;
+          background-color: $primary-color;
+          color: white;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: $primary-hover-color; 
+          }
+        }
+        
+        &:nth-child(4) a {
+          padding: 15px 20px; // Custom padding for the fourth link
+          font-size: 0.9rem;  // Increase the font size for the fourth link
         }
       }
     }
@@ -107,7 +111,7 @@ footer {
   
 }
 
-//acount
-.acount_main {
+//account
+.account_main {
   
 }
