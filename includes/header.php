@@ -1,5 +1,3 @@
-
-
 <header>
         <div class="logo">
             <img src="images/logo.png" alt="Company Logo">
@@ -14,4 +12,3 @@
             </ul>
         </nav>
 </header>
-
