@@ -129,7 +129,7 @@
           
             <!-- Toren C -->
             <rect   x="360" y="0"   width="60"  height="30"  fill="White"   stroke="White"  stroke-width="0"/>
-            <text x="390" y="20" font-size="12" text-anchor="middle"    fill="black">B - C</text>
+            <text x="390" y="20" font-size="12" text-anchor="middle"    fill="black">Toren C</text>
             <rect   x="360" y="30"  width="60"  height="30"  fill="White"   stroke="White"  stroke-width="0"/>
             <text x="390" y="50" font-size="12" text-anchor="middle"    fill="black"></text>
             <rect   x="360" y="60"  width="60"  height="30"  fill="White"   stroke="White"  stroke-width="0"/>
