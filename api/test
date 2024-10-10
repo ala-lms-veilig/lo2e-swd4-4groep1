@@ -1,3 +1,5 @@
+/*
+
 <section class="content">
             <div class="main-text">
                 <h2>Home</h2>
@@ -89,11 +91,10 @@
 
 
 
-
-
-
-   /* New properties for text shrinking */
+   // New properties for text shrinking
    max-width: 100px; // Sets a maximum width for the button 
    white-space: nowrap; // Prevents text wrapping 
    overflow: hidden; // Hides any overflow text 
    text-overflow: ellipsis; // Adds ellipsis for overflow text 
+
+*/
