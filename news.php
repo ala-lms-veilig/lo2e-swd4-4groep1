@@ -10,6 +10,8 @@
     
     <?php require 'includes/header.php'; ?>
 
+    <!-- Replace the sections with one template that gets data from the detabase -->
+
     <main id="news_main">
         <section>
             <div><img src="images/logo.png" alt="img"></div>

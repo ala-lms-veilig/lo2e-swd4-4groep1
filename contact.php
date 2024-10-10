@@ -10,8 +10,94 @@
     
     <?php require 'includes/header.php'; ?>
 
-    <main id="contact_main">
+    <!-- Replace the sections with one template that gets data from the detabase -->
 
+    <main id="contact_main">
+        <section>
+            <div><img src="images/logo.png" alt="img"></div>
+            <article>
+                <div>
+                    <h4>Beroep:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>Naam:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>telefoon nummer:</h4>
+                    <p>???</p>
+                </div>
+            </article>
+        </section>
+        <section>
+            <div><img src="images/logo.png" alt="img"></div>
+            <article>
+                <div>
+                    <h4>Beroep:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>Naam:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>telefoon nummer:</h4>
+                    <p>???</p>
+                </div>
+            </article>
+        </section>
+        <section>
+            <div><img src="images/logo.png" alt="img"></div>
+            <article>
+                <div>
+                    <h4>Beroep:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>Naam:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>telefoon nummer:</h4>
+                    <p>???</p>
+                </div>
+            </article>
+        </section>
+        <section>
+            <div><img src="images/logo.png" alt="img"></div>
+            <article>
+                <div>
+                    <h4>Beroep:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>Naam:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>telefoon nummer:</h4>
+                    <p>???</p>
+                </div>
+            </article>
+        </section>
+        <section>
+            <div><img src="images/logo.png" alt="img"></div>
+            <article>
+                <div>
+                    <h4>Beroep:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>Naam:</h4>
+                    <p>???</p>
+                </div>
+                <div>
+                    <h4>telefoon nummer:</h4>
+                    <p>???</p>
+                </div>
+            </article>
+        </section>
     </main>
 
     <?php require 'includes/footer.php'; ?>

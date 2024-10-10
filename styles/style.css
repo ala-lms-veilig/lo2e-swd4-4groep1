@@ -181,7 +181,38 @@ main {
 }
 
 #contact_main {
-  background-color: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align: start;
+  margin: 0 auto;
+  padding: 20vh 0vh;
+}
+#contact_main section {
+  margin: 2vh 2vw;
+  max-width: 600px;
+  width: 100%;
+  padding: 1vh 1vw;
+}
+#contact_main section div {
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  border: 2px solid black;
+}
+#contact_main section div img {
+  max-width: 100%;
+  height: auto;
+}
+#contact_main section article {
+  margin: 20px;
+}
+#contact_main section article div {
+  border: 0;
+  display: contents;
+  margin: 20px;
 }
 
 #melding-maken_main {
