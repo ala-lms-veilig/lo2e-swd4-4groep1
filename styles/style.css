@@ -75,4 +75,40 @@ footer > * {
 
 main {
   flex: 1;
+}
+
+#index_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+}
+#index_main section {
+  max-width: 600px;
+  width: 100%;
+}
+#index_main section p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #333;
+}
+#index_main section article {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+#index_main section button {
+  padding: 10px 20px;
+  background-color: #d90429;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+#index_main section button:hover {
+  background-color: #a30722;
 }/*# sourceMappingURL=style.css.map */

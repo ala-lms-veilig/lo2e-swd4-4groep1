@@ -101,41 +101,79 @@ main {
 }
 
 //index
-.index_main {
+#index_main {
+  display: flex; // Enables flexbox layout
+  justify-content: center; // Centers content horizontally
+  align-items: center; // Centers content vertically
+  height: 80vh; // Takes 80% of the viewport height
+  text-align: center; // Centers text within the main
 
+  section {
+    max-width: 600px; // Sets a maximum width for the section
+    width: 100%; // Allows section to take full width of parent
+
+    p {
+      margin-bottom: 20px; // Adds space below paragraphs
+      font-size: 1.2rem; // Sets font size
+      color: #333; // Sets text color
+    }
+
+    article {
+      display: flex; // Enables flexbox layout for articles
+      justify-content: center; // Centers article content horizontally
+      gap: 20px; // Adds space between articles
+      margin-bottom: 20px; // Adds space below the article
+    }
+
+    button {
+      padding: 10px 20px; // Adds padding inside the button
+      background-color: #d90429; // Sets background color
+      color: white; // Sets text color
+      border: none; // Removes default border
+      border-radius: 5px; // Rounds button corners
+      cursor: pointer; // Changes cursor to pointer on hover
+      font-size: 1rem; // Sets font size
+      transition: background-color 0.3s ease; // Smooth background color transition
+
+      &:hover {
+        background-color: #a30722; // Changes background color on hover
+      }
+    }
+  }
 }
 
+
 //plattegrond
-.plattegrond_main {
+#plattegrond_main {
   
 }
 
 //news
-.news_main {
+#news_main {
   
 }
 
 //contact
-.contact_main {
+#contact_main {
   
 }
 
 //melding maken
-.melding-maken_main {
+#melding-maken_main {
   
 }
 
 //meldingen
-.meldingen_main {
+#meldingen_main {
   
 }
 
 //enquêtes
-.enquêtes_main {
+#enquêtes_main {
   
 }
 
 //account
-.account_main {
+#account_main {
   
 }

@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/teststyles.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     
     <?php require 'includes/header.php'; ?>
 
-    <main id="index-main">
+    <main id="index_main">
         <section>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, dui et finibus congue.</p>
             <article>

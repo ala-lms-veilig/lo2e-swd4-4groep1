@@ -86,3 +86,14 @@
       padding: 10px;
     }
   }
+
+
+
+
+
+
+   /* New properties for text shrinking */
+   max-width: 100px; // Sets a maximum width for the button 
+   white-space: nowrap; // Prevents text wrapping 
+   overflow: hidden; // Hides any overflow text 
+   text-overflow: ellipsis; // Adds ellipsis for overflow text 
