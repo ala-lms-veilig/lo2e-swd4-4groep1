@@ -4,16 +4,24 @@ $primary-hover-color: #a30722;
 $background-color: #f5f5f5;
 $text-color: #333;
 
+
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0; // Remove default margin
+  padding: 0; // Remove default padding
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+html, body {
+  height: 100%; // Ensure html and body take full height
+  display: flex; // Enable flexbox on the body
+  flex-direction: column; // Arrange children in a column
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
 }
+
 
 // Header
 header {
@@ -63,8 +71,8 @@ header {
         }
         
         &:nth-child(4) a {
-          padding: 15px 20px; // Custom padding for the fourth link
-          font-size: 0.9rem;  // Increase the font size for the fourth link
+          padding: 15px 20px;
+          font-size: 0.9rem; 
         }
       }
     }
@@ -73,7 +81,23 @@ header {
 
 // Footer
 footer {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color;
+  padding: 15px 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 0.875rem;
+
+  // Optional: adjust spacing for child elements
+  > * {
+    margin: 0 10px; // Space between child elements
+  }
+}
+
+main {
+  flex: 1; // Allow the main content to grow and fill space
 }
 
 //index
