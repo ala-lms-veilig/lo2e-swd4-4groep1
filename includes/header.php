@@ -7,9 +7,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Over ons</a></li>
-                <li><a href="#">Diensten</a></li>
-                <li><a href="#">Blog/Nieuws</a></li>
+                <li><a href="#">Plattegrond</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact</a></li>
                 <li><a href="#">Account</a></li>
             </ul>
         </nav>
