@@ -38,9 +38,9 @@
             <rect x="0" y="300" width="60"  height="30"  fill="Red"   stroke="black"  stroke-width="1"/>
             <text x="30" y="320" font-size="12" text-anchor="middle" fill="black">1</text>
             <rect x="0" y="330" width="60"  height="30"  fill="Red"   stroke="black"  stroke-width="1"/>
-            <text x="30" y="350" font-size="12" text-anchor="middle" fill="black">0</text>
+            <text x="30" y="350" font-size="12" text-anchor="middle" fill="black">E</text>
             <rect x="0" y="360" width="60"  height="30"  fill="Red"   stroke="black"  stroke-width="1"/>
-            <text x="30" y="380" font-size="12" text-anchor="middle" fill="black">E</text>
+            <text x="30" y="380" font-size="12" text-anchor="middle" fill="black">0</text>
 
           
             <!-- A - B -->
@@ -67,9 +67,9 @@
             <rect   x="60" y="300" width="120"  height="30"  fill="White"  stroke="White"  stroke-width="0"/>
             <text x="120" y="320" font-size="12" text-anchor="middle"   fill="black"></text>
             <rect   x="60" y="330" width="120"  height="30"  fill="Pink"   stroke="black"  stroke-width="1"/>
-            <text x="120" y="350" font-size="12" text-anchor="middle"   fill="black">0</text>
+            <text x="120" y="350" font-size="12" text-anchor="middle"   fill="black">E</text>
             <rect   x="60" y="360" width="120"  height="30"  fill="Pink"   stroke="black"  stroke-width="1"/>
-            <text x="120" y="380" font-size="12" text-anchor="middle"   fill="black">E</text>
+            <text x="120" y="380" font-size="12" text-anchor="middle"   fill="black">0</text>
           
             <!-- Toren B -->
             <rect   x="180" y="0"   width="60"  height="30"  fill="White"    stroke="White"  stroke-width="0"/>
@@ -95,9 +95,9 @@
             <rect   x="180" y="300" width="60"  height="30"  fill="Purple"   stroke="black"  stroke-width="1"/>
             <text x="210" y="320" font-size="12" text-anchor="middle"   fill="black">1</text>
             <rect   x="180" y="330" width="60"  height="30"  fill="Purple"   stroke="black"  stroke-width="1"/>
-            <text x="210" y="350" font-size="12" text-anchor="middle"   fill="black">0</text>
+            <text x="210" y="350" font-size="12" text-anchor="middle"   fill="black">E</text>
             <rect   x="180" y="360" width="60"  height="30"  fill="Purple"   stroke="black"  stroke-width="1"/>
-            <text x="210" y="380" font-size="12" text-anchor="middle"   fill="black">E</text>
+            <text x="210" y="380" font-size="12" text-anchor="middle"   fill="black">0</text>
           
             <!-- B - C -->
             <rect   x="240" y="0"   width="120"  height="30"  fill="White"  stroke="White"  stroke-width="0"/>
@@ -123,9 +123,9 @@
             <rect   x="240" y="300" width="120"  height="30"  fill="White"  stroke="White"  stroke-width="0"/>
             <text x="300" y="320" font-size="12" text-anchor="middle"   fill="black"></text>
             <rect   x="240" y="330" width="120"  height="30"  fill="Cyan"   stroke="black"  stroke-width="1"/>
-            <text x="300" y="350" font-size="12" text-anchor="middle"   fill="black">0</text>
+            <text x="300" y="350" font-size="12" text-anchor="middle"   fill="black">E</text>
             <rect   x="240" y="360" width="120"  height="30"  fill="Cyan"   stroke="black"  stroke-width="1"/>
-            <text x="300" y="380" font-size="12" text-anchor="middle"   fill="black">E</text>
+            <text x="300" y="380" font-size="12" text-anchor="middle"   fill="black">0</text>
           
             <!-- Toren C -->
             <rect   x="360" y="0"   width="60"  height="30"  fill="White"   stroke="White"  stroke-width="0"/>
@@ -151,9 +151,9 @@
             <rect   x="360" y="300" width="60"  height="30"  fill="Green"   stroke="black"  stroke-width="1"/>
             <text x="390" y="320" font-size="12" text-anchor="middle"   fill="black">1</text>
             <rect   x="360" y="330" width="60"  height="30"  fill="Green"   stroke="black"  stroke-width="1"/>
-            <text x="390" y="350" font-size="12" text-anchor="middle"   fill="black">0</text>
+            <text x="390" y="350" font-size="12" text-anchor="middle"   fill="black">E</text>
             <rect   x="360" y="360" width="60"  height="30"  fill="Green"   stroke="black"  stroke-width="1"/>
-             <text x="390" y="380" font-size="12" text-anchor="middle"   fill="black">E</text>
+             <text x="390" y="380" font-size="12" text-anchor="middle"   fill="black">0</text>
         </svg>                    
     </main>
 
