@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>test</h1>
+    <h1 id="record-name">test</h1>
 </body>
 </html>
 
@@ -28,30 +28,40 @@ async function showAllRecords() {
 
     console.log(records);
 
+    const recordContainer = document.getElementById('record-name');
 
+    for(let record of records) {
+        recordContainer.innerHTML += `<li>${record.title}</li>`;
+        console.log(record.title);
+    }
 }
 
 showAllRecords();
 
 async function showRecord() {
+    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/posts`);
+    const record = await response.json();
 
+    console.log(record);
+    return record;
 }
 
 async function createRecord() {
-
+    //POST
 }
 
 async function updateRecord() {
-
+    //PATCH
 }
 
 async function deleteRecord() {
-
+    //DELETE
 }
 
 const posts = "posts";
 
 
+showAllRecords();
 showRecord();
 createRecord();
 updateRecord();
