@@ -11,7 +11,20 @@
     <?php require 'includes/header.php'; ?>
 
     <main id="melding-maken_main">
+        <section>
+            <article>
+                <div></div>
+                <button></button>
+            </article>
+            <article>
 
+            </article>
+        </section>
+        <section>
+            <article>
+
+            </article>
+        </section>
     </main>
 
     <?php require 'includes/footer.php'; ?>
