@@ -1,20 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquêtes</title>
+    <title>Enquête over Veiligheid</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    
+
     <?php require 'includes/header.php'; ?>
 
-    <main id="enquêtes_main">
-
+    <main>
+        <div id="enquêtes_main">
+            <h2>Enquête over Veiligheid</h2>
+            <form id="enqueteForm">
+                <template id="question">
+                    <label id="vraag">Hoe tevreden ben je met de veiligheid in jouw buurt?</label>
+                    <div>
+                        <input id="01" type="radio" name="vraag1" value="1"> 1
+                        <input id="02" type="radio" name="vraag1" value="2"> 2
+                        <input id="03" type="radio" name="vraag1" value="3"> 3
+                        <input id="04" type="radio" name="vraag1" value="4"> 4
+                        <input id="05" type="radio" name="vraag1" value="5"> 5
+                        <input id="06" type="radio" name="vraag1" value="6"> 6
+                        <input id="07" type="radio" name="vraag1" value="7"> 7
+                        <input id="08" type="radio" name="vraag1" value="8"> 8
+                        <input id="09" type="radio" name="vraag1" value="9"> 9
+                        <input id="10" type="radio" name="vraag1" value="10"> 10
+                    </div>
+                </template>
+                <div id="container"></div>
+                <button type="submit" id="submitBtn">Verzenden</button>
+            </form>
+        </div>
     </main>
 
     <?php require 'includes/footer.php'; ?>
+
+    <script>
+        const users = [
+            { vraag: "Hoe veilig voel je je in jouw buurt?" },
+            { vraag: "Wat vind je van de verlichting in jouw straat?" },
+            { vraag: "Hoe vaak zie je politie in jouw buurt?" },
+            { vraag: "Hoe veilig voel je je in jouw buurt?" }
+        ];
+
+        const template = document.getElementById("question");
+        const container = document.getElementById("container");
+
+        // Loop through each user question and append them to the container
+        for (const user of users) {
+            const clone = template.content.cloneNode(true);
+            const vraag = clone.querySelector("#vraag");
+
+            vraag.textContent = user.vraag; // Set the question text
+
+            container.appendChild(clone); // Append the cloned template
+        }
+
+        // Event listener voor de verzendknop
+        document.getElementById("enqueteForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Voorkom de standaard formulierverzending
+
+            const antwoorden = []; // Array voor de antwoorden
+
+            // Loop door de vragen om de antwoorden te verzamelen
+            users.forEach((user, index) => {
+                const antwoord = document.querySelector(`input[name="vraag${index + 1}"]:checked`); // Zoek het geselecteerde antwoord
+                if (antwoord) {
+                    antwoorden.push({ vraag: user.vraag, antwoord: antwoord.value }); // Voeg het antwoord toe aan de array
+                }
+            });
+
+            console.log(antwoorden); // Hier kun je de antwoorden verwerken, bijvoorbeeld verzenden naar een server
+            alert("Bedankt voor uw deelname aan de enquête!"); // Bevestigingsbericht
+        });
+    </script>
 
 </body>
 </html>
