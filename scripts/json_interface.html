@@ -7,7 +7,7 @@
 </head>
 <body>
     <main id="record_main">
-        <template>
+        <template id="record_template">
             <img class="recordAll_img_temp" src="" alt="">
             <h1 class="recordAll_naam_temp"></h1>
             <p class="recordAll_text_temp"></p>
@@ -70,17 +70,17 @@ showAllRecords();
 
 async function showRecord(recordId) {
     // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
-    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/test/&=${recordId}`);
+    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/test/${recordId}`);
     const record = await response.json();
 
     console.log(record);
 
     const record_single = document.getElementById('record_single');
 
-    const img       = querySelector(".recordAll_img_temp");
-    const naam      = querySelector(".recordAll_naam_temp");
-    const text      = querySelector(".recordAll_text_temp");
-    const nummer    = querySelector(".recordAll_nummer_temp");
+    const img       = querySelector(".record_img_temp");
+    const naam      = querySelector(".record_naam_temp");
+    const text      = querySelector(".record_text_temp");
+    const nummer    = querySelector(".record_nummer_temp");
 
     img.innerHTML     = `images/${record.img}`;
     naam.innerHTML    = record.naam;
@@ -105,12 +105,5 @@ async function deleteRecord() {
 }
 
 const posts = "posts";
-
-
-showAllRecords();
-showRecord();
-createRecord();
-updateRecord();
-deleteRecord();
 
 </script>
