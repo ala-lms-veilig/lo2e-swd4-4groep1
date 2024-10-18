@@ -41,28 +41,34 @@
 </html>
 
 <script>
-    const users = [
-        { naam: "Anna de Vries",    beroep: "baker",    telNummer: 123456789, img: "images/logo.png" },
-        { naam: "Bram Jansen",      beroep: "baker",    telNummer: 987654321, img: "images/logo.png" },
-        { naam: "Carla Pietersen",  beroep: "baker",    telNummer: 555666777, img: "images/logo.png" }
-    ];
 
-    const template  = document.getElementById("contact_template");
-    const container = document.getElementById("container");
+    async function showContactInfo() {
+        const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/contacts`);
+        const contacts = await response.json();
 
-    for (const user of users) {
-        const clone = template.content.cloneNode(true);
+        console.log(contacts);
 
-        const img       = clone.querySelector(".contact_img");
-        const beroep    = clone.querySelector(".contact_beroep");
-        const naam      = clone.querySelector(".contact_naam");
-        const telNummer = clone.querySelector(".contact_tel");
+        const template = document.getElementById("contact_template");
+        const container = document.getElementById("container");
 
-        img.src             = user.img;  
-        beroep.textContent  = user.beroep;
-        naam.textContent    = user.naam;
-        telNummer.textContent = user.telNummer;
+        for (let contact of contacts) {
+            const clone = template.content.cloneNode(true);
 
-        container.appendChild(clone);
+            const img       = clone.querySelector(".contact_img");
+            const beroep    = clone.querySelector(".contact_beroep");
+            const naam      = clone.querySelector(".contact_naam");
+            const telNummer = clone.querySelector(".contact_tel");
+
+            img.src                 = `images/${contact.img}`;
+            beroep.textContent      = contact.beroep;
+            naam.textContent        = contact.naam;
+            telNummer.textContent   = contact.telNummer;
+
+            container.appendChild(clone);
+        }
     }
+
+    showContactInfo();
+        
+    
 </script>
