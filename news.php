@@ -38,7 +38,7 @@
         const template = document.getElementById("news_template");
         const container = document.getElementById("news_main");
 
-        // If server doesn't work use news.news
+        // If server doesn't work use newsInfo.newsInfo
         for (let news of newsInfo) {
             const clone = template.content.cloneNode(true);
 
