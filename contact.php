@@ -41,23 +41,19 @@
 </html>
 
 <script>
-
+    // https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/contacts
     async function showContactInfo() {
-        const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/contacts`);
-
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
-        }
+        const response = await fetch(`http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json`);
 
         const contacts = await response.json();
 
-        console.log(contacts);
+        console.log(contacts.contacts);
 
         const template = document.getElementById("contact_template");
         const container = document.getElementById("container");
 
-        for (let contact of contacts) {
+        // Remove .contacts if using the server
+        for (let contact of contacts.contacts) {
             const clone = template.content.cloneNode(true);
 
             const img       = clone.querySelector(".contact_img");
@@ -76,5 +72,4 @@
 
     showContactInfo();
         
-    
 </script>
