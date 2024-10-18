@@ -26,6 +26,8 @@
         }
     ],
     "profile": {
-        "name": "typicode"
+        "id": "1",
+        "Name": "Test-User",
+        "Password": "admin"
     }
 }
