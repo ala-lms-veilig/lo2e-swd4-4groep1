@@ -51,24 +51,27 @@
         }
     ],
 
-    "contact": [
+    "contacts": [
         {
             "id": 1,
-            "img": "E1",
-            "beroep": "Post 1",
-            "naam": "Lorem ipsum"
+            "img": "logo.png",
+            "beroep": "Doctor",
+            "naam": "John Doe",
+            "telNummer": 123456789
         },
         {
             "id": 2,
-            "img": "E1",
-            "beroep": "Post 1",
-            "naam": "Lorem ipsum"
+            "img": "logo.png",
+            "beroep": "Politie",
+            "naam": "Barry wheeler",
+            "telNummer": 987654321
         },
         {
             "id": 3,
-            "img": "E1",
-            "beroep": "Post 1",
-            "naam": "Lorem ipsum"
+            "img": "logo.png",
+            "beroep": "Baker",
+            "naam": "Mark Makelaar",
+            "telNummer": 555666777
         }
     ],
 
@@ -87,3 +90,4 @@
         }
     ]
 }
+
