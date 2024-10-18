@@ -47,11 +47,19 @@
 
     "test": [
         {
-            "id": 3,
+            "id": 1,
             "img": "logo.png",
-            "naam": "Test naam",
-            "txt": "Test text",
+            "naam": "Test naam 1",
+            "txt": "Test text 1",
             "nummer": 1234567890
+
+        },
+        {
+            "id": 2,
+            "img": "logo.png",
+            "naam": "Test naam 2",
+            "txt": "Test text 2",
+            "nummer": 987654321
 
         }
     ]

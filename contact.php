@@ -13,7 +13,7 @@
     <main id="contact_main">
         <template id="contact_template">
             <section>
-                <div><img class="contact_img" src="" alt="img"></div>
+                <div class="contact_img"></div>
                 <article>
                     <div>
                         <h4>Beroep:</h4>
@@ -57,7 +57,7 @@
             const naam      = clone.querySelector(".contact_naam");
             const telNummer = clone.querySelector(".contact_tel");
 
-            img.src        = `images/${contact.img}`;
+            img.innerHTML = `<img src="images/${contact.img}" alt="${contact.title}">`;
             beroep.innerHTML    = contact.beroep;
             naam.innerHTML      = contact.naam;
             telNummer.innerHTML = contact.telNummer;

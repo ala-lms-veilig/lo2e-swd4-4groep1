@@ -56,7 +56,8 @@ async function showAllRecords() {
             const text      = clone.querySelector(".recordAll_text_temp");
             const nummer    = clone.querySelector(".recordAll_nummer_temp");
 
-            img.src             = `images/${record.img}`;
+            //img.src           = "images/${record.img}"; // If directly in <img>
+            img.innerHTML       = `<img src="images/${record.img}" alt="${record.naam}">`;
             naam.innerHTML      = record.naam;
             text.innerHTML      = record.txt;
             nummer.innerHTML    = record.nummer;
@@ -77,15 +78,15 @@ async function showRecord(recordId) {
 
     const record_single = document.getElementById('record_single');
 
-    const img       = querySelector(".record_img_temp");
-    const naam      = querySelector(".record_naam_temp");
-    const text      = querySelector(".record_text_temp");
-    const nummer    = querySelector(".record_nummer_temp");
+    const img       = document.querySelector(".record_img_temp");
+    const naam      = document.querySelector(".record_naam_temp");
+    const text      = document.querySelector(".record_text_temp");
+    const nummer    = document.querySelector(".record_nummer_temp");
 
-    img.innerHTML     = `images/${record.img}`;
-    naam.innerHTML    = record.naam;
-    text.innerHTML    = record.txt;
-    nummer.innerHTML  = record.nummer;
+    img.innerHTML = `<img src="images/${record.img}" alt="${record.naam}">`;
+    naam.innerHTML = record.naam;
+    text.innerHTML = record.txt;
+    nummer.innerHTML = record.nummer;
 
     return record;
 }

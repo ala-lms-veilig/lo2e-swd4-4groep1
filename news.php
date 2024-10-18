@@ -15,7 +15,7 @@
     <main id="news_main">
     <template id="news_template">
         <section>
-            <div><img class="news_img" src="" alt="img"></div>
+            <div class="news_img"></div>
             <h2 class="news_title">heading</h2>
             <p class="news_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut quidem consequatur incidunt perspiciatis! Sit ad soluta vero incidunt esse necessitatibus officiis ullam, porro similique a, explicabo voluptates sunt tempora? Itaque!</p>
         </section>
@@ -46,7 +46,7 @@
             const title     = clone.querySelector(".news_title");
             const text      = clone.querySelector(".news_text");
 
-            img.src             = `images/${news.img}`;
+            img.innerHTML = `<img src="images/${news.img}" alt="${news.title}">`;
             title.innerHTML     = news.title;
             text.innerHTML      = news.txt;
 
