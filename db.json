@@ -2,21 +2,21 @@
     "news": [
         {
             "id": 1,
-            "img": "E1",
-            "title": "Post 1",
-            "txt": "Lorem ipsum"
+            "img": "logo.png",
+            "title": "Toren A Lift kapot",
+            "txt": "The lift in toren A is kopt en de reperatie wordt pass volgende week gedaan"
             
         },
         {
             "id": 2,
-            "img": "E1",
-            "title": "Post 1",
+            "img": "logo.png",
+            "title": "Post 2",
             "txt": "Lorem ipsum"
         },
         {
             "id": 3,
-            "img": "E1",
-            "title": "Post 1",
+            "img": "logo.png",
+            "title": "Post 3",
             "txt": "Lorem ipsum"
         }
     ],
