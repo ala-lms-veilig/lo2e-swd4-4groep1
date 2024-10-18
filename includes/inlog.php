@@ -11,21 +11,22 @@
     
     <?php require 'includes/header.php'; ?>
 
+   
     <main id="inlog">
-        <form id="loginForm">
+        <form id="loginForm" method="post">
             <label for="username">Gebruikersnaam:</label>
             <input type="text" id="username" name="username" required>
             <br>
             <label for="password">Wachtwoord:</label>
             <input type="password" id="password" name="password" required>
             <br>
-            <button type="submit">Inloggen</button>
+            <button id="subit" type="submit">Inloggen</button>
         </form>
         <div id="message"></div>
     </main>
 
     <?php require 'includes/footer.php'; ?>
 
-    <script src="scripts/login.js"></script>
+
 </body>
 </html>

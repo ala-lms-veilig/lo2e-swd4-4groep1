@@ -8,14 +8,14 @@
 </head>
 <body>
     
-    <?php require 'includes/header.php'; ?>
+  
 
     <main id="account_main">
-
+    <?php require_once 'includes/inlog.php'?>
 
     </main>
 
-    <?php require 'includes/footer.php'; ?>
+ 
 
 </body>
 </html>
