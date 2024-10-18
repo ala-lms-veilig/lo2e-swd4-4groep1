@@ -10,9 +10,7 @@
     
     <?php require 'includes/header.php'; ?>
 
-    <!-- Replace the sections with one template that gets data from db.json -->
-
-    <main id="news_main">
+<main id="news_main">
     <template id="news_template">
         <section>
             <div class="news_img"></div>
@@ -24,6 +22,7 @@
 
     <?php require 'includes/footer.php'; ?>
 
+    <!--<script src="scripts/news.js"></script>-->
 </body>
 </html>
 
