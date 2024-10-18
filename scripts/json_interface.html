@@ -83,10 +83,10 @@ async function showRecord(recordId) {
     const text      = document.querySelector(".record_text_temp");
     const nummer    = document.querySelector(".record_nummer_temp");
 
-    img.innerHTML = `<img src="images/${record.img}" alt="${record.naam}">`;
-    naam.innerHTML = record.naam;
-    text.innerHTML = record.txt;
-    nummer.innerHTML = record.nummer;
+    img.innerHTML       = `<img src="images/${record.img}" alt="${record.naam}">`;
+    naam.innerHTML      = record.naam;
+    text.innerHTML      = record.txt;
+    nummer.innerHTML    = record.nummer;
 
     return record;
 }
