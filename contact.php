@@ -65,10 +65,10 @@
             const naam      = clone.querySelector(".contact_naam");
             const telNummer = clone.querySelector(".contact_tel");
 
-            img.src                 = `images/${contact.img}`;
-            beroep.textContent      = contact.beroep;
-            naam.textContent        = contact.naam;
-            telNummer.textContent   = contact.telNummer;
+            img.innerHTML       = `images/${contact.img}`;
+            beroep.innerHTML    = contact.beroep;
+            naam.innerHTML      = contact.naam;
+            telNummer.innerHTML = contact.telNummer;
 
             container.appendChild(clone);
         }
