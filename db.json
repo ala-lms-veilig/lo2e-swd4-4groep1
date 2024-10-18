@@ -43,6 +43,17 @@
             "naam": "Mark Makelaar",
             "telNummer": 555666777
         }
+    ],
+
+    "test": [
+        {
+            "id": 3,
+            "img": "logo.png",
+            "naam": "Test naam",
+            "txt": "Test text",
+            "nummer": 1234567890
+
+        }
     ]
 }
 
