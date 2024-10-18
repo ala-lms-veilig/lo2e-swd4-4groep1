@@ -26,8 +26,68 @@
         }
     ],
     "profile": {
-        "id": "1",
-        "Name": "Test-User",
-        "Password": "admin"
-    }
+        "name": "typicode"
+    },
+
+    "news": [
+        {
+            "id": 1,
+            "img": "E1",
+            "title": "Post 1",
+            "txt": "Lorem ipsum"
+            
+        },
+        {
+            "id": 2,
+            "img": "E1",
+            "title": "Post 1",
+            "txt": "Lorem ipsum"
+        },
+        {
+            "id": 3,
+            "img": "E1",
+            "title": "Post 1",
+            "txt": "Lorem ipsum"
+        }
+    ],
+
+    "contacts": [
+        {
+            "id": 1,
+            "img": "logo.png",
+            "beroep": "Doctor",
+            "naam": "John Doe",
+            "telNummer": 123456789
+        },
+        {
+            "id": 2,
+            "img": "logo.png",
+            "beroep": "Politie",
+            "naam": "Barry wheeler",
+            "telNummer": 987654321
+        },
+        {
+            "id": 3,
+            "img": "logo.png",
+            "beroep": "Baker",
+            "naam": "Mark Makelaar",
+            "telNummer": 555666777
+        }
+    ],
+
+    "?2": [
+        {
+            "id": 1,
+            "title": "Post 1"
+        },
+        {
+            "id": 2,
+            "title": "Post 2"
+        },
+        {
+            "id": 3,
+            "title": "Post 3"
+        }
+    ]
 }
+
