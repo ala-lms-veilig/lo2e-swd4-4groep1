@@ -23,7 +23,7 @@
 
         <section>
             <h2>Submit New Record</h2>
-            <form id="dataForm">
+            <form id="data_form">
                 <label for="id">ID:</label><br>
                 <input type="number" id="id" name="id" value="" required><br><br>
             
@@ -45,7 +45,7 @@
 
         <section>
             <h2>Update Record</h2>
-            <form id="updateForm">
+            <form id="update_form">
                 <label for="update_id">Record ID to Update:</label><br>
                 <input type="number" id="update_id" name="update_id" value="" required><br><br>
 
@@ -67,7 +67,7 @@
 
         <section>
             <h2>Delete Record</h2>
-            <form id="deleteForm">
+            <form id="delete_form">
                 <label for="delete_id">Record ID to Delete:</label><br>
                 <input type="number" id="delete_id" name="delete_id" required><br><br>
 
@@ -159,7 +159,7 @@ console.log(showRecord(1));
 
 // POST: Create Record
 async function createRecord() {
-    const form = document.getElementById('dataForm');
+    const form = document.getElementById('data_form');
     const formData = {
         id:     form.id.value,
         img:    form.img.value,
@@ -188,7 +188,7 @@ createButton.addEventListener('click', createRecord);
 
 // PATCH: Update Record
 async function updateRecord() {
-    const form = document.getElementById('updateForm');
+    const form = document.getElementById('update_form');
     const formData = {
         img:    form.update_img.value || undefined,
         naam:   form.update_naam.value || undefined,
