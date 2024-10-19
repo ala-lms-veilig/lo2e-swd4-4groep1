@@ -224,7 +224,9 @@ main {
 }
 
 #enquêtes_main {
+  padding: 40% 0%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
