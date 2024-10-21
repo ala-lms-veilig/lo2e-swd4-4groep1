@@ -34,6 +34,6 @@
 
     <?php require 'includes/footer.php'; ?>
 
-    <!--<script src="scripts/contact.js"></script>-->
+    <script src="scripts/contact.js"></script>
 </body>
 </html>
