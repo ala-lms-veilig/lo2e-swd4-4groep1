@@ -22,6 +22,6 @@
 
     <?php require 'includes/footer.php'; ?>
 
-    <!--<script src="scripts/news.js"></script>-->
+    <script src="scripts/news.js"></script>
 </body>
 </html>
