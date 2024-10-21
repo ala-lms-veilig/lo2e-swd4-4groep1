@@ -143,16 +143,19 @@ main {
       margin-bottom: 20px;
 
       #meldingMaken {
-        @include button(150px, 50px);
+        @include button(150px, 45px);
+        text-decoration: none;
       }
 
       #incidentenBekijken {
-        @include button(150px, 50px);
+        @include button(150px, 45px);
+        text-decoration: none;
       }
     }
 
     #enquête {
       @include button(150px, 50px);
+      text-decoration: none;
     }
   }
 }

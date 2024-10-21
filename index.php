@@ -14,10 +14,10 @@
         <section>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, dui et finibus congue.</p>
             <article>
-                <button id="meldingMaken">Maken</button>
-                <button id="incidentenBekijken">Bekijken</button>
+                <a id="meldingMaken" href="melding_aanmaken.php">Maken</a>
+                <a id="incidentenBekijken" href="meldingen.php">Bekijken</a>
             </article>
-            <button id="enquête">Enquête</button>
+            <a id="enquête" href="enquêtes.php">Enquête</a>
         </section>
     </main>
 
