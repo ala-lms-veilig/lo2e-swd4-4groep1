@@ -118,6 +118,8 @@ main {
   flex: 1; // Allow the main content to grow and fill space
 }
 
+// User acces //
+
 //index
 #index_main {
   display: flex;
@@ -264,5 +266,17 @@ main {
 
 //account
 #account_main {
+  background-color: #333;
+}
+
+// admin acces //
+
+//news_admin
+#news_admin_main {
+  background-color: #333;
+}
+
+//contact_admin
+#contact_admin_main {
   background-color: #333;
 }
