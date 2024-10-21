@@ -158,7 +158,7 @@ async function createRecord() {
         nummer: form.nummer.value,
     }
     // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
-    const response = await fetch('https://my-json-server.typicode.com/typicode/demo/test', {
+    const response = await fetch('https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/test', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
@@ -187,7 +187,7 @@ async function updateRecord() {
     };
     const recordId = form.update_id.value;
     // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
-    const response = await fetch(`https://my-json-server.typicode.com/typicode/demo/test/${recordId}`, {
+    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/test/${recordId}`, {
         method: 'PATCH',
         body: JSON.stringify(formData),
         headers: {
@@ -210,7 +210,7 @@ updateButton.addEventListener('click', updateRecord);
 async function deleteRecord() {
     const recordId = document.getElementById('delete_id').value;
     // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
-    const response = await fetch(`https://my-json-server.typicode.com/typicode/demo/test/${recordId}`, {
+    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/test/${recordId}`, {
         method: 'DELETE',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
