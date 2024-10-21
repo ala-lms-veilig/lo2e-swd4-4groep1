@@ -442,6 +442,7 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100vw;
 }
 
 .incident-container {
@@ -479,12 +480,12 @@ main {
   height: 100%;
 }
 
-.incident-delete-button {
+.incident-button {
   width: 100%;
   height: 100%;
 }
 
-.incident-delete-button-img {
+.incident-button-img {
   height: 20px;
   width: 20px;
 }
@@ -493,12 +494,20 @@ main {
   font-family: "Montserrat";
   font-weight: bold;
   font-size: 16px;
+  color: #ec4a67;
 }
 
 .incident-text {
   font-family: "Montserrat";
   font-weight: normal;
   font-size: 14px;
+  color: #ec4a67;
+}
+
+.incident-buttons-container {
+  display: flex;
+  flex-direction: row;
+  row-gap: 5px;
 }
 
 @media (max-width: 960px) {

@@ -20,6 +20,8 @@ input,select{vertical-align:middle}
 // Variables
 $primary-color: #d90429;
 $primary-hover-color: #a30722;
+$secondary-color: #2e0e4a;
+$tertiary-color: #ec4a67;
 $background-color: #f5f5f5;
 $text-color: #333;
 
@@ -408,6 +410,7 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100vw;
   
 }
 
@@ -446,12 +449,12 @@ main {
   height: 100%;
 }
 
-.incident-delete-button {
+.incident-button {
 width: 100%;
 height: 100%;
 }
 
-.incident-delete-button-img {
+.incident-button-img {
   height: 20px;
   width: 20px;
 }
@@ -460,14 +463,21 @@ height: 100%;
   font-family: $font;
   font-weight: bold;
   font-size: 16px;
+  color: $tertiary-color
 }
 
 .incident-text {
   font-family: $font;
   font-weight: normal;
   font-size: 14px;
+  color: $tertiary-color
 }
 
+.incident-buttons-container {
+  display: flex;
+  flex-direction: row;
+  row-gap: 5px;
+}
 @media (max-width: 960px) {
   #new-incident-form {
     width: 80%;

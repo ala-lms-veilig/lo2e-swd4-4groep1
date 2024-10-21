@@ -1,5 +1,3 @@
-console.log("test")
-
 function createIncident() {
     incidents = JSON.parse(localStorage.getItem("incidents") || "[]");
     if (incidents.length == 0) {
@@ -43,10 +41,6 @@ function newIncidentEvents() {
     document.getElementById("new-incident-media-input").addEventListener("change", getFileName)
 }
 
-function loadIncidents() {
-    console.log("hi")
-}
-
 function showIncidents() {
     element = document.getElementById("meldingen_main");
     incidents = JSON.parse(localStorage.getItem("incidents"));
@@ -73,7 +67,10 @@ function showIncidents() {
             </section>
             <section class="column-5">
                 <h1 class="incident-title">Acties:</h1>
-                <a class="incident-delete-button" href="javascript:deleteIncident(` + i + `)"><img class="incident-delete-button-img" src="./images/trashbin.png"></a>
+                <section class="incident-buttons-container">
+                    <a class="incident-button" href="melding.php?id=` + i + `"><img class="incident-button-img" src="./images/goto.png"></a>
+                    <a class="incident-button" href="javascript:deleteIncident(` + i + `)"><img class="incident-button-img" src="./images/trashbin.png"></a>
+                </section>
             </section>
         </section>
         `;
