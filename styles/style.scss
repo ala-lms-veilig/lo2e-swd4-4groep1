@@ -24,15 +24,15 @@ $text-color: #333;
 
 // General
 * {
-  margin: 0; // Remove default margin
-  padding: 0; // Remove default padding
+  margin: 0; 
+  padding: 0;
   box-sizing: border-box;
 }
 
 html, body {
-  height: 100%; // Ensure html and body take full height
-  display: flex; // Enable flexbox on the body
-  flex-direction: column; // Arrange children in a column
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   body {
     font-family: Arial, sans-serif;
@@ -120,15 +120,15 @@ main {
 
 //index
 #index_main {
-  display: flex; // Enables flexbox layout
-  justify-content: center; // Centers content horizontally
-  align-items: center; // Centers content vertically
-  height: 80vh; // Takes 80% of the viewport height
-  text-align: center; // Centers text within the main
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center; 
 
   section {
-    max-width: 600px; // Sets a maximum width for the section
-    width: 100%; // Allows section to take full width of parent
+    max-width: 600px;
+    width: 100%;
 
     p {
       margin-bottom: 20px;
@@ -170,18 +170,18 @@ main {
 
 //news
 #news_main {
-  display: flex;                // Use flexbox for layout
-  flex-direction: row;      // Arrange items in a column
-  align-items: start;         // Center items horizontally
-  text-align:start;          // Center text within sections
-  margin: 0 auto;              // Center the main element on the page
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align:start;
+  margin: 0 auto;
   padding: 5vh 0vh;
 
   section {
-    margin: 2vh 2vw;           // Add spacing between sections
-    max-width: 600px;         // Set a maximum width for thesections
-    width: 100%;               // Make sections responsive
-    border: 2px solid black; // Add a black border around each section
+    margin: 2vh 2vw;
+    max-width: 600px;
+    width: 100%;
+    border: 2px solid black;
     padding: 1vh 1vw;
   
     div {
@@ -202,19 +202,19 @@ main {
 
 //contact
 #contact_main {
-  display: flex;                // Use flexbox for layout
-  flex-direction: row;      // Arrange items in a column
-  align-items: start;         // Center items horizontally
-  text-align:start;          // Center text within sections
-  margin: 0 auto;              // Center the main element on the page
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align:start;
+  margin: 0 auto;
   padding: 5vh 0vh;
 
   
 
   section {
-    margin: 2vh 2vw;           // Add spacing between sections
-    max-width: 600px;         // Set a maximum width for thesections
-    width: 100%;               // Make sections responsive
+    margin: 2vh 2vw;
+    max-width: 600px;
+    width: 100%; 
     padding: 1vh 1vw;
   
     div {
