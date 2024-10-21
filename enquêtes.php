@@ -48,32 +48,32 @@
         const template = document.getElementById("question");
         const container = document.getElementById("container");
 
-        // Loop through each user question and append them to the container
+       
         for (const user of users) {
             const clone = template.content.cloneNode(true);
             const vraag = clone.querySelector("#vraag");
 
-            vraag.textContent = user.vraag; // Set the question text
+            vraag.textContent = user.vraag; 
 
-            container.appendChild(clone); // Append the cloned template
+            container.appendChild(clone);
         }
 
-        // Event listener voor de verzendknop
+        
         document.getElementById("enqueteForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Voorkom de standaard formulierverzending
+            event.preventDefault(); 
 
-            const antwoorden = []; // Array voor de antwoorden
+            const antwoorden = []; 
 
-            // Loop door de vragen om de antwoorden te verzamelen
+            
             users.forEach((user, index) => {
-                const antwoord = document.querySelector(`input[name="vraag${index + 1}"]:checked`); // Zoek het geselecteerde antwoord
+                const antwoord = document.querySelector(`input[name="vraag${index + 1}"]:checked`); 
                 if (antwoord) {
-                    antwoorden.push({ vraag: user.vraag, antwoord: antwoord.value }); // Voeg het antwoord toe aan de array
+                    antwoorden.push({ vraag: user.vraag, antwoord: antwoord.value }); 
                 }
             });
 
-            console.log(antwoorden); // Hier kun je de antwoorden verwerken, bijvoorbeeld verzenden naar een server
-            alert("Bedankt voor uw deelname aan de enquête!"); // Bevestigingsbericht
+            console.log(antwoorden); 
+            alert("Bedankt voor uw deelname aan de enquête!"); 
         });
     </script>
 
