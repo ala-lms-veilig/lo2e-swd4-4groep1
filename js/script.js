@@ -1,5 +1,6 @@
 function createIncident() {
     incidents = JSON.parse(localStorage.getItem("incidents") || "[]");
+    console.log(incidents)
     if (incidents.length == 0) {
         id = 0;
     } else {
@@ -13,18 +14,18 @@ function createIncident() {
         media: document.getElementById("new-incident-media-input").value,
         description: document.getElementById("new-incident-description-input").value
     }
+    console.log(incident)
     incidents.push(incident)
     localStorage.setItem("incidents", JSON.stringify(incidents));
     incidents = JSON.parse(localStorage.getItem("incidents", incidents));
     console.log(incidents);
-
 }
 const getFileName = (event) => {
     const files = event.target.files;
     const fileName = files[0].name;
     document.getElementById("new-incident-media-delete-button").style.display = "block";
     document.getElementById("new-incident-media-button").innerHTML = fileName;
-    console.log(document.getElementById("new-incident-media-input").value)
+    console.log(fileName)
 }
 
 function resetFileInput() {
@@ -44,8 +45,7 @@ function newIncidentEvents() {
 function showIncidents() {
     element = document.getElementById("meldingen_main");
     incidents = JSON.parse(localStorage.getItem("incidents"));
-    console.log(incidents)
-    console.log(incidents.length)
+    console.log(incidents);
     for (var i = 0; i < incidents.length; i++){
         element.innerHTML += `
         <section class="incident-container">
@@ -78,7 +78,10 @@ function showIncidents() {
 }
 
 function deleteIncident(index) {
-    incidents = JSON.parse(localStorage.getItem("incidents"))
+    incidents = JSON.parse(localStorage.getItem("incidents"));
+    console.log(incidents);
     incidents.splice(index, 1);
     localStorage.setItem("incidents", JSON.stringify(incidents));
+    incidents = JSON.parse(localStorage.getItem("incidents"));
+    console.log(incidents);
 }
