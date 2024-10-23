@@ -84,6 +84,19 @@
             "nummer": 987654321
 
         }
+    ],
+    "user":[
+        {
+            "id": 1,
+            "Name": "Admin",
+            "Password": "Admin"
+        },
+        {
+            
+            "id": 2,
+            "Name": "Admin2",
+            "Password": "Admin2"
+        }
     ]
 }
 
