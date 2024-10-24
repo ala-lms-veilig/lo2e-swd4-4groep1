@@ -45,44 +45,19 @@
         }
     ],
 
-    "enquête_vragen": [
+
+ 
+    "user":[
         {
             "id": 1,
-            "vraag": "vraag1"
+            "Name": "Admin",
+            "Password": "Admin"
         },
         {
+            
             "id": 2,
-            "vraag": "vraag2"
-        },
-        {
-            "id": 3,
-            "vraag": "vraag3"
-        }
-    ],
-
-    "enquête_antwoorden": [
-        {
-            "id": 1,
-            "antwoord": "zeer goed"
-        }
-    ],
-
-    "test": [
-        {
-            "id": 1,
-            "img": "logo.png",
-            "naam": "Test naam 1",
-            "txt": "Test text 1",
-            "nummer": 1234567890
-
-        },
-        {
-            "id": 2,
-            "img": "logo.png",
-            "naam": "Test naam 2",
-            "txt": "Test text 2",
-            "nummer": 987654321
-
+            "Name": "Admin2",
+            "Password": "Admin2"
         }
     ]
 }
