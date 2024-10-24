@@ -16,7 +16,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     const password = document.getElementById("password").value;
 
     // Haal de lijst van gebruikers op uit de API
-    const response = await fetch("https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/user");
+    const response = await fetch("https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/db");
     const users = await response.json();
 
     // Controleer of de ingevoerde gebruikersnaam overeenkomt met een gebruikersnaam uit de API
