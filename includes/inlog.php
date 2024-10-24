@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
     <link rel="stylesheet" href="styles/inlopstyle.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/inglog.js"></script>
 </head>
 <body>
     
-    <?php require 'includes/header.php'; ?>
+    <?php require_once 'includes/header.php'; ?>
 
     <main id="inlog">
     <h2>Login</h2>
