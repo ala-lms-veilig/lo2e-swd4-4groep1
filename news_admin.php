@@ -22,14 +22,14 @@
         </article>
         <article>
             <label for="">text</label>
-            <textarea rows="10"></textarea> <!-- Changed input to textarea for multi-line text -->
+            <textarea rows="10"></textarea>
         </article>
         <article>
             <button>Cancel</button>
             <button>OK</button>
         </article>
     </form>
-    <table>
+    <table id="news_table">
         <tr>
             <th>id</th>
             <th>image</th>
@@ -38,14 +38,16 @@
             <th>Update</th>
             <th>Delete</th>
         </tr>
-        <tr>
-            <td>id_info</td>
-            <td><img src="img_url" alt="news image"></td>
-            <td>title_info</td>
-            <td>text_info</td>
-            <td><button class="update-btn">✏️</button></td>
-            <td><button class="delete-btn">🗑️</button></td>
-        </tr>
+        <template id="news_template"> 
+            <tr>
+                <td class="news_id"></td>
+                <td class="news_img"></td>
+                <td class="news_title"></td>
+                <td class="news_text"></td>
+                <td><button class="update-btn">✏️</button></td>
+                <td><button class="delete-btn">🗑️</button></td>
+            </tr>
+        </template>
     </table>
 </main>
 

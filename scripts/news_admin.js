@@ -6,16 +6,18 @@ async function showNewsInfo() {
     console.log(newsInfo);
 
     const template = document.getElementById("news_template");
-    const container = document.getElementById("news_main");
+    const container = document.getElementById("news_table");
 
     // If server doesn't work use newsInfo.newsInfo
     for (let news of newsInfo) {
         const clone = template.content.cloneNode(true);
 
+        const id        = clone.querySelector(".news_id");
         const img       = clone.querySelector(".news_img");
         const title     = clone.querySelector(".news_title");
         const text      = clone.querySelector(".news_text");
 
+        id.innerHTML        = news.id;
         img.innerHTML       = `<img src="images/${news.img}" alt="${news.title}">`;
         title.innerHTML     = news.title;
         text.innerHTML      = news.txt;
