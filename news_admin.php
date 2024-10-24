@@ -13,11 +13,19 @@
 <main id="news_admin_main">
     <form action="">
         <article>
-            <input type="text">
+            <label for="">img link</label>
             <input type="text">
         </article>
         <article>
-            <button>Cancle</button>
+            <label for="">title</label>
+            <input type="text">
+        </article>
+        <article>
+            <label for="">text</label>
+            <textarea rows="10"></textarea> <!-- Changed input to textarea for multi-line text -->
+        </article>
+        <article>
+            <button>Cancel</button>
             <button>OK</button>
         </article>
     </form>
@@ -25,16 +33,18 @@
         <tr>
             <th>id</th>
             <th>image</th>
+            <th>title</th>
             <th>text</th>
             <th>Update</th>
             <th>Delete</th>
         </tr>
         <tr>
             <td>id_info</td>
-            <td>img_url</td>
+            <td><img src="img_url" alt="news image"></td>
+            <td>title_info</td>
             <td>text_info</td>
-            <td><button class="update-btn">Update</button></td>
-            <td><button class="delete-btn">Delete</button></td>
+            <td><button class="update-btn">✏️</button></td> <!-- Replace with icon -->
+            <td><button class="delete-btn">🗑️</button></td> <!-- Replace with icon -->
         </tr>
     </table>
 </main>
