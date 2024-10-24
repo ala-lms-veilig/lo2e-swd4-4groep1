@@ -45,27 +45,6 @@
         }
     ],
 
-    "enquête_vragen": [
-        {
-            "id": 1,
-            "vraag": "vraag1"
-        },
-        {
-            "id": 2,
-            "vraag": "vraag2"
-        },
-        {
-            "id": 3,
-            "vraag": "vraag3"
-        }
-    ],
-
-    "enquête_antwoorden": [
-        {
-            "id": 1,
-            "antwoord": "zeer goed"
-        }
-    ],
 
  
     "user":[
