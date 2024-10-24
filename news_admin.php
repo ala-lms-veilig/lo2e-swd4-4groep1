@@ -43,8 +43,8 @@
             <td><img src="img_url" alt="news image"></td>
             <td>title_info</td>
             <td>text_info</td>
-            <td><button class="update-btn">✏️</button></td> <!-- Replace with icon -->
-            <td><button class="delete-btn">🗑️</button></td> <!-- Replace with icon -->
+            <td><button class="update-btn">✏️</button></td>
+            <td><button class="delete-btn">🗑️</button></td>
         </tr>
     </table>
 </main>
