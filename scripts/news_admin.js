@@ -26,14 +26,14 @@ async function showNewsInfo() {
         title.innerHTML     = news.title;
         text.innerHTML      = news.txt;
 
-        updateBtn.addEventListener("click", function() {updateNews(news.id);});
+        updateBtn.addEventListener("click", function() {updateNewsButton(news.id);});
         deleteBtn.addEventListener("click", function() {deleteNews(news.id);});
 
         container.appendChild(clone);
     }
 }
 
-async function updateNews(id) {
+async function updateNewsButton(id) {
     console.log(id);
 }
 
