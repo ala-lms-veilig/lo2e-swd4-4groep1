@@ -31,9 +31,9 @@
     </form>
 
     <section>
-        <button type="button">Create</button>
+        <button type="button" id="create_button">Create</button>
     </section>
-    
+
     <table id="news_table">
         <tr>
             <th>id</th>
@@ -49,8 +49,8 @@
                 <td class="news_img"></td>
                 <td class="news_title"></td>
                 <td class="news_text"></td>
-                <td><button class="update-btn">✏️</button></td>
-                <td><button class="delete-btn">🗑️</button></td>
+                <td><button type="button" class="update_button">✏️</button></td>
+                <td><button type="button" class="delete_button">🗑️</button></td>
             </tr>
         </template>
     </table>

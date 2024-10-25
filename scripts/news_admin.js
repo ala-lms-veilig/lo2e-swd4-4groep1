@@ -17,8 +17,8 @@ async function showNewsInfo() {
         const title     = clone.querySelector(".news_title");
         const text      = clone.querySelector(".news_text");
 
-        const updateBtn = clone.querySelector(".update-btn");
-        const deleteBtn = clone.querySelector(".delete-btn");
+        const updateBtn = clone.querySelector(".update_button");
+        const deleteBtn = clone.querySelector(".delete_button");
 
 
         id.innerHTML        = news.id;
@@ -26,19 +26,39 @@ async function showNewsInfo() {
         title.innerHTML     = news.title;
         text.innerHTML      = news.txt;
 
-        updateBtn.addEventListener("click", function() {updateNewsButton(news.id);});
+        updateBtn.addEventListener("click", function() {updateNewsForm(news.id);});
         deleteBtn.addEventListener("click", function() {deleteNews(news.id);});
 
         container.appendChild(clone);
     }
 }
 
-async function updateNewsButton(id) {
+async function updateNewsForm(id) {
     console.log(id);
+
+    const form = document.getElementById("news_form");
+
+    form.style.display = "block";
+
+    document.getElementById("news_img_input").value = news.img;
+    document.getElementById("news_img_input").disabled = false;
+
+    document.getElementById("news_title_input").value = news.title;
+    document.getElementById("news_title_input").disabled = false;
+
+    document.getElementById("news_text_input").value = news.txt;
+    document.getElementById("news_text_input").disabled = false;
 }
 
 async function deleteNews(id) {
     console.log(id);
 }
+
+async function createNewsForm() {
+    console.log(created);
+}
+
+//const createBtn = querySelector(".create_button");
+//createBtn.addEventListener("click", createNewsForm);
 
 showNewsInfo();
