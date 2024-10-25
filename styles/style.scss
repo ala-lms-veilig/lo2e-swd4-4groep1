@@ -322,18 +322,18 @@ main {
       background-color: #007BFF;
       color: white;
       border-radius: 4px;
-    }
 
-    button:hover {
-      background-color: #0056b3;
+      &:hover {
+        background-color: #0056b3;
+      }
     }
 
     button:nth-child(1) {
       background-color: #dc3545;
-    }
 
-    button:nth-child(1):hover {
-      background-color: #c82333;
+      &:hover {
+        background-color: #c82333;
+      }
     }
   }
 
@@ -350,7 +350,7 @@ main {
       color: white;
       border-radius: 4px;
 
-      button:hover {
+      &:hover {
         background-color: #0056b3;
       }
     }

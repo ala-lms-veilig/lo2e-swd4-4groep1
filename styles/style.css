@@ -307,7 +307,7 @@ main {
   color: white;
   border-radius: 4px;
 }
-#news_admin_main section button button:hover {
+#news_admin_main section button:hover {
   background-color: #0056b3;
 }
 #news_admin_main table {

@@ -40,14 +40,18 @@ async function updateNewsForm(id) {
 
     form.style.display = "block";
 
-    document.getElementById("news_img_input").value = news.img;
-    document.getElementById("news_img_input").disabled = false;
+    const newsImgInput = document.getElementById("news_img_input")
+    const newsTitleInput = document.getElementById("news_title_input")
+    const newsTextInput = document.getElementById("news_text_input")
 
-    document.getElementById("news_title_input").value = news.title;
-    document.getElementById("news_title_input").disabled = false;
+    newsImgInput.disabled = false;
+    newsTitleInput.disabled = false;
+    newsTextInput.disabled = false;
 
-    document.getElementById("news_text_input").value = news.txt;
-    document.getElementById("news_text_input").disabled = false;
+    //news. doesn't work outside the template loop
+    newsImgInput.value = news.img;
+    newsTitleInput.value = news.title;
+    newsTextInput.value = news.txt;
 }
 
 async function deleteNews(id) {
@@ -58,7 +62,7 @@ async function createNewsForm() {
     console.log(created);
 }
 
-//const createBtn = querySelector(".create_button");
+//const createBtn = document.querySelector(".create_button");
 //createBtn.addEventListener("click", createNewsForm);
 
 showNewsInfo();
