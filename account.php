@@ -1,8 +1,4 @@
-<?php
-// Redirect to inlog.php
-header("Location: includes/inlog.php");
-exit();
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
