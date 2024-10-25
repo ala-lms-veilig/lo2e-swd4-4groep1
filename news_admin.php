@@ -11,25 +11,29 @@
     <?php require 'includes/header.php'; ?>
 
 <main id="news_admin_main">
-    <form action="" id="news_form">
+    <form action="" id="news_form" style="display: none;">
         <article>
             <label for="news_img_input">img link</label>
-            <input id="news_img_input" type="text">
+            <input id="news_img_input" type="text" disabled>
         </article>
         <article>
             <label for="news_title_input">title</label>
-            <input id="news_title_input" type="text">
+            <input id="news_title_input" type="text" disabled>
         </article>
         <article>
             <label for="news_text_input">text</label>
-            <textarea id="news_text_input" rows="10"></textarea>
+            <textarea id="news_text_input" rows="10" disabled></textarea>
         </article>
         <article>
-            <button type="button">Cancel</button>
-            <button type="button">OK</button>
+            <button type="button" id="cancel_button">Cancel</button>
+            <button type="submit">OK</button>
         </article>
     </form>
-    <button type="button">Create</button>
+
+    <section>
+        <button type="button">Create</button>
+    </section>
+    
     <table id="news_table">
         <tr>
             <th>id</th>

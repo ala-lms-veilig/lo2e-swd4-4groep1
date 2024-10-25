@@ -294,6 +294,22 @@ main {
 #news_admin_main form button:nth-child(1):hover {
   background-color: #c82333;
 }
+#news_admin_main section {
+  align-self: flex-end;
+  margin: 2%;
+}
+#news_admin_main section button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 4px;
+}
+#news_admin_main section button button:hover {
+  background-color: #0056b3;
+}
 #news_admin_main table {
   width: 90%;
   border-collapse: collapse;
