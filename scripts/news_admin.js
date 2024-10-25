@@ -17,13 +17,28 @@ async function showNewsInfo() {
         const title     = clone.querySelector(".news_title");
         const text      = clone.querySelector(".news_text");
 
+        const updateBtn = clone.querySelector(".update-btn");
+        const deleteBtn = clone.querySelector(".delete-btn");
+
+
         id.innerHTML        = news.id;
         img.innerHTML       = `<img src="images/${news.img}" alt="${news.title}">`;
         title.innerHTML     = news.title;
         text.innerHTML      = news.txt;
 
+        updateBtn.addEventListener("click", function() {updateNews(news.id);});
+        deleteBtn.addEventListener("click", function() {deleteNews(news.id);});
+
         container.appendChild(clone);
     }
+}
+
+async function updateNews(id) {
+    console.log(id);
+}
+
+async function deleteNews(id) {
+    console.log(id);
 }
 
 showNewsInfo();
