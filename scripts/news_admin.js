@@ -26,14 +26,14 @@ async function showNewsInfo() {
         title.innerHTML     = news.title;
         text.innerHTML      = news.txt;
 
-        updateBtn.addEventListener("click", function() {updateNewsForm(news.id);});
+        updateBtn.addEventListener("click", function() {updateNewsForm(news.id, news.img, news.title, news.txt);});
         deleteBtn.addEventListener("click", function() {deleteNews(news.id);});
 
         container.appendChild(clone);
     }
 }
 
-async function updateNewsForm(id) {
+async function updateNewsForm(id, img, title, text) {
     console.log(id);
 
     const form = document.getElementById("news_form");
@@ -48,10 +48,11 @@ async function updateNewsForm(id) {
     newsTitleInput.disabled = false;
     newsTextInput.disabled = false;
 
-    //news. doesn't work outside the template loop
-    newsImgInput.value = news.img;
-    newsTitleInput.value = news.title;
-    newsTextInput.value = news.txt;
+    newsImgInput.value = img;
+    newsTitleInput.value = title;
+    newsTextInput.value = text;
+
+    //Where to store id, to give to the OK button.
 }
 
 async function deleteNews(id) {
