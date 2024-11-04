@@ -16,7 +16,7 @@
                 <li><a href="news.php">News</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="account.php">Account</a></li>
-                <li><a href="includes/inlog.php">inloggen</a></li>
+                <li><a href="inlog.php">inloggen</a></li>
             </ul>
         </nav>
 </header>
