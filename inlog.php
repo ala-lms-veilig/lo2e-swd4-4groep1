@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
-    <link rel="stylesheet" href="../styles/inlog.css">
-    <script src="../scripts/inlogg.js"></script>
+    <link rel="stylesheet" href="./styles/inlog.css">
+    <script src="./scripts/inlogg.js"></script>
 </head>
 <body>
-    <?php require_once 'header.php'; ?>
+    <?php require_once 'includes/header.php'; ?>
     
 
     <main id="inlog">
@@ -25,7 +25,7 @@
         <div id="message"></div>
     </main>
 
-    <?php require 'footer.php'; ?>
+    <?php require_once 'includes/footer.php'; ?>
 
 </body>
 </html>
