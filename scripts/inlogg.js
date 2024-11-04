@@ -1,30 +1,28 @@
-// https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/user
+async function UserData() {
+    const Url = "https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/user";
 
-// dit haalt informatie uit api en slaat het op in login
-const Url =
-  "https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/user";
-
-const response = await fetch(Url);
-const users = await response.json();
-
-console.log(Login);
-
-document.getElementById("loginForm").addEventListener("submit", async function (event) {
-    event.preventDefault();
-
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    // Haal de lijst van gebruikers op uit de API
-    const response = await fetch("https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/db");
+    const response = await fetch(Url);
     const users = await response.json();
 
-    // Controleer of de ingevoerde gebruikersnaam overeenkomt met een gebruikersnaam uit de API
-    const user = users.find(user => user.username === username);
+    console.log(users);
 
-    if (user) {
-        console.log("Gebruikersnaam komt overeen.");
-    } else {
-        console.log("Gebruikersnaam komt niet overeen.");
-    }
-});
+    document.getElementById("loginForm").addEventListener("submit", async function (event) {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        const user = users.find(user => user.Name === username && user.Password === password);
+
+        const messageDiv = document.getElementById("message");
+
+        if (user) {
+            messageDiv.textContent = "Login successful!";
+            messageDiv.style.color = "green";
+              window.location.href = "account.php";
+        } else {
+            messageDiv.textContent = "Invalid username or password.";
+            messageDiv.style.color = "red";
+        }
+    });
+}
+
+UserData();
