@@ -18,7 +18,7 @@ async function UserData() {
             messageDiv.textContent = "Login successful!";
             messageDiv.style.color = "green";
               window.location.href = "account.php";
-        } else {
+          } else {
             messageDiv.textContent = "Invalid username or password.";
             messageDiv.style.color = "red";
         }
