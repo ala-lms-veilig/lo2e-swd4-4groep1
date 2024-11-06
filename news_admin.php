@@ -26,8 +26,9 @@
         </article>
         <article>
             <button type="button" id="cancel_button">Cancel</button>
-            <button type="submit">OK</button>
+            <button type="button" id="ok_button">OK</button>
         </article>
+        <input type="hidden" id="news_id_input">
     </form>
 
     <section>
