@@ -23,6 +23,7 @@ async function showNewsInfo() {
         const updateBtn = clone.querySelector(".update_button");
         const deleteBtn = clone.querySelector(".delete_button");
 
+        // For the delete visual
         clone.querySelector("tr").setAttribute("data-id", news.id);
 
         id.innerHTML        = news.id;
@@ -106,6 +107,7 @@ async function deleteNews(id) {
     if (response.ok) {
         console.log(`id ${id} deleted successfully.`);
 
+        // For the delete visual
         const rowToDelete = document.querySelector(`tr[data-id='${id}']`);
             if (rowToDelete) {
                 rowToDelete.remove();
