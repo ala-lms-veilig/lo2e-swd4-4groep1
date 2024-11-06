@@ -5,260 +5,86 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  display: flex;
-  flex-direction: column;
 }
-html body, body body {
+html body,
+body body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f5f5f5;
-  padding: 15px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-header .logo a {
-  display: flex;
-  align-items: center;
-}
-header .logo a img {
-  width: 50px;
-  height: auto;
-  margin-right: 10px;
-}
-header .logo a h1 {
-  font-size: 24px;
-  color: #333;
-}
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-header nav ul li {
-  display: inline;
-}
-header nav ul li a {
-  text-decoration: none;
-  padding: 10px 15px;
-  background-color: #d90429;
-  color: white;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-header nav ul li a:hover {
-  background-color: #a30722;
-}
-header nav ul li:nth-child(4) a {
-  padding: 15px 20px;
-  font-size: 0.9rem;
-}
 
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5f5f5;
-  padding: 15px 20px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-size: 0.875rem;
-}
-footer > * {
-  margin: 0 10px;
-}
 
-main {
-  flex: 1;
-}
 
+/* index page  */
 #index_main {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+}
+
+.main-tile {
   text-align: center;
 }
-#index_main section {
-  max-width: 600px;
-  width: 100%;
-}
-#index_main section p {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  color: #333;
-}
-#index_main section article {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+
+.main-tile h1 {
+  font-size: 2em;
   margin-bottom: 20px;
 }
-#index_main section article #meldingMaken {
-  width: 150px;
-  height: 45px;
-  padding: 10px 30px;
-  background-color: #d90429;
-  color: #f5f5f5;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+
+a#meldingMaken, a#incidentenBekijken, a#enquête {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: red;
+  color: white;
+  text-align: center;
   text-decoration: none;
-}
-#index_main section article #meldingMaken:hover {
-  background-color: #a30722;
-}
-#index_main section article #incidentenBekijken {
-  width: 150px;
-  height: 45px;
-  padding: 10px 30px;
-  background-color: #d90429;
-  color: #f5f5f5;
-  border: none;
   border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-#index_main section article #incidentenBekijken:hover {
-  background-color: #a30722;
-}
-#index_main section #enquête {
-  width: 150px;
-  height: 50px;
-  padding: 10px 30px;
-  background-color: #d90429;
-  color: #f5f5f5;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-#index_main section #enquête:hover {
-  background-color: #a30722;
 }
 
-#plattegrond_main {
+a#meldingMaken:hover, a#incidentenBekijken:hover, a#enquête:hover {
+  background-color: darkred;
+}
+
+.main-tile article {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-#news_main {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  text-align: start;
-  margin: 0 auto;
-  padding: 5vh 0vh;
+#enquête {
+  display: block;
+  margin: 10px auto;
 }
-#news_main section {
-  margin: 2vh 2vw;
-  max-width: 600px;
-  width: 100%;
-  border: 2px solid black;
-  padding: 1vh 1vw;
-}
-#news_main section div {
-  justify-self: center;
-  align-self: center;
-  justify-content: center;
-  align-content: center;
-  display: flex;
-  border: 2px solid black;
-}
-#news_main section div img {
-  max-width: 100%;
-  height: auto;
-}
-
-#contact_main {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  text-align: start;
-  margin: 0 auto;
-  padding: 5vh 0vh;
-}
-#contact_main section {
-  margin: 2vh 2vw;
-  max-width: 600px;
-  width: 100%;
-  padding: 1vh 1vw;
-}
-#contact_main section div {
-  justify-self: center;
-  align-self: center;
-  justify-content: center;
-  align-content: center;
-  display: flex;
-  border: 2px solid black;
-}
-#contact_main section div img {
-  max-width: 100%;
-  height: auto;
-}
-#contact_main section article {
-  margin: 20px;
-}
-#contact_main section article div {
-  border: 0;
-  display: contents;
-  margin: 20px;
-}
-
-#melding-maken_main {
-  background-color: #333;
-}
-
-#meldingen_main {
-  background-color: #333;
-}
-
-#enquêtes_main {
-  padding: 10% 0%;
+.news-admin-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-#account_main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#news_admin_main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#news_admin_main form {
+.news-admin-main form {
   margin: 2% 0%;
   padding: 1%;
   border: 1px solid black;
   width: 60%;
 }
-#news_admin_main form article:nth-child(1), #news_admin_main form article:nth-child(2), #news_admin_main form article:nth-child(3) {
+.news-admin-main form article:nth-child(1),
+.news-admin-main form article:nth-child(2),
+.news-admin-main form article:nth-child(3) {
   display: flex;
   flex-direction: column;
   padding: 1%;
 }
-#news_admin_main form article:nth-child(1) input, #news_admin_main form article:nth-child(1) textarea, #news_admin_main form article:nth-child(2) input, #news_admin_main form article:nth-child(2) textarea, #news_admin_main form article:nth-child(3) input, #news_admin_main form article:nth-child(3) textarea {
+.news-admin-main form article:nth-child(1) input,
+.news-admin-main form article:nth-child(1) textarea,
+.news-admin-main form article:nth-child(2) input,
+.news-admin-main form article:nth-child(2) textarea,
+.news-admin-main form article:nth-child(3) input,
+.news-admin-main form article:nth-child(3) textarea {
   margin-bottom: 20px;
   width: 100%;
   padding: 10px;
@@ -266,51 +92,51 @@ main {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-#news_admin_main form article:nth-child(3) textarea {
+.news-admin-main form article:nth-child(3) textarea {
   height: 150px;
   resize: vertical;
 }
-#news_admin_main form article:nth-child(4) {
+.news-admin-main form article:nth-child(4) {
   display: flex;
   justify-content: space-between;
   padding: 1%;
   width: 100%;
 }
-#news_admin_main form button {
+.news-admin-main form button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border: none;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border-radius: 4px;
 }
-#news_admin_main form button:hover {
+.news-admin-main form button:hover {
   background-color: #0056b3;
 }
-#news_admin_main form button:nth-child(1) {
+.news-admin-main form button:nth-child(1) {
   background-color: #dc3545;
 }
-#news_admin_main form button:nth-child(1):hover {
+.news-admin-main form button:nth-child(1):hover {
   background-color: #c82333;
 }
-#news_admin_main section {
+.news-admin-main section {
   align-self: flex-end;
   margin: 2%;
 }
-#news_admin_main section button {
+.news-admin-main section button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border: none;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border-radius: 4px;
 }
-#news_admin_main section button:hover {
+.news-admin-main section button:hover {
   background-color: #0056b3;
 }
-#news_admin_main table {
+.news-admin-main table {
   width: 90%;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
@@ -318,36 +144,44 @@ main {
   font-size: 16px;
   text-align: left;
 }
-#news_admin_main table th, #news_admin_main table td {
+.news-admin-main table th,
+.news-admin-main table td {
   padding: 12px 15px;
   border: 1px solid #ddd;
 }
-#news_admin_main table th {
+.news-admin-main table th {
   background-color: #f4f4f4;
   color: #333;
   font-weight: bold;
 }
-#news_admin_main table th:nth-child(1), #news_admin_main table td:nth-child(1) {
+.news-admin-main table th:nth-child(1),
+.news-admin-main table td:nth-child(1) {
   width: 5%;
 }
-#news_admin_main table th:nth-child(2), #news_admin_main table td:nth-child(2) {
+.news-admin-main table th:nth-child(2),
+.news-admin-main table td:nth-child(2) {
   width: 10%;
 }
-#news_admin_main table th:nth-child(3), #news_admin_main table td:nth-child(3) {
+.news-admin-main table th:nth-child(3),
+.news-admin-main table td:nth-child(3) {
   width: 20%;
 }
-#news_admin_main table th:nth-child(4), #news_admin_main table td:nth-child(4) {
+.news-admin-main table th:nth-child(4),
+.news-admin-main table td:nth-child(4) {
   width: auto;
 }
-#news_admin_main table th:nth-child(5), #news_admin_main table th:nth-child(6),
-#news_admin_main table td:nth-child(5), #news_admin_main table td:nth-child(6) {
+.news-admin-main table th:nth-child(5),
+.news-admin-main table th:nth-child(6),
+.news-admin-main table td:nth-child(5),
+.news-admin-main table td:nth-child(6) {
   width: 5%;
 }
-#news_admin_main table td img {
+.news-admin-main table td img {
   max-width: 80px;
   height: auto;
 }
-#news_admin_main table button.update_button, #news_admin_main table button.delete_button {
+.news-admin-main table button.update-button,
+.news-admin-main table button.delete-button {
   padding: 5px 10px;
   font-size: 16px;
   border: none;
@@ -359,13 +193,15 @@ main {
   width: 100%;
   height: 40px;
 }
-#news_admin_main table button.update_button button.update_button:hover, #news_admin_main table button.update_button button.delete_button:hover, #news_admin_main table button.delete_button button.update_button:hover, #news_admin_main table button.delete_button button.delete_button:hover {
+.news-admin-main table button.update-button:hover,
+.news-admin-main table button.delete-button:hover {
   background-color: #f1f1f1;
 }
 
-#contact_admin_main {
+.contact-admin-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=style.css.map */
