@@ -1,5 +1,7 @@
 // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
 // If server doesn't work use newsInfo.newsInfo
+
+// Table contents from json file //
 async function showNewsInfo() {
     const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news`);
     const newsInfo = await response.json();
@@ -35,50 +37,9 @@ async function showNewsInfo() {
     }
 }
 
-function updateNewsForm(id, img, title, text) {
-    console.log(id);
+showNewsInfo();
 
-    const form = document.getElementById("news_form");
-
-    form.style.display = "block";
-
-    const newsImgInput = document.getElementById("news_img_input");
-    const newsTitleInput = document.getElementById("news_title_input");
-    const newsTextInput = document.getElementById("news_text_input");
-
-    newsImgInput.disabled = false;
-    newsTitleInput.disabled = false;
-    newsTextInput.disabled = false;
-
-    newsImgInput.value = img;
-    newsTitleInput.value = title;
-    newsTextInput.value = text;
-
-    const newsIdInput = document.getElementById("news_id_input");
-    newsIdInput.value = id;
-}
-
-async function deleteNews(id) {
-    console.log(id);
-
-    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news/${id}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }); 
-
-    if (response.ok) {
-        console.log(`id ${id} deleted successfully.`);
-
-        const rowToDelete = document.querySelector(`tr[data-id='${id}']`);
-            if (rowToDelete) {
-                rowToDelete.remove();
-            }
-    } else {
-        console.log(`Failed to delete id ${id}.`);
-    }
-}
+// Create button //
 
 function createNewsForm() {
     const form = document.getElementById("news_form");
@@ -103,8 +64,56 @@ function createNewsForm() {
 const createBtn = document.querySelector("#create_button");
 createBtn.addEventListener("click", createNewsForm);
 
+///////////////////
+// Table buttons //
+///////////////////
 
-showNewsInfo();
+// Update button //
+function updateNewsForm(id, img, title, text) {
+    console.log(id);
+
+    const form = document.getElementById("news_form");
+
+    form.style.display = "block";
+
+    const newsImgInput = document.getElementById("news_img_input");
+    const newsTitleInput = document.getElementById("news_title_input");
+    const newsTextInput = document.getElementById("news_text_input");
+
+    newsImgInput.disabled = false;
+    newsTitleInput.disabled = false;
+    newsTextInput.disabled = false;
+
+    newsImgInput.value = img;
+    newsTitleInput.value = title;
+    newsTextInput.value = text;
+
+    const newsIdInput = document.getElementById("news_id_input");
+    newsIdInput.value = id;
+}
+
+// Delete button //
+async function deleteNews(id) {
+    console.log(id);
+
+    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }); 
+
+    if (response.ok) {
+        console.log(`id ${id} deleted successfully.`);
+
+        const rowToDelete = document.querySelector(`tr[data-id='${id}']`);
+            if (rowToDelete) {
+                rowToDelete.remove();
+            }
+    } else {
+        console.log(`Failed to delete id ${id}.`);
+    }
+}
 
 //////////////////
 // Form buttons //
