@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <?php require 'includes/header.php'; ?>
+    <?php require_once 'includes/header.php'; ?>
 
     <main id="contact_main">
         <template id="contact_template">
@@ -32,7 +32,7 @@
         </template>
     </main>
 
-    <?php require 'includes/footer.php'; ?>
+    <?php require_once 'includes/footer.php'; ?>
 
     <script src="scripts/contact.js"></script>
 </body>

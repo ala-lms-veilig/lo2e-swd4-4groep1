@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    
-    <?php require 'includes/header.php'; ?>
-
+    <?php require_once 'includes/header.php'; ?>
     <main id="index_main">
         <section>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, dui et finibus congue.</p>
@@ -20,9 +18,7 @@
             <a id="enquête" href="enquêtes.php">Enquête</a>
         </section>
     </main>
-
-    <?php require 'includes/footer.php'; ?>
-
+    <?php require_once 'includes/footer.php'; ?>
 </body>
 </html>
 <!-- 
