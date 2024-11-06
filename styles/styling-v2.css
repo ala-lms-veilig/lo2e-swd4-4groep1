@@ -1,0 +1,122 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* header styling code */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(184, 190, 196);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    width: 10vw;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar ul li {
+    margin-left: 20px;
+  }
+  
+  .navbar ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .navbar ul li a:hover {
+    background-color: darkred;
+  }
+  
+  
+  /* einden header styling */
+
+
+  
+  /* index page  */
+  .index-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#index_main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Add some margin around the index content */
+}
+
+  .main-tile {
+    text-align: center;
+  }
+  
+  .main-tile h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  a#meldingMaken, a#incidentenBekijken, a#enquête {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  a#meldingMaken:hover, a#incidentenBekijken:hover, a#enquête:hover {
+    background-color: darkred;
+  }
+  
+  .main-tile article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #enquête {
+    display: block;
+    margin: 10px auto;
+  }
+
+
+  /* eind index pagina */
+
+
+/* footer start */
+
+footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center; 
+    color: #333; 
+   margin: 10px;
+    border-radius: 10px;
+}
