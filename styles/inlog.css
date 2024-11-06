@@ -6,6 +6,7 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    height: 400px;
     text-align: center;
     margin: 50px auto;
 }
@@ -21,7 +22,7 @@
 }
 
 #loginForm label {
-    margin-bottom: 5px;
+   
     color: #555;
 }
 
