@@ -150,10 +150,11 @@ async function submitForm() {
         txt:    form.news_text_input.value, 
     };
     
+    console.log(formData.id);
     let response;
 
-    if (form.news_id_input.value) {
-        response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news/${form.news_id_input.value}`, {
+    if (formData.id) {
+        response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news/${formData.id}`, {
             method: 'PATCH',
             body: JSON.stringify(formData),
             headers: {
