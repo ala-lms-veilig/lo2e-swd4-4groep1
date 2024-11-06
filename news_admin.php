@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News CRUD</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
 <body>
     
-    <?php require 'includes/header.php'; ?>
+    <?php require_once 'includes/header.php'; ?>
 
 <main id="news_admin_main">
     <form action="" id="news_form" style="display: none;">
@@ -56,7 +57,7 @@
     </table>
 </main>
 
-    <?php require 'includes/footer.php'; ?>
+    <?php require_once 'includes/footer.php'; ?>
 
     <script src="scripts/news_admin.js"></script>
 </body>

@@ -5,10 +5,11 @@ w<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
 <body>
     
-    <?php require 'includes/header.php'; ?>
+    <?php require_once 'includes/header.php'; ?>
 
 <main id="news_main">
     <template id="news_template">
@@ -20,7 +21,7 @@ w<!DOCTYPE html>
     </template>
 </main>
 
-    <?php require 'includes/footer.php'; ?>
+    <?php require_once 'includes/footer.php'; ?>
 
     <script src="scripts/news.js"></script>
 </body>

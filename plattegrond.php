@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plattegrond</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
 <body>
     
-    <?php require 'includes/header.php'; ?>
+    <?php require_once 'includes/header.php'; ?>
     <main id="plattegrond_main">
         <svg width="425" height="400" xmlns="http://www.w3.org/2000/svg">
             <!-- Define the grid dimensions -->
@@ -157,7 +158,7 @@
         </svg>                    
     </main>
 
-    <?php require 'includes/footer.php' ?>
+    <?php require_once 'includes/footer.php' ?>
     
 </body>
 </html>
