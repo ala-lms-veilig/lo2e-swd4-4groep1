@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/styles/styling-v2.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
 <body>
 <header class="header">
     <div class="logo">
-        <img src="./images/logov2.png" alt="Company Logo" class="logo-img">
+        <a href="index.php"><img src="./images/logov2.png" alt="Company Logo" class="logo-img"></a>
     </div>
     <nav class="navbar">
         <ul>
