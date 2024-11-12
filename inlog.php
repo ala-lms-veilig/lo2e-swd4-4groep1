@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
-    <link rel="stylesheet" href="./styles/inlog.css">
+
     <link rel="stylesheet" href="./styles/styling-v2.css">
-    <script src="./scripts/inlogg.js"></script>
+    <!-- <script src="./scripts/inlogg.js"></script> -->
+     <!-- ik heb de script laten staan omdat ik het nog moet laten zien aan docent  -->
 </head>
 <body>
-    <?php require_once 'includes/header.php'; ?>
+    <?php //  require_once 'includes/header.php'; 
+    require_once 'sql/database.php';
+    
+    ?>
     
 
     <main id="inlog">
@@ -26,7 +30,18 @@
         <div id="message"></div>
     </main>
 
-    <?php require_once 'includes/footer.php'; ?>
+    <?php //require_once 'includes/footer.php'; ?>
 
 </body>
 </html>
+
+
+<?php 
+
+
+
+
+?>
+
+
+
