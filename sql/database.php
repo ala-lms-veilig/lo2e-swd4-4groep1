@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "Welkom01";
 $dbname = "beveleging_app";
 
 // Maak verbinding
