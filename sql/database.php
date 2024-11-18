@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "Welkom01";
-$dbname = "beveleging_app";
+$dbname = "LMS_Veiligheid";
 
 // Maak verbinding
 $conn = new mysqli($servername, $username, $password, $dbname);
