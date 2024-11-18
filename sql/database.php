@@ -5,7 +5,10 @@ class Database {
     private $password = "Welkom01";
     private $dbname = "LMS_Veiligheid";
     public $conn;
-
+    /**
+     * 
+     * 
+     */
     public function __construct() {
         // Maak verbinding
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
