@@ -29,24 +29,20 @@
 
 <script>
 
-// Fetch and display the survey
 async function showSurvey() {
-    const response = await fetch('api/survey.json'); // Replace with your survey JSON URL
+    const response = await fetch('api/survey.json');
     const survey = await response.json();
 
     console.log(survey);
     
-    // Inject the survey title and description
     const titleElement = document.getElementById('survey-title');
     const descriptionElement = document.getElementById('survey-description');
     titleElement.textContent = survey.survey.title;
     descriptionElement.textContent = survey.survey.description;
     
-    // Container for survey questions
     const container = document.getElementById('survey-container');
     const template = document.getElementById('question_template');
 
-    // Loop through each question and render it
     for (let question of survey.survey.questions) {
         const clone = template.content.cloneNode(true);
 
