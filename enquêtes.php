@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-
+ 
     <?php require_once 'includes/header.php'; ?>
 
     <main id="enquêtes_main">
@@ -24,8 +24,9 @@
           </div>
         </template>
     </main>
-
+ 
     <?php require_once 'includes/footer.php'; ?>
+ 
 
 <script>
 
@@ -108,3 +109,4 @@ showSurvey();
 
 </body>
 </html>
+ 
