@@ -14,8 +14,12 @@
     <?php
     require_once 'includes/header.php'; 
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
     require_once 'sql/database.php';
+    $db = new Database();
+    $conn = $db->conn;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $Email = $_POST['email'];
@@ -32,6 +36,7 @@
             if ($user) {
                //  naam opslaan in session
                 $_SESSION['voor_naam'] = $user['voor_naam'];
+                $_SESSION['loggedin'] = true;
                 echo "Login successful!";
                 sleep(1);
                 header("Location: index.php");

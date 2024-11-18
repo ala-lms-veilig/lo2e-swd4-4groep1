@@ -14,8 +14,14 @@
             <li><a href="plattegrond.php">Plattegrond</a></li>
             <li><a href="news.php">News</a></li>
             <li><a href="contact.php">Contact</a></li>
-            <li><a href="account.php">Account</a></li>
-            <li><a href="inlog.php">Inloggen</a></li>
+            <?php
+            session_start();
+            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                echo '<li><a href="account.php">Account</a></li>';
+            } else {
+                echo '<li><a href="inlog.php">Inloggen</a></li>';
+            }
+            ?>
         </ul>
     </nav>
 </header>
