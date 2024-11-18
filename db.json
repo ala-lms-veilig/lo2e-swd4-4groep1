@@ -18,6 +18,12 @@
             "img": "logo.png",
             "title": "Post 3",
             "txt": "Lorem ipsum"
+        },
+        {
+            "id": 10,
+            "img": "logo.png",
+            "title": "Post 10",
+            "txt": "Lorem ipsum"
         }
     ],
 
