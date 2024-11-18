@@ -105,6 +105,39 @@ async function showSurvey() {
     }
 }
 
+async function submitSurvey() {
+    const form = document.getElementById('survey-form');
+    const formData = {};
+
+    const formElements = form.elements;
+    for (let element of formElements) {
+        if (element.type === 'radio' || element.type === 'checkbox') {
+            if (element.checked) {
+                if (!formData[element.name]) {
+                    formData[element.name] = [];
+                }
+                formData[element.name].push(element.value);
+            }
+        } else if (element.type === 'textarea') {
+            formData[element.name] = element.value;
+        }
+    }
+
+    const response = await fetch('api/survey.json', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+
+    const result = await response.json();
+    console.log(result);
+}
+
+const submitButton = document.getElementById('submit-survey');
+submitButton.addEventListener('click', submitSurvey);
+
 showSurvey();
 
 </script>
