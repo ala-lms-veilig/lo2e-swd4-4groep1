@@ -1,7 +1,4 @@
-
-/**
- * Database
- */<?php
+<?php
 class Database {
     private $servername = "localhost";
     private $username = "root";

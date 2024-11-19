@@ -14,8 +14,15 @@
 
     <main id="account_main">
 
-        <a href="news_admin.php">news CRUD</a>
-        <a href="contact_admin.php">contact CRUD</a>
+        <!-- <a href="news_admin.php">news CRUD</a>
+        <a href="contact_admin.php">contact CRUD</a> -->
+
+
+        <h1>Welkom op account page </h1>
+    <?php
+    
+     
+    ?>
 
     </main>
 
