@@ -10,7 +10,7 @@ async function showNewsInfo() {
     const container = document.getElementById("news_main");
 
     // If server doesn't work use newsInfo.newsInfo
-    for (let news of newsInfo) {
+    for (let news of newsInfo.news) {
         const clone = template.content.cloneNode(true);
 
         const img       = clone.querySelector(".news_img");
