@@ -28,8 +28,9 @@
     <?php require_once 'includes/footer.php'; ?>
  
 
+    <script src="scripts/enquete.js"></script>
 </body>
 </html>
-<script src="scripts/enquete.js"></script>
+
 
  
