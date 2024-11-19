@@ -9,7 +9,6 @@ async function showNewsInfo() {
     const template = document.getElementById("news_template");
     const container = document.getElementById("news_main");
 
-    // If server doesn't work use newsInfo.newsInfo
     for (let news of newsInfo.news) {
         const clone = template.content.cloneNode(true);
 
