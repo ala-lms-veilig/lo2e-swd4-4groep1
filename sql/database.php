@@ -1,15 +1,32 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "Welkom01";
-$dbname = "LMS_Veiligheid";
+class Database {
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "Welkom01";
+    private $dbname = "LMS_Veiligheid";
+    public $conn;
+    /**
+     * 
+     * 
+     */    
+    /**
+     * Method __construct
+     *
+     * @return void
+     */
+    public function __construct() {
+        // Maak verbinding
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
-// Maak verbinding
-$conn = new mysqli($servername, $username, $password, $dbname);
+        // Controleer verbinding
+        if ($this->conn->connect_error) {
+            die("Verbinding mislukt: " . $this->conn->connect_error);
+        }
+    }
 
-// Controleer verbinding
-if ($conn->connect_error) {
-    die("Verbinding mislukt: " . $conn->connect_error);
+    public function __destruct() {
+        // Sluit de verbinding
+        $this->conn->close();
+    }
 }
-echo "Verbinding succesvol";
 ?>
