@@ -19,7 +19,7 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    require_once 'sql/database.php';
+    require_once 'sql/database.php'; // Ensure this file sets up the Database class
 
     class UserLogin
     {
@@ -45,7 +45,8 @@
                     $_SESSION['loggedin'] = true;
                     echo "Login successful!";
                     sleep(1);
-                    header("Location: index.php");
+                    header("Location: account.php");
+                    exit;
                 } else {
                     echo "Login failed. Invalid email or password.";
                 }
@@ -54,8 +55,6 @@
             } else {
                 echo "Failed to prepare the SQL statement.";
             }
-
-            $this->conn->close();
         }
     }
 
@@ -64,12 +63,9 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Verbind met de database (vervang dit met je eigen database connectie code)
-        $conn = new mysqli('host', 'username', 'password', 'database');
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        // Instantiate the Database class and get the connection
+        $database = new Database();
+        $conn = $database->conn;
 
         $userLogin = new UserLogin($conn);
         $userLogin->login($email, $password);

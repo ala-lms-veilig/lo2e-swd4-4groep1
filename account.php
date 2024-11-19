@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,24 +8,27 @@
     <link rel="stylesheet" href="styles/styling-v2.css">
 </head>
 <body>
-    <?php require_once 'includes/header.php'; ?>
+    <?php 
+    require_once 'includes/header.php'; 
     
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
-    <main id="account_main">
-
-        <!-- <a href="news_admin.php">news CRUD</a>
-        <a href="contact_admin.php">contact CRUD</a> -->
-
-
-        <h1>Welkom op account page </h1>
-    <?php
-    
-     
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        header("Location: inlog.php");
+        exit;
+    }
     ?>
 
+    <main id="account_main">
+        <h1>Welkom op account page</h1>
+        <p>Hallo, <?php echo htmlspecialchars($_SESSION['voor_naam']); ?>!</p>
+        <form action="includes/logout.php" method="post">
+            <button type="submit">Loguit</button>
+        </form>
     </main>
 
     <?php require_once 'includes/footer.php'; ?>
-
 </body>
-</html>
+</html>     
