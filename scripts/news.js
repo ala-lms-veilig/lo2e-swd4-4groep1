@@ -1,6 +1,7 @@
 // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
+// https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news
 async function showNewsInfo() {
-    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news`);
+    const response = await fetch(`api/news.json`);
     const newsInfo = await response.json();
 
     console.log(newsInfo);
