@@ -1,4 +1,7 @@
-<?php
+
+/**
+ * Database
+ */<?php
 class Database {
     private $servername = "localhost";
     private $username = "root";
@@ -8,6 +11,11 @@ class Database {
     /**
      * 
      * 
+     */    
+    /**
+     * Method __construct
+     *
+     * @return void
      */
     public function __construct() {
         // Maak verbinding
