@@ -21,10 +21,10 @@
         <h2>Login</h2>
         <form id="loginForm" method="POST" action="./includes/api.php?action=login">
             <label id="bq" for="email">Username:</label>
-            <input value="user1@example.com" type="email" id="email" name="email" required>
+            <input value="manager@example.com" type="email" id="email" name="email" required>
             <br>
             <label id="bier" for="password">Password:</label>
-            <input value="password456" type="password" id="password" name="password" required>
+            <input value="password123" type="password" id="password" name="password" required>
             <br>
             <button class="button-login" type="submit">Login</button>
         </form>

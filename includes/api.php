@@ -4,6 +4,7 @@ require 'dbconnect.php';
 
 header('Content-Type: application/json');
 $action = isset($_GET['action']) ? $_GET['action'] : null;
+
 if ($action === 'showIncidents') {
     try {
         $sql = "SELECT * FROM incidents";
@@ -64,7 +65,7 @@ if ($action === "login") {
 
     try {
         // Query the database for the user
-        $stmt = $conn->prepare("SELECT id, first_name, e_mail, password FROM users WHERE e_mail = :email AND password = :password");
+        $stmt = $conn->prepare("SELECT id, first_name, e_mail, password, role_id FROM users WHERE e_mail = :email AND password = :password");
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
         $stmt->execute();
@@ -74,6 +75,13 @@ if ($action === "login") {
             // Password is correct; set session or return success
             $_SESSION['userID'] = $user['id'];
             $_SESSION['firstName'] = $user['first_name'];
+            $_SESSION['roleID'] = $user['role_id'];
+
+            $stmt = $conn->prepare("SELECT r.name FROM roles_rights rr JOIN rights r ON rr.right_id = r.id WHERE rr.role_id = :roleID");
+            $stmt->bindParam(':roleID', $_SESSION['roleID']);
+            $stmt->execute();
+            $_SESSION['rights'] = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+
             header('Location: ./../account.php');
 
             echo json_encode(['success' => true, 'message' => 'Login successful']);

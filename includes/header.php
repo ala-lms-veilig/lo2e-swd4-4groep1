@@ -12,6 +12,7 @@
     <nav class="navbar">
         <ul>
             <li><a href="plattegrond.php">Plattegrond</a></li>
+            <li><a href="meldingen.php">Meldingen</a></li>
             <li><a href="news.php">News</a></li>
             <li><a href="contact.php">Contact</a></li>
             <?php
