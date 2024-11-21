@@ -6,10 +6,11 @@
     <script type="text/javascript" src="./js/script.js" defer></script>
     <title>Melding aanmaken</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
 <body onload="newIncidentEvents()">
     
-    <?php require 'includes/header.php'; ?>
+    <?php require_once 'includes/header.php'; ?>
 
     <main id="melding-maken_main">
         <form id="new-incident-form" action="javascript:createIncident()">
@@ -63,7 +64,7 @@
         </form>
     </main>
 
-    <?php require 'includes/footer.php'; ?>
+    <?php require_once 'includes/footer.php'; ?>
 
 </body>
 </html>

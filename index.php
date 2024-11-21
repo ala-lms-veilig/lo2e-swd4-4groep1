@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/styling-v2.css">
 </head>
-<body>
-    
-    <?php require 'includes/header.php'; ?>
-
+<body class="index-body">
+    <?php require_once 'includes/header.php'; ?>
     <main id="index_main">
-        <section>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus rutrum, dui et finibus congue.</p>
+        <section class="main-tile">
+            <h1>Welkom</h1>
+            <p>Een productieve dag gewenst</p>
             <article>
-                <button id="meldingMaken">Maken</button>
-                <button id="incidentenBekijken">Bekijken</button>
+                <a id="meldingMaken" href="melding_aanmaken.php">Maken</a>
+                <a id="incidentenBekijken" href="meldingen.php">Bekijken</a>
             </article>
-            <button id="enquête">Enquête</button>
+            <a id="enquête" href="enquêtes.php">Enquête</a>
         </section>
     </main>
-
-    <?php require 'includes/footer.php'; ?>
-
+    <?php require_once 'includes/footer.php'; ?>
 </body>
 </html>

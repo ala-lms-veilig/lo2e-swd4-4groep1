@@ -5,102 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
 <body>
     
-    <?php require 'includes/header.php'; ?>
-
-    <!-- Replace the sections with one template that gets data from the detabase -->
+    <?php require_once 'includes/header.php'; ?>
 
     <main id="contact_main">
-        <section>
-            <div><img src="images/logo.png" alt="img"></div>
-            <article>
-                <div>
-                    <h4>Beroep:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>Naam:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>telefoon nummer:</h4>
-                    <p>???</p>
-                </div>
-            </article>
-        </section>
-        <section>
-            <div><img src="images/logo.png" alt="img"></div>
-            <article>
-                <div>
-                    <h4>Beroep:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>Naam:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>telefoon nummer:</h4>
-                    <p>???</p>
-                </div>
-            </article>
-        </section>
-        <section>
-            <div><img src="images/logo.png" alt="img"></div>
-            <article>
-                <div>
-                    <h4>Beroep:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>Naam:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>telefoon nummer:</h4>
-                    <p>???</p>
-                </div>
-            </article>
-        </section>
-        <section>
-            <div><img src="images/logo.png" alt="img"></div>
-            <article>
-                <div>
-                    <h4>Beroep:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>Naam:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>telefoon nummer:</h4>
-                    <p>???</p>
-                </div>
-            </article>
-        </section>
-        <section>
-            <div><img src="images/logo.png" alt="img"></div>
-            <article>
-                <div>
-                    <h4>Beroep:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>Naam:</h4>
-                    <p>???</p>
-                </div>
-                <div>
-                    <h4>telefoon nummer:</h4>
-                    <p>???</p>
-                </div>
-            </article>
-        </section>
+        <template id="contact_template">
+            <section>
+                <div class="contact_img"></div>
+                <article>
+                    <div>
+                        <h4>Beroep:</h4>
+                        <p class="contact_beroep">???</p>
+                    </div>
+                    <div>
+                        <h4>Naam:</h4>
+                        <p class="contact_naam">???</p>
+                    </div>
+                    <div>
+                        <h4>telefoon nummer:</h4>
+                        <p class="contact_tel">???</p>
+                    </div>
+                </article>
+            </section>
+        </template>
     </main>
 
-    <?php require 'includes/footer.php'; ?>
+    <?php require_once 'includes/footer.php'; ?>
 
+    <script src="scripts/contact.js"></script>
 </body>
 </html>

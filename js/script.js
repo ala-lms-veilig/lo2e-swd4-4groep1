@@ -59,7 +59,6 @@ async function showIncidents() {
         const incidentTemplate = document.querySelector('.incident-template');
 
         incidentsContainer.innerHTML = '';
-
         if (Array.isArray(incidents)) {
             incidents.forEach((incident) => {
                 const clone = incidentTemplate.content.cloneNode(true);
@@ -100,11 +99,45 @@ async function responseHandler(response) {
         const errorDetails = response.text();
         throw new Error(`API request failed with status ${response.status}: ${errorDetails}`);
     }
-    console.log("OK")
     return await response.json();
 }
 
 function errorHandler(error, context) {
     console.error(`Error in ${context}: `, error);
     alert(`An error occurred. Please try again later.`);
+}
+
+async function login() {
+    try {
+        // Get user input
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        console.log(email, password);
+
+        // Send credentials to the server
+        const response = await fetch('./includes/api.php?action=login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Ensure JSON format
+            },
+            body: JSON.stringify({
+                username: email,
+                password: password,
+            }),
+        });
+        
+        console.log(response);
+        const result = await responseHandler(response);
+
+        if (result.success) {
+            console.log('Login successful:', result.message);
+
+            // Redirect or show dashboard
+            window.location.href = 'dashboard.php';
+        } else {
+            errorHandler(error, "login")
+        }
+    } catch (error) {
+        errorHandler(error, 'login');
+    }
 }

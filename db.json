@@ -1,31 +1,70 @@
 {
-    "posts": [
+    "news": [
         {
             "id": 1,
-            "title": "Post 1"
+            "img": "logo.png",
+            "title": "Toren A Lift kapot",
+            "txt": "The lift in toren A is kopt en de reperatie wordt pass volgende week gedaan"
+            
         },
         {
             "id": 2,
-            "title": "Post 2"
+            "img": "logo.png",
+            "title": "Post 2",
+            "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut quidem consequatur incidunt perspiciatis! Sit ad soluta vero incidunt esse necessitatibus officiis ullam, porro similique a, explicabo voluptates sunt tempora? Itaque!"
         },
         {
             "id": 3,
-            "title": "Post 3"
+            "img": "logo.png",
+            "title": "Post 3",
+            "txt": "Lorem ipsum"
+        },
+        {
+            "id": 10,
+            "img": "logo.png",
+            "title": "Post 10",
+            "txt": "Lorem ipsum"
         }
     ],
-    "comments": [
+
+    "contacts": [
         {
             "id": 1,
-            "body": "some comment",
-            "postId": 1
+            "img": "logo.png",
+            "beroep": "Doctor",
+            "naam": "John Doe",
+            "telNummer": 123456789
         },
         {
             "id": 2,
-            "body": "some comment",
-            "postId": 1
+            "img": "logo.png",
+            "beroep": "Politie",
+            "naam": "Barry wheeler",
+            "telNummer": 987654321
+        },
+        {
+            "id": 3,
+            "img": "logo.png",
+            "beroep": "Baker",
+            "naam": "Mark Makelaar",
+            "telNummer": 555666777
         }
     ],
-    "profile": {
-        "name": "typicode"
-    }
+
+
+ 
+    "user":[
+        {
+            "id": 1,
+            "Name": "Admin",
+            "Password": "Admin"
+        },
+        {
+            
+            "id": 2,
+            "Name": "Admin2",
+            "Password": "Admin2"
+        }
+    ]
 }
+
