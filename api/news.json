@@ -1,0 +1,30 @@
+{
+    "news": 
+    [
+        {
+            "id": 1,
+            "img": "logo.png",
+            "title": "Toren A Lift kapot",
+            "txt": "The lift in toren A is kopt en de reperatie wordt pass volgende week gedaan"
+        },
+        {
+            "id": 2,
+            "img": "logo.png",
+            "title": "Post 2",
+            "txt": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut quidem consequatur incidunt perspiciatis! Sit ad soluta vero incidunt esse necessitatibus officiis ullam, porro similique a, explicabo voluptates sunt tempora? Itaque!"
+        },
+        {
+            "id": 3,
+            "img": "logo.png",
+            "title": "Post 3",
+            "txt": "Lorem ipsum"
+        },
+        {
+            "id": 10,
+            "img": "logo.png",
+            "title": "Post 10",
+            "txt": "Lorem ipsum"
+        }
+    ]
+
+}

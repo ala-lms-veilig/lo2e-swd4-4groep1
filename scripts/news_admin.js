@@ -1,5 +1,6 @@
 // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
 // If server doesn't work use newsInfo.newsInfo
+// api/news.json & newsInfo.news
 
 // Table contents from json file //
 async function showNewsInfo() {
