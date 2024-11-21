@@ -64,7 +64,7 @@ if ($action === "login") {
 
     try {
         // Query the database for the user
-        $stmt = $conn->prepare("SELECT id, e_mail, password FROM users WHERE e_mail = :email AND password = :password");
+        $stmt = $conn->prepare("SELECT id, first_name, e_mail, password FROM users WHERE e_mail = :email AND password = :password");
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
         $stmt->execute();
@@ -73,6 +73,7 @@ if ($action === "login") {
         if ($user && $password === $user['password']) {
             // Password is correct; set session or return success
             $_SESSION['userID'] = $user['id'];
+            $_SESSION['firstName'] = $user['first_name'];
             header('Location: ./../account.php');
 
             echo json_encode(['success' => true, 'message' => 'Login successful']);

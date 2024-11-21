@@ -20,7 +20,7 @@
 
     <main id="account_main">
         <h1>Welkom op account page</h1>
-        <p>Hallo, <?php echo htmlspecialchars($_SESSION['voor_naam']); ?>!</p>
+        <p>Hallo, <?php echo $_SESSION['firstName']; ?>!</p>
         <form action="includes/logout.php" method="post">
             <button type="submit">Loguit</button>
         </form>
