@@ -443,41 +443,59 @@ main {
   align-items: center;
   flex-direction: column;
   width: 100vw;
+  row-gap: 10px;
 }
 
 .incident-container {
-  padding-top: 30px;
-  width: 50%;
-  height: 75px;
+  padding: 15px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  box-shadow: black 1px 1px 5px;
 }
 
-.column-1 {
+.column-id {
+  display: flex;
+  flex-direction: column;
+  width: 5ch;
+  min-width: 5ch;
+  font-family: "Montserrat";
+  font-size: 14px;
+}
+
+.column-title {
+  display: flex;
+  flex-direction: column;
+  width: 15ch;
+  min-width: 15ch;
+  font-family: "Montserrat";
+  font-size: 14px;
+}
+
+.column-description {
+  display: block;
+  flex-direction: column;
+  width: 50ch;
+  min-width: 50ch;
+  font-family: "Montserrat";
+  font-size: 14px;
+}
+
+.column-category {
   display: flex;
   flex-direction: column;
 }
 
-.column-2 {
+.column-priority {
   display: flex;
   flex-direction: column;
 }
 
-.column-3 {
+.column-actions {
   display: flex;
   flex-direction: column;
-}
-
-.column-4 {
-  display: flex;
-  flex-direction: column;
-}
-
-.column-5 {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 
 .incident-button {
@@ -486,8 +504,10 @@ main {
 }
 
 .incident-button-img {
-  height: 20px;
-  width: 20px;
+  height: 2ch;
+  width: 2ch;
+  font-family: "Montserrat";
+  font-size: 14px;
 }
 
 .incident-title {
@@ -502,12 +522,30 @@ main {
   font-weight: normal;
   font-size: 14px;
   color: #ec4a67;
+  height: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.incident-titles {
+  width: 100%;
 }
 
 .incident-buttons-container {
   display: flex;
   flex-direction: row;
   row-gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.incident-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 960px) {

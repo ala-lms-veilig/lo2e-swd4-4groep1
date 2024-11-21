@@ -1,87 +1,110 @@
-function createIncident() {
-    incidents = JSON.parse(localStorage.getItem("incidents") || "[]");
-    console.log(incidents)
-    if (incidents.length == 0) {
-        id = 0;
-    } else {
-        id = incidents[incidents.length - 1].id + 1
+async function createIncident() {
+    try {
+        const response = await fetch('./includes/api.php?action=createIncident', {
+            method: 'POST',
+            body: JSON.stringify({
+                priority: document.getElementById("new-incident-priority-input").value,
+                category: document.getElementById("new-incident-category-input").value,
+                title: document.getElementById("new-incident-title-input").value,
+                media: document.getElementById("new-incident-media-input").value,
+                description: document.getElementById("new-incident-description-input").value,
+            })
+        });
+
+        const json = await responseHandler(response);
+        console.log(json);
+    } catch (error) {
+        errorHandler(error, 'createIncident');
     }
-    incident = {
-        id: id,
-        priority: document.getElementById("new-incident-priority-input").value,
-        category: document.getElementById("new-incident-category-input").value,
-        title: document.getElementById("new-incident-title-input").value,
-        media: document.getElementById("new-incident-media-input").value,
-        description: document.getElementById("new-incident-description-input").value
-    }
-    console.log(incident)
-    incidents.push(incident)
-    localStorage.setItem("incidents", JSON.stringify(incidents));
-    incidents = JSON.parse(localStorage.getItem("incidents", incidents));
-    console.log(incidents);
 }
-const getFileName = (event) => {
-    const files = event.target.files;
-    const fileName = files[0].name;
-    document.getElementById("new-incident-media-delete-button").style.display = "block";
-    document.getElementById("new-incident-media-button").innerHTML = fileName;
-    console.log(fileName)
+
+function getFileName(event) {
+    try {
+        const files = event.target.files;
+        const fileName = files[0].name;
+        document.getElementById("new-incident-media-delete-button").style.display = "block";
+        document.getElementById("new-incident-media-button").innerHTML = fileName;
+    } catch (error) {
+        errorHandler(error, 'getFileName');
+    }
 }
 
 function resetFileInput() {
-    document.getElementById("new-incident-media-input").value = "";
-    document.getElementById("new-incident-media-delete-button").style.display = "none";
-    if (document.getElementById("new-incident-media-input").value == "") {
-        document.getElementById("new-incident-media-button").innerHTML = "Voeg media toe"
-    } else {
-        console.log(document.getElementById("new-incident-media-input").value)
+    try {
+        document.getElementById("new-incident-media-input").value = "";
+        document.getElementById("new-incident-media-delete-button").style.display = "none";
+        if (document.getElementById("new-incident-media-input").value == "") {
+            document.getElementById("new-incident-media-button").innerHTML = "Voeg media toe"
+        } else {
+            console.log(document.getElementById("new-incident-media-input").value)
+        }
+    } catch (error) {
+        errorHandler(error, 'resetFileInput');
     }
 }
 
 function newIncidentEvents() {
-    document.getElementById("new-incident-media-input").addEventListener("change", getFileName)
-}
-
-function showIncidents() {
-    element = document.getElementById("meldingen_main");
-    incidents = JSON.parse(localStorage.getItem("incidents"));
-    console.log(incidents);
-    for (var i = 0; i < incidents.length; i++){
-        element.innerHTML += `
-        <section class="incident-container">
-            <section class="column-1">
-                <h1 class="incident-title">Titel:</h1>
-                <h1 class="incident-text">` + incidents[i].title + `</h1>
-            </section>
-            <section class="column-2">
-                <h1 class="incident-title">Beschrijving:</h1>
-                <h1 class="incident-text">` + incidents[i].description  + `</h1>
-            </section>
-            <section class="column-3">
-                <h1 class="incident-title">Categorie:</h1>
-                <h1 class="incident-text">` + incidents[i].category + `</h1>
-            </section>
-            <section class="column-4">
-                <h1 class="incident-title">Prioriteit:</h1>
-                <h1 class="incident-text">` + incidents[i].priority + `</h1>
-            </section>
-            <section class="column-5">
-                <h1 class="incident-title">Acties:</h1>
-                <section class="incident-buttons-container">
-                    <a class="incident-button" href="melding.php?id=` + i + `"><img class="incident-button-img" src="./images/goto.png"></a>
-                    <a class="incident-button" href="javascript:deleteIncident(` + i + `)"><img class="incident-button-img" src="./images/trashbin.png"></a>
-                </section>
-            </section>
-        </section>
-        `;
+    try {
+        document.getElementById("new-incident-media-input").addEventListener("change", getFileName);
+    } catch (error) {
+        errorHandler(error, 'newIncidentEvents');
     }
 }
 
-function deleteIncident(index) {
-    incidents = JSON.parse(localStorage.getItem("incidents"));
-    console.log(incidents);
-    incidents.splice(index, 1);
-    localStorage.setItem("incidents", JSON.stringify(incidents));
-    incidents = JSON.parse(localStorage.getItem("incidents"));
-    console.log(incidents);
+async function showIncidents() {
+    try {
+        const response = await fetch('./includes/api.php?action=showIncidents');
+        const incidents = await responseHandler(response);
+        const incidentsContainer = document.getElementById('meldingen_main');
+        const incidentTemplate = document.querySelector('.incident-template');
+
+        incidentsContainer.innerHTML = '';
+
+        if (Array.isArray(incidents)) {
+            incidents.forEach((incident) => {
+                const clone = incidentTemplate.content.cloneNode(true);
+
+                clone.querySelector('.incident-id').textContent = incident.id;
+                clone.querySelector(".incident-titles").textContent = incident.title;
+                clone.querySelector(".incident-description").textContent = incident.description;
+                clone.querySelector(".incident-category").textContent = incident.category;
+                clone.querySelector(".incident-priority").textContent = incident.priority;
+                clone.querySelector(".incident-goto-button").href = "melding.php?id=" + incident.id;
+                clone.querySelector(".incident-delete-button").href = "javascript:deleteIncident(" + incident.id + ")";
+
+                incidentsContainer.appendChild(clone);
+            })
+        };
+    } catch (error) {
+        errorHandler(error, 'showIncidents')
+    }
+}
+
+
+async function deleteIncident(id) {
+    try {
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
+            method: 'DELETE',
+        });
+
+        await responseHandler(response);
+        console.log(`Incident with ID ${id} deleted successfully`);
+    } catch (error) {
+        errorHandler(error, 'deleteIncident');
+    }
+}
+
+
+async function responseHandler(response) {
+    if (!response.ok) {
+        const errorDetails = response.text();
+        throw new Error(`API request failed with status ${response.status}: ${errorDetails}`);
+    }
+    console.log("OK")
+    return await response.json();
+}
+
+function errorHandler(error, context) {
+    console.error(`Error in ${context}: `, error);
+    alert(`An error occurred. Please try again later.`);
 }
