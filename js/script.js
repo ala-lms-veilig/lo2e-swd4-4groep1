@@ -2,17 +2,24 @@ async function createIncident() {
     try {
         const response = await fetch('./includes/api.php?action=createIncident', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 priority: document.getElementById("new-incident-priority-input").value,
                 category: document.getElementById("new-incident-category-input").value,
                 title: document.getElementById("new-incident-title-input").value,
                 media: document.getElementById("new-incident-media-input").value,
                 description: document.getElementById("new-incident-description-input").value,
+                tower: document.getElementById("new-incident-tower-input").value,
+                level: document.getElementById("new-incident-level-input").value,
+                class_area: document.getElementById("new-incident-class-input").value,
+                status: 1
             })
         });
 
-        const json = await responseHandler(response);
-        console.log(json);
+        const result = await responseHandler(response);
+        console.log(result);
     } catch (error) {
         errorHandler(error, 'createIncident');
     }
@@ -55,7 +62,7 @@ async function showIncidents() {
     try {
         const response = await fetch('./includes/api.php?action=showIncidents');
         const incidents = await responseHandler(response);
-        const incidentsContainer = document.getElementById('meldingen_main');
+        const incidentsContainer = document.getElementById('incidents-container');
         const incidentTemplate = document.querySelector('.incident-template');
 
         incidentsContainer.innerHTML = '';
@@ -80,14 +87,19 @@ async function showIncidents() {
 }
 
 
-async function deleteIncident(id) {
+async function deleteIncident(incidentID) {
     try {
-        let response = await fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
-            method: 'DELETE',
+        const response = await fetch('./includes/api.php?action=deleteIncident&incidentID=' + incidentID, {
+            method: 'POST',
         });
 
-        await responseHandler(response);
-        console.log(`Incident with ID ${id} deleted successfully`);
+        const result = await responseHandler(response);
+        console.log(result);
+        console.log(result.success);
+        if (result.success) {
+            console.log("success");
+            await showIncidents();
+        }
     } catch (error) {
         errorHandler(error, 'deleteIncident');
     }
@@ -109,16 +121,14 @@ function errorHandler(error, context) {
 
 async function login() {
     try {
-        // Get user input
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         console.log(email, password);
 
-        // Send credentials to the server
         const response = await fetch('./includes/api.php?action=login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json', // Ensure JSON format
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 username: email,
@@ -131,8 +141,6 @@ async function login() {
 
         if (result.success) {
             console.log('Login successful:', result.message);
-
-            // Redirect or show dashboard
             window.location.href = 'dashboard.php';
         } else {
             errorHandler(error, "login")

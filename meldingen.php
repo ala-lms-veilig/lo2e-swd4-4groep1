@@ -11,39 +11,51 @@
 <body onload="showIncidents()" >
     
     <?php require 'includes/header.php'; ?>
-
-    <main id="meldingen_main">
-        <template class="incident-template">
-            <section class="incident-container">
-                <section class="column-id">
-                    <h1 class="incident-title">ID</h1>
-                    <h1 class="incident-id incident-text"></h1>
-                </section>
-                <section class="column-title">
-                    <h1 class="incident-title">Titel</h1>
-                    <h1 class="incident-titles incident-text"></h1>
-                </section>
-                <section class="column-description">
-                    <h1 class="incident-title">Beschrijving</h1>
-                    <h1 class="incident-description incident-text"></h1>
-                </section>
-                <section class="column-category">
-                    <h1 class="incident-title">Categorie</h1>
-                    <h1 class="incident-category incident-text"></h1>
-                </section>
-                <section class="column-priority">
-                    <h1 class="incident-title">Prioriteit</h1>
-                    <h1 class="incident-priority incident-text"></h1>
-                </section>
-                <section class="column-actions">
-                    <h1 class="incident-title">Acties</h1>
-                    <section class="incident-buttons-container">
-                        <a class="incident-button incident-goto-button"><img class="incident-button-img" src="./images/goto.png"></a>
-                        <a class="incident-button incident-delete-button"><img class="incident-button-img" src="./images/trashbin.png"></a>
-                    </section>
+<template class="incident-template">
+        <section class="incident-container">
+            <section class="column-id">
+                <h1 class="incident-title">ID</h1>
+                <h1 class="incident-id incident-text"></h1>
+            </section>
+            <section class="column-title">
+                <h1 class="incident-title">Titel</h1>
+                <h1 class="incident-titles incident-text"></h1>
+            </section>
+            <section class="column-description">
+                <h1 class="incident-title">Beschrijving</h1>
+                <h1 class="incident-description incident-text"></h1>
+            </section>
+            <section class="column-category">
+                <h1 class="incident-title">Categorie</h1>
+                <h1 class="incident-category incident-text"></h1>
+            </section>
+            <section class="column-priority">
+                <h1 class="incident-title">Prioriteit</h1>
+                <h1 class="incident-priority incident-text"></h1>
+            </section>
+            <section class="column-actions">
+                <h1 class="incident-title">Acties</h1>
+                <section class="incident-buttons-container">
+                    <a class="incident-button incident-goto-button"><img class="incident-button-img" src="./images/goto.png"></a>
+                    <a class="incident-button incident-delete-button"><img class="incident-button-img" src="./images/trashbin.png"></a>
                 </section>
             </section>
-        </template>
+        </section>
+    </template>
+    <main id="meldingen_main">
+        <section id="main-container">
+            <section id="melding-top">
+                <article id="filters-container">
+
+                </article>
+                <article id="melding-aanmaken-container">
+                    <a id="melding-aanmaken-button" href="melding_aanmaken.php">Nieuwe melding</a>
+                </article>
+            </section>
+            <section id="incidents-container">
+
+            </section>
+        </section>
     </main>
     <?php require 'includes/footer.php'; ?>
 </body>

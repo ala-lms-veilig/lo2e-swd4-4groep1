@@ -599,8 +599,6 @@ main {
 .column-id {
   display: flex;
   flex-direction: column;
-  width: 5ch;
-  min-width: 5ch;
   font-family: $font;
   font-size: 14px;
 }
@@ -617,8 +615,7 @@ main {
 .column-description {
   display: block;
   flex-direction: column;
-  width: 50ch;
-  min-width: 50ch;
+  flex: 1;
   font-family: $font;
   font-size: 14px;
 }
@@ -686,6 +683,34 @@ height: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+#main-container {
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+}
+
+#melding-top {
+  display: flex;
+  flex-direction: row;
+
+}
+
+#melding-aanmaken-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+
+#melding-aanmaken-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
 @media (max-width: 960px) {
   #new-incident-form {

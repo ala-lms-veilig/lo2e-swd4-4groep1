@@ -7,13 +7,21 @@ $action = isset($_GET['action']) ? $_GET['action'] : null;
 
 if ($action === 'showIncidents') {
     try {
-        $sql = "SELECT * FROM incidents";
-        $stmt = $conn->prepare($sql);
+        $stmt = $conn->prepare("SELECT * FROM incidents");
         $stmt->execute();
 
         $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (in_array("view_incidents", $_SESSION['rights'])) {
+            echo json_encode($incidents);
+        } else {
+            $stmt = $conn->prepare("SELECT * FROM incidents WHERE user_id = :userID");
+            $stmt->bindParam(':userID', $_SESSION['userID']);
+            $stmt->execute();
 
-        echo json_encode($incidents);
+            $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            echo json_encode($incidents);
+        }
     } catch (PDOException $e) {
         http_response_code(500);
         echo json_encode(['error' => 'Failed to fetch incidents: ' . $e->getMessage()]);
@@ -21,50 +29,53 @@ if ($action === 'showIncidents') {
 }
 
 if ($action === 'createIncident') {
-    
-    // Check if data is valid and present
-    if (isset($inputData['priority'], $inputData['category'], $inputData['title'], $inputData['description'])) {
-        try {
-            $sql = "INSERT INTO incidents (priority, category, title, media, description) VALUES (:priority, :category, :title, :media, :description)";
-            $stmt = $conn->prepare($sql);
+    echo $_POST['new-incident-priority-input'];
+    try {
+        $priority = $_POST['new-incident-priority-input'] ?? null;
+        $category = $_POST['new-incident-category-input'] ?? null;
+        $title = $_POST['new-incident-title-input'] ?? null;
+        $media = $_POST['new-incident-media-input'] ?? null;
+        $description = $_POST['new-incident-description-input'] ?? null;
+        $tower = $_POST['new-incident-tower-input'] ?? null;
+        $floor = $_POST['new-incident-floor-input'] ?? null;
+        $classArea = $_POST['new-incident-class-input'] ?? null;
+        $status = $_POST['new-incident-status-input'] ?? 1;
 
-            // Bind the values to the SQL statement
-            $stmt->bindParam(':id', $SESSION['userID']);
-            $stmt->bindParam(':priority', $inputData['priority']);
-            $stmt->bindParam(':category', $inputData['category']);
-            $stmt->bindParam(':title', $inputData['title']);
-            $stmt->bindParam(':media', $inputData['media']);
-            $stmt->bindParam(':description', $inputData['description']);
-            $stmt->bindParam(':status', 1);
-            $stmt->bindParam(':tower', 'A');
-            $stmt->bindParam(':level', 1);
-            $stmt->bindParam(':class_area', 'test');
+        $sql = "INSERT INTO incidents (priority, category, title, media, description, tower, floor, class_area, status) 
+                VALUES (:priority, :category, :title, :media, :description, :tower, :floor, :class_area, :status)";
+        $stmt = $conn->prepare($sql);
 
-            // Execute the query to insert the data
-            $stmt->execute();
+        $stmt->bindParam(':priority', $priority, PDO::PARAM_INT);
+        $stmt->bindParam(':category', $category, PDO::PARAM_INT);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':media', $media, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':tower', $tower, PDO::PARAM_STR);
+        $stmt->bindParam(':floor', $floor, PDO::PARAM_INT);
+        $stmt->bindParam(':class_area', $classArea, PDO::PARAM_STR);
+        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
 
-            // Return success response
-            echo json_encode(['status' => 'success', 'message' => 'Incident created successfully']);
-        } catch (PDOException $e) {
-            // Handle any database errors
-            echo json_encode(['status' => 'error', 'message' => 'Database error: ' . $e->getMessage()]);
+        if ($stmt->execute()) {
+            echo json_encode(['success' => true, 'message' => 'Incident created successfully']);
+        } else {
+            echo json_encode(['error' => 'Failed to create incident']);
+            http_response_code(500);
         }
-    } else {
-        // Return error if data is missing
-        echo json_encode(['status' => 'error', 'message' => 'Missing required fields']);
+
+    } catch (PDOException $e) {
+        echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+        http_response_code(500);
+    } catch (Exception $e) {
+        echo json_encode(['error' => 'An unexpected error occurred: ' . $e->getMessage()]);
+        http_response_code(500);
     }
 }
 
 if ($action === "login") {
-    // Read JSON input
-    $input = json_decode(file_get_contents('php://input'), true);
-
-    // Sanitize user input
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     try {
-        // Query the database for the user
         $stmt = $conn->prepare("SELECT id, first_name, e_mail, password, role_id FROM users WHERE e_mail = :email AND password = :password");
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
@@ -72,7 +83,6 @@ if ($action === "login") {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && $password === $user['password']) {
-            // Password is correct; set session or return success
             $_SESSION['userID'] = $user['id'];
             $_SESSION['firstName'] = $user['first_name'];
             $_SESSION['roleID'] = $user['role_id'];
@@ -87,8 +97,28 @@ if ($action === "login") {
             echo json_encode(['success' => true, 'message' => 'Login successful']);
         }
     } catch (Exception $e) {
-        // Handle errors
         echo json_encode(['success' => false, 'message' => 'Server error: ' . $e->getMessage()]);
+    }
+}
+
+if ($action === 'deleteIncident') {
+    try {
+
+        $incidentID = intval($_GET['incidentID']);
+
+        $stmt = $conn->prepare("DELETE FROM incidents WHERE id = :id");
+        $stmt->bindParam(':id', $incidentID, PDO::PARAM_INT);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            echo json_encode(['success' => true, 'message' => "Incident $incidentID deleted."]);
+        } else {
+            http_response_code(404);
+            echo json_encode(['error' => "Incident $incidentID not found."]);
+        }
+    } catch (PDOException $e) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to delete incident: ' . $e->getMessage()]);
     }
 }
 
