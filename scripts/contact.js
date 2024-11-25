@@ -1,6 +1,6 @@
 async function showContactInfo() {
-    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/contacts`);
-    const contacts = await response.json("api/contacts.json");
+    const response = await fetch(`api/contacts.json`);
+    const contacts = await response.json();
 
     console.log(contacts);
 
@@ -8,7 +8,7 @@ async function showContactInfo() {
     const container = document.getElementById("contact_main");
 
     // If server doesn't work use contacts.contacts
-    for (let contact of contacts) {
+    for (let contact of contacts.contacts) {
         const clone = template.content.cloneNode(true);
 
         const img       = clone.querySelector(".contact_img");
