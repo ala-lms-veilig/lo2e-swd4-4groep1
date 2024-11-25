@@ -2,7 +2,7 @@
 $primary-color: #d90429;
 $primary-hover-color: #a30722;
 $background-color: #f5f5f5;
-$headerfooter-color: rgb(174, 170, 170);
+$header-footer-color: rgb(184, 190, 196);
 $text-color: #333;
 
 // Mixins
@@ -44,18 +44,26 @@ html, body {
 
 // Header
 header {
+  //display: flex;
+  //justify-content: space-between;
+  //align-items: center;
+  //background-color: $background-color;
+  //padding: 15px 20px;
+  //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $background-color;
-  padding: 15px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: $header-footer-color;
+  margin: 10px;
 
   .logo a{
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    background-color: $primary-color;
+    padding: 5px 20px;
+    //background-color: $primary-color;
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -65,7 +73,8 @@ header {
       }
 
     img {
-      width: 120px; 
+      //width: 120px;
+      width: 11vw; 
       height: auto;
     }
 
@@ -111,11 +120,19 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: $background-color;
-  padding: 15px 20px;
+  //background-color: $background-color;
+  background-color: $header-footer-color;
+  padding: 10px 20px;
+  margin: 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 0.875rem;
+  border-radius: 10px;
+  
+  p {
+    color: white;
+  }
+  
 
   // Optional: adjust spacing for child elements
   > * {
