@@ -1,7 +1,6 @@
-// http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
 async function showContactInfo() {
     const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/contacts`);
-    const contacts = await response.json();
+    const contacts = await response.json("api/contacts.json");
 
     console.log(contacts);
 
