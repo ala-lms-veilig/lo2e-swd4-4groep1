@@ -19,9 +19,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgb(184, 190, 196);
   padding: 10px 20px;
   border-radius: 10px;
-  background-color: rgb(184, 190, 196);
   margin: 10px;
 }
 header .logo a {
