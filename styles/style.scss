@@ -49,8 +49,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //background-color: $background-color;
-  background-color: $header-footer-color;
+  background-color: #58bccc;
   //padding: 15px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
@@ -120,8 +119,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  //background-color: $background-color;
-  background-color: $header-footer-color;
+  background-color: #58bccc;
   padding: 10px 20px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
