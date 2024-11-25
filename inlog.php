@@ -48,7 +48,7 @@
     }
     ?>
     
-    <main id="inlog">
+    <main id="inlog_main">
         <h2>Login</h2>
         <form id="loginForm" method="POST">
             <label id="bq" for="email">Username:</label>
