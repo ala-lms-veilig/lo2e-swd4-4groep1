@@ -14,7 +14,7 @@
         <h1 id="survey-title"></h1>
         <p id="survey-description"></p>
         <div id="survey-container"></div>
-        <button type="submit">Submit</button>
+        <button id="submit-survey" type="submit">Submit</button>
 
         <!-- Template -->
         <template id="question_template">
