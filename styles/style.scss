@@ -2,8 +2,10 @@
 $primary-color: #d90429;
 $primary-hover-color: #a30722;
 $background-color: #f5f5f5;
-$header-footer-color: rgb(184, 190, 196);
+$header-footer-color: #58bccc;
 $text-color: #333;
+$secondary-color: #400c4c;
+//rgb(184, 190, 196)
 
 // Mixins
 @mixin button($width: 150px, $height: 50px) {
@@ -50,18 +52,18 @@ header {
   //background-color: $background-color;
   background-color: $header-footer-color;
   //padding: 15px 20px;
-  //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
   padding: 10px 20px;
-  border-radius: 10px;
+  //border-radius: 10px;
   
-  margin: 10px;
+  //margin: 10px;
 
   .logo a{
     display: flex;
     align-items: center;
     padding: 5px 20px;
-    //background-color: $primary-color;
+    background-color: $purple;
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -121,16 +123,16 @@ footer {
   //background-color: $background-color;
   background-color: $header-footer-color;
   padding: 10px 20px;
-  margin: 10px;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 0.875rem;
 
-  border-radius: 10px;
+  //border-radius: 10px;
+  //margin: 10px;
   
-  p {
-    color: white;
-  }
+  //p {
+  //  color: white;
+  //}
   
 
   // Optional: adjust spacing for child elements
