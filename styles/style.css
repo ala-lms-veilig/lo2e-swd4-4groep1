@@ -26,8 +26,8 @@ header {
 header .logo a {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
-  background-color: #333;
+  padding: 10px 20px;
+  background-color: #d90429;
   color: white;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -36,7 +36,7 @@ header .logo a:hover {
   background-color: #a30722;
 }
 header .logo a img {
-  width: 80px;
+  width: 120px;
   height: auto;
 }
 header .logo a h1 {

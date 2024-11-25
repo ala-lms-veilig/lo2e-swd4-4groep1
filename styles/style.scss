@@ -2,6 +2,7 @@
 $primary-color: #d90429;
 $primary-hover-color: #a30722;
 $background-color: #f5f5f5;
+$headerfooter-color: rgb(174, 170, 170);
 $text-color: #333;
 
 // Mixins
@@ -53,8 +54,8 @@ header {
   .logo a{
     display: flex;
     align-items: center;
-    padding: 10px 15px;
-    background-color: $text-color;
+    padding: 10px 20px;
+    background-color: $primary-color;
     color: white;
     border-radius: 5px;
     transition: background-color 0.3s ease;
@@ -64,7 +65,7 @@ header {
       }
 
     img {
-      width: 80px; 
+      width: 120px; 
       height: auto;
     }
 
