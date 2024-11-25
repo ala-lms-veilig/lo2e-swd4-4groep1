@@ -26,11 +26,18 @@ header {
 header .logo a {
   display: flex;
   align-items: center;
+  padding: 10px 15px;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+header .logo a:hover {
+  background-color: #a30722;
 }
 header .logo a img {
   width: 50px;
   height: auto;
-  margin-right: 10px;
 }
 header .logo a h1 {
   font-size: 24px;
