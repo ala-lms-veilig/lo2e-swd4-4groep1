@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "Welkom01";
+$password = ""; // $password = "Welkom01"; Ik heb geen password voor mijn root, dus moet dit leeg zijn als ik hem will zien. -Tim
 $dbname = "LMS_Veiligheid";
 
 // Maak verbinding
