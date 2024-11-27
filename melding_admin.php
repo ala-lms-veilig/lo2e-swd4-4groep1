@@ -1,13 +1,21 @@
 <?php   
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+};
 
 
 
-try {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
 
+
+    require_once './sql/database.php';
+    
+    // Create database instance and get connection
+    $database = new Database();
+    $conn = $database->conn;
+    
+    // Rest of your code remains the same
+    try {
         if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
             throw new Exception("Je moet ingelogd zijn om deze pagina te bekijken.");
         }
@@ -16,8 +24,7 @@ try {
         header("Location: inlog.php");
         exit;
     }
-
-require_once './sql/database.php';
+  
 ?>
 
 <!DOCTYPE html>
@@ -44,25 +51,27 @@ require_once './sql/database.php';
                     <th>Gebruikers mail</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php
-                $sql = "SELECT * FROM meldingen";
-                $result = $conn->query($sql);
-                
-                // while($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row['id'] . "</td>";
-                    echo "<td>" . $row['melder'] . "</td>";
-                    echo "<td>" . $row['onderwerp'] . "</td>";
-                    echo "<td>" . $row['info'] . "</td>";
-                    echo "<td>" . $row['datum'] . "</td>";
-                    echo "<td>" . $row['afgehandeld'] . "</td>";
-                    echo "<td>" . $row['email'] . "</td>";
-                    echo "</tr>";
-                // }
-                ?>
-            </tbody>
-        </table>
+            <?php
+// Update your SQL query
+$sql = "SELECT * FROM incident";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($row['id']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['melder']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['onderwerp']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['info']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['datum']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['afgehandeld']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['gebruiker_email']) . "</td>";
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='7'>Geen incidenten gevonden</td></tr>";
+}
+?>
     </main>
 
     <?php require_once 'includes/footer.php'; ?>
