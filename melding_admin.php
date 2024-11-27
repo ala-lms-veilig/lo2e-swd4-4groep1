@@ -1,12 +1,21 @@
-<?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+<?php   
 
-if (!isset($_SESSION['voor_naam'])) {
-    header('Location: login.php');
-    exit();
-}
+
+
+
+try {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+            throw new Exception("Je moet ingelogd zijn om deze pagina te bekijken.");
+        }
+    } catch (Exception $e) {
+        $_SESSION['error_message'] = $e->getMessage();
+        header("Location: inlog.php");
+        exit;
+    }
 
 require_once './sql/database.php';
 ?>
