@@ -109,11 +109,6 @@ header .logo a {
   display: flex;
   align-items: center;
 }
-header .logo a img {
-  width: 50px;
-  height: auto;
-  margin-right: 10px;
-}
 header .logo a h1 {
   font-size: 24px;
   color: #333;
@@ -585,6 +580,12 @@ main {
   row-gap: 10px;
 }
 
+#incidents-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
 .incident-container {
   padding: 15px;
   display: flex;
@@ -630,6 +631,11 @@ main {
 }
 
 .column-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-status {
   display: flex;
   flex-direction: column;
 }
@@ -700,6 +706,8 @@ main {
   justify-content: center;
   align-items: center;
   margin-left: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 #melding-aanmaken-button {
@@ -709,6 +717,54 @@ main {
   color: white;
   text-decoration: none;
   border-radius: 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 125px); /* Adjust based on your grid */
+  grid-template-rows: repeat(13, 25px); /* Adjust based on row needs */
+}
+
+/* Define cell colors */
+.red {
+  background-color: #ff8080;
+}
+
+.pink {
+  background-color: #ffaaff;
+}
+
+.purple {
+  background-color: #a080ff;
+}
+
+.cyan {
+  background-color: #80fff2;
+}
+
+.green {
+  background-color: #80ff80;
+}
+
+.white {
+  background-color: transparent;
+}
+
+.blueprint-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueprint-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#main-incident-page {
+  display: flex;
+  flex-direction: row;
 }
 
 @media (max-width: 960px) {

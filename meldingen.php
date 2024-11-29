@@ -10,7 +10,9 @@
 </head>
 <body onload="showIncidents()" >
     
-    <?php require 'includes/header.php'; ?>
+    <?php require 'includes/header.php';
+    require './includes/auth.php';
+    ?>
 <template class="incident-template">
         <section class="incident-container">
             <section class="column-id">
@@ -33,6 +35,10 @@
                 <h1 class="incident-title">Prioriteit</h1>
                 <h1 class="incident-priority incident-text"></h1>
             </section>
+            <section class="column-status">
+                <h1 class="incident-title">Status</h1>
+                <h1 class="incident-status incident-text"></h1>
+            </section>
             <section class="column-actions">
                 <h1 class="incident-title">Acties</h1>
                 <section class="incident-buttons-container">
@@ -49,7 +55,7 @@
 
                 </article>
                 <article id="melding-aanmaken-container">
-                    <a id="melding-aanmaken-button" href="melding_aanmaken.php">Nieuwe melding</a>
+                    <a id="melding-aanmaken-button" href="plattegrond.php">Nieuwe melding</a>
                 </article>
             </section>
             <section id="incidents-container">

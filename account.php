@@ -10,12 +10,7 @@
 <body>
     <?php 
     require_once 'includes/header.php'; 
-    
-
-    if (!isset($_SESSION['userID'])) {
-        header("Location: inlog.php");
-        exit;
-    }
+    require 'includes/auth.php';
     ?>
 
     <main id="account_main">
@@ -24,6 +19,9 @@
         <form action="includes/logout.php" method="post">
             <button type="submit">Loguit</button>
         </form>
+        <?php 
+    echo $_SESSION['userID'];
+    ?>
     </main>
 
     <?php require_once 'includes/footer.php'; ?>

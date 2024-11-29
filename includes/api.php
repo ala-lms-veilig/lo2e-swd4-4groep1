@@ -7,14 +7,14 @@ $action = isset($_GET['action']) ? $_GET['action'] : null;
 
 if ($action === 'showIncidents') {
     try {
-        $stmt = $conn->prepare("SELECT * FROM incidents");
+        $stmt = $conn->prepare("SELECT i.*, c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id ORDER BY priority ASC");
         $stmt->execute();
 
         $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
         if (in_array("view_incidents", $_SESSION['rights'])) {
             echo json_encode($incidents);
         } else {
-            $stmt = $conn->prepare("SELECT * FROM incidents WHERE user_id = :userID");
+            $stmt = $conn->prepare("SELECT i.* , c.name, s.name FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE user_id = :userID");
             $stmt->bindParam(':userID', $_SESSION['userID']);
             $stmt->execute();
 
@@ -29,31 +29,22 @@ if ($action === 'showIncidents') {
 }
 
 if ($action === 'createIncident') {
-    echo $_POST['new-incident-priority-input'];
+    $data = json_decode(file_get_contents('php://input'), true);
     try {
-        $priority = $_POST['new-incident-priority-input'] ?? null;
-        $category = $_POST['new-incident-category-input'] ?? null;
-        $title = $_POST['new-incident-title-input'] ?? null;
-        $media = $_POST['new-incident-media-input'] ?? null;
-        $description = $_POST['new-incident-description-input'] ?? null;
-        $tower = $_POST['new-incident-tower-input'] ?? null;
-        $floor = $_POST['new-incident-floor-input'] ?? null;
-        $classArea = $_POST['new-incident-class-input'] ?? null;
-        $status = $_POST['new-incident-status-input'] ?? 1;
-
-        $sql = "INSERT INTO incidents (priority, category, title, media, description, tower, floor, class_area, status) 
-                VALUES (:priority, :category, :title, :media, :description, :tower, :floor, :class_area, :status)";
+        $sql = "INSERT INTO incidents (user_id, priority, category, title, media, description, tower, floor, class_area, status) 
+                VALUES (:user_id, :priority, :category, :title, :media, :description, :tower, :floor, :class_area, :status)";
         $stmt = $conn->prepare($sql);
 
-        $stmt->bindParam(':priority', $priority, PDO::PARAM_INT);
-        $stmt->bindParam(':category', $category, PDO::PARAM_INT);
-        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
-        $stmt->bindParam(':media', $media, PDO::PARAM_STR);
-        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-        $stmt->bindParam(':tower', $tower, PDO::PARAM_STR);
-        $stmt->bindParam(':floor', $floor, PDO::PARAM_INT);
-        $stmt->bindParam(':class_area', $classArea, PDO::PARAM_STR);
-        $stmt->bindParam(':status', $status, PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $_SESSION['userID'], PDO::PARAM_INT);
+        $stmt->bindParam(':priority', $data['priority'], PDO::PARAM_INT);
+        $stmt->bindParam(':category', $data['category'], PDO::PARAM_INT);
+        $stmt->bindParam(':title', $data['title'], PDO::PARAM_STR);
+        $stmt->bindParam(':media', $data['media'], PDO::PARAM_STR);
+        $stmt->bindParam(':description', $data['description'], PDO::PARAM_STR);
+        $stmt->bindParam(':tower', $data['tower'], PDO::PARAM_STR);
+        $stmt->bindParam(':floor', $data['floor'], PDO::PARAM_INT);
+        $stmt->bindParam(':class_area', $data['class_area'], PDO::PARAM_STR);
+        $stmt->bindParam(':status', $data['status'], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'message' => 'Incident created successfully']);
@@ -88,9 +79,13 @@ if ($action === "login") {
             $_SESSION['roleID'] = $user['role_id'];
 
             $stmt = $conn->prepare("SELECT r.name FROM roles_rights rr JOIN rights r ON rr.right_id = r.id WHERE rr.role_id = :roleID");
-            $stmt->bindParam(':roleID', $_SESSION['roleID']);
+            $stmt->bindParam(':roleID', $user['role_id']);
             $stmt->execute();
             $_SESSION['rights'] = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+
+            $stmt = $conn->prepare("UPDATE users SET last_login = NOW() WHERE id = :userID");
+            $stmt->bindParam(':userID', $user['userID']);
+            $stmt->execute();
 
             header('Location: ./../account.php');
 

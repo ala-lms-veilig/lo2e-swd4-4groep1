@@ -1,28 +1,30 @@
 async function createIncident() {
     try {
+        data = {
+            priority: document.getElementById("new-incident-priority-input").value,
+            category: document.getElementById("new-incident-category-input").value,
+            title: document.getElementById("new-incident-title-input").value,
+            media: "test",
+            description: document.getElementById("new-incident-description-input").value,
+            tower: document.getElementById("towers").value,
+            floor: document.getElementById("floors").value,
+            class_area: document.getElementById("new-incident-class-input").value,
+            status: 1
+        }
         const response = await fetch('./includes/api.php?action=createIncident', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                priority: document.getElementById("new-incident-priority-input").value,
-                category: document.getElementById("new-incident-category-input").value,
-                title: document.getElementById("new-incident-title-input").value,
-                media: document.getElementById("new-incident-media-input").value,
-                description: document.getElementById("new-incident-description-input").value,
-                tower: document.getElementById("new-incident-tower-input").value,
-                level: document.getElementById("new-incident-level-input").value,
-                class_area: document.getElementById("new-incident-class-input").value,
-                status: 1
-            })
+            body: JSON.stringify(data)
         });
 
         const result = await responseHandler(response);
         console.log(result);
-    } catch (error) {
-        errorHandler(error, 'createIncident');
-    }
+        } catch (error) {
+            console.log(JSON.stringify(data));
+            errorHandler(error, 'createIncident');
+        }
 }
 
 function getFileName(event) {
@@ -51,11 +53,8 @@ function resetFileInput() {
 }
 
 function newIncidentEvents() {
-    try {
         document.getElementById("new-incident-media-input").addEventListener("change", getFileName);
-    } catch (error) {
-        errorHandler(error, 'newIncidentEvents');
-    }
+        getLocation()
 }
 
 async function showIncidents() {
@@ -66,8 +65,10 @@ async function showIncidents() {
         const incidentTemplate = document.querySelector('.incident-template');
 
         incidentsContainer.innerHTML = '';
+        console.log(incidents);
         if (Array.isArray(incidents)) {
             incidents.forEach((incident) => {
+                console.log(incident);
                 const clone = incidentTemplate.content.cloneNode(true);
 
                 clone.querySelector('.incident-id').textContent = incident.id;
@@ -75,6 +76,7 @@ async function showIncidents() {
                 clone.querySelector(".incident-description").textContent = incident.description;
                 clone.querySelector(".incident-category").textContent = incident.category;
                 clone.querySelector(".incident-priority").textContent = incident.priority;
+                clone.querySelector(".incident-status").textContent = incident.status;
                 clone.querySelector(".incident-goto-button").href = "melding.php?id=" + incident.id;
                 clone.querySelector(".incident-delete-button").href = "javascript:deleteIncident(" + incident.id + ")";
 
@@ -94,10 +96,7 @@ async function deleteIncident(incidentID) {
         });
 
         const result = await responseHandler(response);
-        console.log(result);
-        console.log(result.success);
         if (result.success) {
-            console.log("success");
             await showIncidents();
         }
     } catch (error) {
@@ -148,4 +147,47 @@ async function login() {
     } catch (error) {
         errorHandler(error, 'login');
     }
+}
+
+function insertBlueprintLinks() {
+    cells = document.querySelectorAll('.blueprint-cell');
+    var tower;
+    for (var i = 0; i < cells.length; i++) {
+        switch(true) {
+            case cells[i].classList.contains("red"):
+                var tower = "A";
+                break;
+            
+            case cells[i].classList.contains("pink"):
+                var tower = "B";
+                break;
+
+            case cells[i].classList.contains("purple"):
+                var tower = "C";
+                break;
+
+            case cells[i].classList.contains("cyan"):
+                var tower = "D";
+                break;
+
+            case cells[i].classList.contains("green"):
+                var tower = "E";
+                break;
+        }
+
+        cells[i].href = "melding_aanmaken.php?Toren=" + tower + "&Verdieping=" + cells[i].innerHTML;
+    }
+}
+
+function getLocation() {
+    towerInput = document.getElementById("towers");
+    floorInput = document.getElementById("floors");
+
+
+    selectedTower = new URLSearchParams(window.location.search).get("Toren");
+    selectedFloor = new URLSearchParams(window.location.search).get("Verdieping");
+
+
+    towerInput.value = selectedTower;
+    floorInput.value = selectedFloor;
 }

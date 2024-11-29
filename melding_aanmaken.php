@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
-<body onload="newIncidentEvents()">
+<body onload="newIncidentEvents();">
     
     <?php require_once 'includes/header.php'; ?>
 
     <main id="melding-maken_main">
-        <form id="new-incident-form" method="POST" action="./includes/api.php?action=createIncident">
+        <form id="new-incident-form" method="POST" action="javascript:createIncident();">
             <div id="new-incident-columns-container">
                 <div class="new-incident-column">
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Welke prioriteit heeft uw melding?</label>
-                        <input list="priorities" id="new-incident-priority-input" class="new-incident-input">
-                        <datalist class="new-incident-input" id="priorities" name="priorities">
+                        
+                        <select class="new-incident-input" id="priorities" name="priorities">
                             <option value="1">Prioriteit 1</option>
                             <option value="2">Prioriteit 2</option>
                             <option value="3">Prioriteit 3</option>
                             <option value="4">Prioriteit 4</option>
                             <option value="5">Prioriteit 5</option>
-                        </datalist>
+                        </select>
                     </fieldset>
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Titel:</label>
@@ -34,13 +34,12 @@
                     
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Toren:</label>
-                        <input list="towers" id="new-incident-tower-input" class="new-incident-input">
-                        <datalist class="new-incident-input" id="towers" name="towers">
+                        <select class="new-incident-input" id="towers" name="towers">
                             <option value="1">Toren A</option>
                             <option value="2">Toren B</option>
                             <option value="3">Toren C</option>
                             <option value="4">Anders</option>
-                        </datalist>
+                        </select>
                     </fieldset>
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Lokaal:</label>
@@ -52,11 +51,11 @@
                         <label class="new-incident-label">Welke categorie valt uw melding in?</label>
                         <input list="categories" id="new-incident-category-input" class="new-incident-input">
                         <datalist class="new-incident-input" id="categories" name="categories">
-                            <option value="1">Categorie 1</option>
-                            <option value="2">Categorie 2</option>
-                            <option value="3">Categorie 3</option>
-                            <option value="4">Categorie 4</option>
-                            <option value="5">Categorie 5</option>
+                            <option value="1">Sanitair</option>
+                            <option value="2">Beveiliging</option>
+                            <option value="3">ICT</option>
+                            <option value="4">Helpdesk</option>
+                            <option value="5">Ongecategoriseerd</option>
                         </datalist>
                     </fieldset>
                     <fieldset class="new-incident-fieldset">
@@ -69,21 +68,20 @@
                     </fieldset>
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Verdieping:</label>
-                        <input list="floors" id="new-incident-level-input" class="new-incident-input">
-                        <datalist class="new-incident-input" id="floors" name="floors">
-                            <option value="1">Verdieping 0</option>
-                            <option value="2">Verdieping BG</option>
-                            <option value="3">Verdieping 1</option>
-                            <option value="4">Verdieping 2</option>
-                            <option value="5">Verdieping 3</option>
-                            <option value="6">Verdieping 4</option>
-                            <option value="7">Verdieping 5</option>
-                            <option value="8">Verdieping 6</option>
-                            <option value="9">Verdieping 7</option>
-                            <option value="10">Verdieping 8</option>
-                            <option value="11">Verdieping 9</option>
-                            <option value="12">Verdieping 10</option>
-                        </datalist>
+                        <select class="new-incident-input" id="floors" name="floors">
+                            <option value="-1">Verdieping -1</option>
+                            <option value="0">Begane grond</option>
+                            <option value="1">Verdieping 1</option>
+                            <option value="2">Verdieping 2</option>
+                            <option value="3">Verdieping 3</option>
+                            <option value="4">Verdieping 4</option>
+                            <option value="5">Verdieping 5</option>
+                            <option value="6">Verdieping 6</option>
+                            <option value="7">Verdieping 7</option>
+                            <option value="8">Verdieping 8</option>
+                            <option value="9">Verdieping 9</option>
+                            <option value="10">Verdieping 10</option>
+                        </select>
                     </fieldset>
                 </div>
             </div>

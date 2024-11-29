@@ -17,7 +17,7 @@
             <li><a href="contact.php">Contact</a></li>
             <?php
             session_start();
-            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+            if (isset($_SESSION['userID'])) {
                 echo '<li><a href="account.php">Account</a></li>';
             } else {
                 echo '<li><a href="inlog.php">Inloggen</a></li>';
