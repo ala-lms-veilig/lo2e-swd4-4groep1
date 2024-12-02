@@ -4,6 +4,47 @@
 
 // Table contents from json file //
 async function showNewsInfo() {
+    const response = await fetch('api/news.json');
+    const jsonData = await response.json();
+    const { news } = jsonData;
+
+    console.log(news);
+
+    const template = document.getElementById("news_template");
+    const newsTable = document.getElementById("news_table");
+
+
+    for (let newsItem of news) {
+        const clone = template.content.cloneNode(true);
+
+        const id        = clone.querySelector(".news_id");
+        const img       = clone.querySelector(".news_img");
+        const title     = clone.querySelector(".news_title");
+        const text      = clone.querySelector(".news_text");
+
+        const updateBtn = clone.querySelector(".update_button");
+        const deleteBtn = clone.querySelector(".delete_button");
+
+         // For the delete visual
+        clone.querySelector("tr").setAttribute("data-id", newsItem.id);
+
+        id.innerHTML        = newsItem.id;
+        img.innerHTML       = `<img src="images/${newsItem.img}" alt="${newsItem.title}">`;
+        title.innerHTML     = newsItem.title;
+        text.innerHTML      = newsItem.txt;
+
+        updateBtn.addEventListener("click", function() { 
+            updateNewsForm(newsItem.id, newsItem.img, newsItem.title, newsItem.txt);
+        });
+        deleteBtn.addEventListener("click", function() { 
+            deleteNews(newsItem.id); 
+        });
+
+        newsTable.appendChild(clone);
+    }
+}
+/*
+async function showNewsInfo() {
     const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news`);
     const newsInfo = await response.json();
 
@@ -38,6 +79,7 @@ async function showNewsInfo() {
         newsTable.appendChild(clone);
     }
 }
+*/
 
 showNewsInfo();
 
