@@ -50,6 +50,7 @@ $font: "Montserrat";
   margin: 0; 
   padding: 0;
   box-sizing: border-box;
+  font-family: $font;
 }
 
 html, body {
@@ -66,6 +67,8 @@ html, body {
 
 // Header
 header {
+  width: 100vw;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +83,14 @@ header {
     h1 {
       font-size: 24px;
       color: $text-color; 
+    }
+  }
+  div {
+    a {
+      .logo-img {
+        height: auto;
+        padding: 10px;
+      }
     }
   }
 
@@ -758,15 +769,121 @@ height: 100%;
   justify-content: center;
 }
 
+
 #main-incident-page {
   display: flex;
   flex-direction: row;
-}
+  #incident-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 100%;
+    padding:25px;
+    #info-container {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      #texts-container {
+        display: flex;
+        flex-direction: column;
+        #incident-infos-container {
+          display: flex;
+          flex-direction: column;
+          height: 50%;
+          padding: 10px;
+          h1 {
+            width: auto;
+          }
+        }
+        #incident-notes-container {
+          display: flex;
+          flex-direction: column;
+          height: 50%;
+          padding: 10px;
+          h1 {
+            width: auto;
+          }
+        }
+      }
 
-#incident-info_notes-container {
-  
-}
+      #img-container {
+        min-width: 50%;
+      }
+    }
 
+    // Single incident details section
+    #single-incident-details-container {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      background-color: gray;
+      padding: 10px;
+      .single-incident-detail-container {
+        display: flex;
+        flex-direction: row;
+        .single-incident-details-text {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+
+  // Chat container section
+  #chat-container {
+    width: 20vw;
+    margin: 35px;
+    border: solid black 1px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    #chat-top-bar {
+      height: 5vh;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 20px;
+      border-bottom: solid black 1px;
+    }
+    #chat-top-bar-text {
+      font-size: 16px;
+    }
+    #chat-messages-container {
+      .message.own {
+        padding: 10px;
+        padding-left: 30%;
+        .chat-name {
+          justify-self: flex-end;
+        }
+        .chat-message {
+          background-color: gray;
+          border-radius: 7.5px;
+          -webkit-border-radius: 7.5px;
+          -moz-border-radius: 7.5px;
+          -ms-border-radius: 7.5px;
+          -o-border-radius: 7.5px;
+          padding: 5px;
+          justify-self: flex-end;
+        }
+      }
+      .message {
+        padding: 10px;
+        padding-right: 30%;
+        .chat-message {
+          background-color: gray;
+          border-radius: 7.5px;
+          -webkit-border-radius: 7.5px;
+          -moz-border-radius: 7.5px;
+          -ms-border-radius: 7.5px;
+          -o-border-radius: 7.5px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 960px) {
   #new-incident-form {

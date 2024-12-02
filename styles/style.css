@@ -85,6 +85,7 @@ input, select {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat";
 }
 
 html, body {
@@ -98,6 +99,8 @@ html body, body body {
 }
 
 header {
+  width: 100vw;
+  height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,6 +115,10 @@ header .logo a {
 header .logo a h1 {
   font-size: 24px;
   color: #333;
+}
+header div a .logo-img {
+  height: auto;
+  padding: 10px;
 }
 header nav ul {
   list-style: none;
@@ -765,6 +772,109 @@ main {
 #main-incident-page {
   display: flex;
   flex-direction: row;
+}
+#main-incident-page #incident-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  height: 100%;
+  padding: 25px;
+}
+#main-incident-page #incident-info-container #info-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+#main-incident-page #incident-info-container #info-container #texts-container {
+  display: flex;
+  flex-direction: column;
+}
+#main-incident-page #incident-info-container #info-container #texts-container #incident-infos-container {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  padding: 10px;
+}
+#main-incident-page #incident-info-container #info-container #texts-container #incident-infos-container h1 {
+  width: auto;
+}
+#main-incident-page #incident-info-container #info-container #texts-container #incident-notes-container {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  padding: 10px;
+}
+#main-incident-page #incident-info-container #info-container #texts-container #incident-notes-container h1 {
+  width: auto;
+}
+#main-incident-page #incident-info-container #info-container #img-container {
+  min-width: 50%;
+}
+#main-incident-page #incident-info-container #single-incident-details-container {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  background-color: gray;
+  padding: 10px;
+}
+#main-incident-page #incident-info-container #single-incident-details-container .single-incident-detail-container {
+  display: flex;
+  flex-direction: row;
+}
+#main-incident-page #incident-info-container #single-incident-details-container .single-incident-detail-container .single-incident-details-text {
+  margin-left: 3px;
+}
+#main-incident-page #chat-container {
+  width: 20vw;
+  margin: 35px;
+  border: solid black 1px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+#main-incident-page #chat-container #chat-top-bar {
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  border-bottom: solid black 1px;
+}
+#main-incident-page #chat-container #chat-top-bar-text {
+  font-size: 16px;
+}
+#main-incident-page #chat-container #chat-messages-container .message.own {
+  padding: 10px;
+  padding-left: 30%;
+}
+#main-incident-page #chat-container #chat-messages-container .message.own .chat-name {
+  justify-self: flex-end;
+}
+#main-incident-page #chat-container #chat-messages-container .message.own .chat-message {
+  background-color: gray;
+  border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  -moz-border-radius: 7.5px;
+  -ms-border-radius: 7.5px;
+  -o-border-radius: 7.5px;
+  padding: 5px;
+  justify-self: flex-end;
+}
+#main-incident-page #chat-container #chat-messages-container .message {
+  padding: 10px;
+  padding-right: 30%;
+}
+#main-incident-page #chat-container #chat-messages-container .message .chat-message {
+  background-color: gray;
+  border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  -moz-border-radius: 7.5px;
+  -ms-border-radius: 7.5px;
+  -o-border-radius: 7.5px;
+  padding: 5px;
 }
 
 @media (max-width: 960px) {

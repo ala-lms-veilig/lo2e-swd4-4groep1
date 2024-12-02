@@ -6,7 +6,6 @@
     <script type="text/javascript" src="./js/script.js" defer></script>
     <title>Meldingen</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="./styles/styling-v2.css">
 </head>
 <body onload="showIncidents()" >
     

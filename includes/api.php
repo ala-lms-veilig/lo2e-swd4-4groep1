@@ -4,27 +4,42 @@ require 'dbconnect.php';
 
 header('Content-Type: application/json');
 $action = isset($_GET['action']) ? $_GET['action'] : null;
+$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 if ($action === 'showIncidents') {
-    try {
-        $stmt = $conn->prepare("SELECT i.*, c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id ORDER BY priority ASC");
-        $stmt->execute();
-
-        $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        if (in_array("view_incidents", $_SESSION['rights'])) {
-            echo json_encode($incidents);
-        } else {
-            $stmt = $conn->prepare("SELECT i.* , c.name, s.name FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE user_id = :userID");
-            $stmt->bindParam(':userID', $_SESSION['userID']);
+    if ($id == null) {
+        try {
+            $stmt = $conn->prepare("SELECT i.*, c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id ORDER BY priority ASC");
             $stmt->execute();
 
             $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (in_array("view_incidents", $_SESSION['rights'])) {
+                echo json_encode($incidents);
+            } else {
+                $stmt = $conn->prepare("SELECT i.* , c.name, s.name FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE user_id = :userID");
+                $stmt->bindParam(':userID', $_SESSION['userID']);
+                $stmt->execute();
 
-            echo json_encode($incidents);
+                $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                echo json_encode($incidents);
+            }
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Failed to fetch incidents: ' . $e->getMessage()]);
         }
-    } catch (PDOException $e) {
-        http_response_code(500);
-        echo json_encode(['error' => 'Failed to fetch incidents: ' . $e->getMessage()]);
+    } else {
+        try {
+            $stmt = $conn->prepare("SELECT i.*, c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE i.id = :id ORDER BY priority ASC");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+
+            $incident = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo json_encode($incident);
+        } catch (PDOException $e) {
+            http_response_code(500);
+            echo json_encode(['error' => 'Failed to fetch incidents: ' . $e->getMessage()]);
+        }
     }
 }
 
@@ -99,7 +114,7 @@ if ($action === "login") {
 if ($action === 'deleteIncident') {
     try {
 
-        $incidentID = intval($_GET['incidentID']);
+        $incidentID = $_GET['incidentID'];
 
         $stmt = $conn->prepare("DELETE FROM incidents WHERE id = :id");
         $stmt->bindParam(':id', $incidentID, PDO::PARAM_INT);
@@ -117,4 +132,18 @@ if ($action === 'deleteIncident') {
     }
 }
 
+if ($action === 'getChatMessages') {
+    try {
+        $stmt = $conn->prepare("SELECT ir*, c.name as category, s.name as status FROM incident_replies ir JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE i.id = :id ORDER BY priority ASC");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        $incident = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($incident);
+    } catch (PDOException $e) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to fetch incidents: ' . $e->getMessage()]);
+    }
+}
+}
 ?>

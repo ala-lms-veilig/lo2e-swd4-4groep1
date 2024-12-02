@@ -58,33 +58,47 @@ function newIncidentEvents() {
 }
 
 async function showIncidents() {
-    try {
-        const response = await fetch('./includes/api.php?action=showIncidents');
-        const incidents = await responseHandler(response);
-        const incidentsContainer = document.getElementById('incidents-container');
-        const incidentTemplate = document.querySelector('.incident-template');
+    id = new URLSearchParams(window.location.search).get("id");
+    console.log(id);
+    if (id == undefined) {
+        try {
+            const response = await fetch('./includes/api.php?action=showIncidents');
+            const incidents = await responseHandler(response);
+            const incidentsContainer = document.getElementById('incidents-container');
+            const incidentTemplate = document.querySelector('.incident-template');
 
-        incidentsContainer.innerHTML = '';
-        console.log(incidents);
-        if (Array.isArray(incidents)) {
-            incidents.forEach((incident) => {
-                console.log(incident);
-                const clone = incidentTemplate.content.cloneNode(true);
+            incidentsContainer.innerHTML = '';
+            console.log(incidents);
+            if (Array.isArray(incidents)) {
+                incidents.forEach((incident) => {
+                    console.log(incident);
+                    const clone = incidentTemplate.content.cloneNode(true);
 
-                clone.querySelector('.incident-id').textContent = incident.id;
-                clone.querySelector(".incident-titles").textContent = incident.title;
-                clone.querySelector(".incident-description").textContent = incident.description;
-                clone.querySelector(".incident-category").textContent = incident.category;
-                clone.querySelector(".incident-priority").textContent = incident.priority;
-                clone.querySelector(".incident-status").textContent = incident.status;
-                clone.querySelector(".incident-goto-button").href = "melding.php?id=" + incident.id;
-                clone.querySelector(".incident-delete-button").href = "javascript:deleteIncident(" + incident.id + ")";
+                    clone.querySelector('.incident-id').textContent = incident.id;
+                    clone.querySelector(".incident-titles").textContent = incident.title;
+                    clone.querySelector(".incident-description").textContent = incident.description;
+                    clone.querySelector(".incident-category").textContent = incident.category;
+                    clone.querySelector(".incident-priority").textContent = incident.priority;
+                    clone.querySelector(".incident-status").textContent = incident.status;
+                    clone.querySelector(".incident-goto-button").href = "melding.php?id=" + incident.id;
+                    clone.querySelector(".incident-delete-button").href = "javascript:deleteIncident(" + incident.id + ")";
 
-                incidentsContainer.appendChild(clone);
-            })
-        };
-    } catch (error) {
-        errorHandler(error, 'showIncidents')
+                    incidentsContainer.appendChild(clone);
+                })
+            };
+        } catch (error) {
+            errorHandler(error, 'showIncidents')
+        }
+    } else {
+        console.log("id detected")
+        try {
+            const response = await fetch(`./includes/api.php?action=showIncidents&id=${id}`);
+            const incident = await responseHandler(response);
+
+            console.log(incident);
+        } catch (error) {
+            errorHandler(error, 'showIncidents')
+        }
     }
 }
 
@@ -187,7 +201,11 @@ function getLocation() {
     selectedTower = new URLSearchParams(window.location.search).get("Toren");
     selectedFloor = new URLSearchParams(window.location.search).get("Verdieping");
 
-
+    console.log(selectedTower)
     towerInput.value = selectedTower;
     floorInput.value = selectedFloor;
+}
+
+function getChatMessages() {
+    
 }

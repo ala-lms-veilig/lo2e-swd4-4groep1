@@ -35,10 +35,10 @@
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Toren:</label>
                         <select class="new-incident-input" id="towers" name="towers">
-                            <option value="1">Toren A</option>
-                            <option value="2">Toren B</option>
-                            <option value="3">Toren C</option>
-                            <option value="4">Anders</option>
+                            <option value="A">Toren A</option>
+                            <option value="B">Toren B</option>
+                            <option value="C">Toren C</option>
+                            <option value="D">Anders</option>
                         </select>
                     </fieldset>
                     <fieldset class="new-incident-fieldset">
@@ -49,14 +49,13 @@
                 <div class="new-incident-column" id="new-incident-right-column">
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Welke categorie valt uw melding in?</label>
-                        <input list="categories" id="new-incident-category-input" class="new-incident-input">
-                        <datalist class="new-incident-input" id="categories" name="categories">
+                        <select class="new-incident-input" id="categories" name="categories">
                             <option value="1">Sanitair</option>
                             <option value="2">Beveiliging</option>
                             <option value="3">ICT</option>
                             <option value="4">Helpdesk</option>
                             <option value="5">Ongecategoriseerd</option>
-                        </datalist>
+                        </select>
                     </fieldset>
                     <fieldset class="new-incident-fieldset">
                         <label class="new-incident-label">Media (optioneel):</label>

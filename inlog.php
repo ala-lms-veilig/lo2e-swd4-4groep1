@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="styles/styling-v2.css">
     <link rel="stylesheet" href="styles/inlog.css">
+    
+    <link rel="stylesheet" href="styles/style.css">
     <!-- <script src="./scripts/inlogg.js"></script> -->
     <!-- ik heb de script laten staan omdat ik het nog moet laten zien aan docent  -->
 </head>
