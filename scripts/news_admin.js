@@ -141,7 +141,7 @@ async function deleteNews(id) {
     console.log(id);
 
     //`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news/${id}`
-    const response = await fetch(`api/news.php${id}`, {
+    const response = await fetch(`api/news_backend.php${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
