@@ -14,13 +14,11 @@ try {
     exit;
 }
 
-
-///////////////////////////////////////////////////////////////////////////////////////
-
+/////////////////////////////////////////////////////////////
 
 // Check if the request method is DELETE
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-    // Get the ID from the query string
+    // Get the ID from the query string (e.g., ?id=123)
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
@@ -37,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
             $newsData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             // Write the updated data to a JSON file
-            $jsonFile = 'path/to/your/news.json';
+            $jsonFile = 'path/to/your/news.json';  // Modify this path as needed
             file_put_contents($jsonFile, json_encode($newsData, JSON_PRETTY_PRINT));
 
             // Respond with success
