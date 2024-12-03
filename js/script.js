@@ -119,7 +119,7 @@ async function deleteIncident(incidentID) {
 }
 
 
-async function responseHandler(response) {
+async function responseHandler(response) {fhow
     if (!response.ok) {
         const errorDetails = response.text();
         throw new Error(`API request failed with status ${response.status}: ${errorDetails}`);
@@ -206,6 +206,13 @@ function getLocation() {
     floorInput.value = selectedFloor;
 }
 
-function getChatMessages() {
-    
+async function getChatMessages() {
+    const response = await fetch('./includes/api.php?action=showIncidents');
+    const replies = await responseHandler(response);
+
+    const repliesContainer = document.getElementById('chat-messages-container');
+    const messageTemplate = document.getElementById('message-template');
+
+
+    ;
 }

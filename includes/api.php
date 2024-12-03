@@ -134,16 +134,17 @@ if ($action === 'deleteIncident') {
 
 if ($action === 'getChatMessages') {
     try {
-        $stmt = $conn->prepare("SELECT ir*, c.name as category, s.name as status FROM incident_replies ir JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE i.id = :id ORDER BY priority ASC");
-        $stmt->bindParam(':id', $id);
+        $incidentID = $_GET['id'];
+        $stmt = $conn->prepare("SELECT ir.*, CONCAT(u.first_name, ' ', u.particle, ' ', u.last_name) AS fullName FROM incident_replies ir JOIN users u ON ir.user_id = u.id WHERE ir.incident_id = :incident_id ORDER BY create_date ASC");
+        $stmt->bindParam(':incident_id', $incidentID);
         $stmt->execute();
 
-        $incident = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo json_encode($incident);
+        $replies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($replies);
     } catch (PDOException $e) {
         http_response_code(500);
         echo json_encode(['error' => 'Failed to fetch incidents: ' . $e->getMessage()]);
     }
 }
-}
+
 ?>
