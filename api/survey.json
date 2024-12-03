@@ -1,0 +1,51 @@
+{
+  "survey": {
+    "title": "Customer Satisfaction Survey",
+    "description": "We value your feedback. Please take a few minutes to answer the following questions.",
+    "questions": [
+      {
+        "id": 1,
+        "type": "multiple_choice",
+        "question": "How satisfied are you with our product?",
+        "options": [
+          "Very satisfied",
+          "Somewhat satisfied",
+          "Neutral",
+          "Somewhat dissatisfied",
+          "Very dissatisfied"
+        ]
+      },
+      {
+        "id": 2,
+        "type": "open_ended",
+        "question": "What do you like most about our product?"
+      },
+      {
+        "id": 3,
+        "type": "rating",
+        "question": "Rate our customer service on a scale of 1 to 5.",
+        "scale": {
+          "min": 1,
+          "max": 5
+        }
+      },
+      {
+        "id": 4,
+        "type": "yes_no",
+        "question": "Would you recommend our product to others?"
+      },
+      {
+        "id": 5,
+        "type": "checkbox",
+        "question": "What features are most important to you? (Select all that apply)",
+        "options": [
+          "Ease of use",
+          "Affordability",
+          "Customer support",
+          "Performance",
+          "Design"
+        ]
+      }
+    ]
+  }
+}

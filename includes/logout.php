@@ -2,6 +2,6 @@
 session_start();
 session_unset();
 session_destroy();
-header("Location: includes/inlog.php");
+header("Location: ../inlog.php");
 exit();
 ?>
