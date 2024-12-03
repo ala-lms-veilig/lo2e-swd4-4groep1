@@ -99,12 +99,54 @@ class BaseManager
 
     public function create($data)
     {
-        
+        $columns = implode(", ", array_keys($data));
+        $placeholders = ":" . implode(", :", array_keys($data));
+
+        $sql = "INSERT INTO $this->table ($columns) VALUES ($placeholders)";
+        try 
+        {
+            $stmt = $this->pdo->prepare($sql);
+            foreach ($data as $key => $value) 
+            {
+                $stmt->bindParam(":$key", $data[$key]);
+            }
+            $stmt->execute();
+
+            // Update the JSON file
+            $this->updateJsonFile();
+            return ['status' => 'success', 'message' => ucfirst($this->table) . ' created successfully.'];
+        } 
+        catch (PDOException $e) 
+        {
+            return ['status' => 'error', 'message' => 'Failed to create ' . $this->table . ': ' . $e->getMessage()];
+        }
     }
 
     public function update($id, $data)
     {
+        $fields = [];
+        $params = [':id' => $id];
 
+        foreach ($data as $key => $value) 
+        {
+            $fields[] = "$key = :$key";
+            $params[":$key"] = $value;
+        }
+
+        $sql = "UPDATE $this->table SET " . implode(", ", $fields) . " WHERE id = :id";
+        try 
+        {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+
+            // Update the JSON file
+            $this->updateJsonFile();
+            return ['status' => 'success', 'message' => ucfirst($this->table) . ' updated successfully.'];
+        } 
+        catch (PDOException $e) 
+        {
+            return ['status' => 'error', 'message' => 'Failed to update ' . $this->table . ': ' . $e->getMessage()];
+        }
     }
 
     public function delete($id)
