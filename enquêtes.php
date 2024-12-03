@@ -15,7 +15,7 @@
         <div id="survey-container"></div>
         <button id="submit-survey" type="submit">Submit</button>
 
-        <!-- Template -->
+        
         <template id="question_template">
           <div class="question">
             <label class="question-label"></label>
