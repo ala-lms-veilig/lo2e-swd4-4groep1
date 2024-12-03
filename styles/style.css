@@ -155,6 +155,9 @@ main {
   transition: background-color 0.3s ease;
   text-decoration: none;
 }
+
+
+
 #index_main section #enquête:hover {
   background-color: #a30722;
 }
@@ -421,4 +424,45 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}/*# sourceMappingURL=style.css.map */
+}
+
+
+
+#admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table_header {
+  background-color: #333;
+  color: #fff;
+}
+
+.table_cell {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table__row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table__row:hover {
+  background-color: #ddd;
+}
+
+.table__cell {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.table__cell a {
+  color: #333;
+  text-decoration: none;
+}
+
+.table__cell a:hover {
+  text-decoration: underline;
+}
