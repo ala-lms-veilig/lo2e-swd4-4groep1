@@ -28,9 +28,10 @@
             $this->conn = $conn;
         }
 
+
         public function login($email, $password)
         {
-            $stmt = $this->conn->prepare('SELECT voor_naam FROM gebruikers WHERE e_mail = ? AND Wachtwoord = ?');
+            $stmt = $this->conn->prepare('SELECT voor_naam, rol_id FROM gebruikers WHERE e_mail = ? AND Wachtwoord = ?');
             if ($stmt) {
                 $stmt->bind_param('ss', $email, $password);
                 $stmt->execute();
@@ -38,8 +39,9 @@
                 $user = $result->fetch_assoc();
 
                 if ($user) {
-                    // naam opslaan in session
+                    // naam en rol_id opslaan in session
                     $_SESSION['voor_naam'] = $user['voor_naam'];
+                    $_SESSION['rol_id'] = $user['rol_id'];
                     $_SESSION['loggedin'] = true;
                     echo "Login successful!";
                     sleep(1);
@@ -55,7 +57,6 @@
             }
         }
     }
-
     // Gebruik van de class
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = $_POST['email'];
