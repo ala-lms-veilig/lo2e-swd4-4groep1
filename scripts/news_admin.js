@@ -140,7 +140,7 @@ function updateNewsForm(id, img, title, text) {
 async function deleteNews(id) {
     console.log(id);
 
-    const response = await fetch(`api/news_backend.php${id}`, {
+    const response = await fetch(`api/NewsManager.php${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
