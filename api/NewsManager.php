@@ -12,11 +12,11 @@ class NewsManager extends BaseManager
     public function newsCreate($title, $content, $imageUrl)
     {
     
+        $this->setTable();
         $sql = "INSERT INTO $this->table (title, content, image_path) VALUES (:title, :content, :image_path)";
 
         try 
         {
-            $this->setTable();
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':content', $content);
@@ -35,11 +35,11 @@ class NewsManager extends BaseManager
     public function newsUpdate($id, $title, $content, $imageUrl)
     {
     
+        $this->setTable();
         $sql = "UPDATE $this->table SET title = :title, content = :content, image_path = :image_path WHERE id = :id";
 
         try 
         {
-            $this->setTable();
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':title', $title);
             $stmt->bindParam(':content', $content);
