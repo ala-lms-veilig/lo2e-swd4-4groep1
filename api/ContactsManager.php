@@ -7,7 +7,7 @@ class ContactsManager extends BaseManager
 
     protected function setTable() 
     {
-        $this->table = 'news';
+        $this->table = 'contacts';
     }
     
     public function contactsUpdate()
