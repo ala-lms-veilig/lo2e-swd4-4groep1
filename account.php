@@ -29,6 +29,7 @@
             <a href="news_admin.php">admin news</a>
             <a href="meldingen.php">meldingen pagina</a>
             <a href="melding_admin.php">admin melding pagina </a>
+            <a href="user_acounts.php">account</a>
         <?php elseif ($_SESSION['rol_id'] == 2): ?>
             <h1>links naar specifieke mogelijkheden </h1>
             <a href="specific_page.php">specifieke pagina</a>
