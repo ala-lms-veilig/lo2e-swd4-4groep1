@@ -25,6 +25,7 @@ try {
             break;
         case 2:
             // Code to handle role ID 2
+            include "./includes/user_manager.php";
             echo "Je hebt toegang tot accounts met rol ID 2.";
             break;
         default:
