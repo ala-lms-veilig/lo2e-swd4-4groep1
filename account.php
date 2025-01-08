@@ -32,7 +32,8 @@
             <a href="user_acounts.php">account</a>
         <?php elseif ($_SESSION['rol_id'] == 2): ?>
             <h1>links naar specifieke mogelijkheden </h1>
-            <a href="specific_page.php">specifieke pagina</a>
+            
+            <a href="user_acounts.php">account</a>
         <?php elseif ($_SESSION['rol_id'] == 3): ?>
             <h1>Account informatie</h1>
             <p>Je hebt alleen toegang tot account informatie.</p>
