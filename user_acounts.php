@@ -40,6 +40,8 @@ try {
     exit;
 }
 ?>
-
+<head>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
 <a href="index.php">home</a>
 <a href="account.php">back</a>

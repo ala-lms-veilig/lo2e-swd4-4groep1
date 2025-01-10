@@ -74,7 +74,7 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <title>Admin - Gebruikersbeheer</title>
-    <link rel="stylesheet" href="path/to/your/css/styles.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <h1>Gebruikersbeheer</h1>

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="styles/styling-v2.css">
+<link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body id="body">
