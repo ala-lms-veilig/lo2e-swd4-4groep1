@@ -1,7 +1,12 @@
-<link rel="stylesheet" href="styles/styling-v2.css">
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-
-<body id="body">
+<body id="body-a">
     <?php
     require_once 'includes/header.php';
 
@@ -20,22 +25,25 @@
     }
     ?>
 
-    <main id="account_main" class="account-main">
-        <h1 class="title">Welkom op account page</h1>
+    <main id="account_main" class="account-main fade-in">
+        <h1 class="title">Welkom op je accountpagina</h1>
         <p class="welcome-text">Hallo, <?php echo htmlspecialchars($_SESSION['voor_naam']); ?>!</p>
 
         <?php if ($_SESSION['rol_id'] == 1): ?>
-            <h1>links naar admin mogelijkheden </h1>
-            <a href="news_admin.php">admin news</a>
-            <a href="meldingen.php">meldingen pagina</a>
-            <a href="melding_admin.php">admin melding pagina </a>
-            <a href="user_acounts.php">account</a>
+            <h2>Links naar admin mogelijkheden</h2>
+            <div class="links">
+                <a href="news_admin.php">Admin News</a>
+                <a href="meldingen.php">Meldingen Pagina</a>
+                <a href="melding_admin.php">Admin Melding Pagina</a>
+                <a href="user_acounts.php">Account</a>
+            </div>
         <?php elseif ($_SESSION['rol_id'] == 2): ?>
-            <h1>links naar specifieke mogelijkheden </h1>
-            
-            <a href="user_acounts.php">account</a>
+            <h2>Links naar specifieke mogelijkheden</h2>
+            <div class="links">
+                <a href="user_acounts.php">Account</a>
+            </div>
         <?php elseif ($_SESSION['rol_id'] == 3): ?>
-            <h1>Account informatie</h1>
+            <h2>Account informatie</h2>
             <p>Je hebt alleen toegang tot account informatie.</p>
         <?php endif; ?>
 
@@ -43,3 +51,7 @@
             <button class="btn btn-primary" type="submit">Loguit</button>
         </form>
     </main>
+
+    <?php require_once 'includes/footer.php'; ?>
+</body>
+</html>
