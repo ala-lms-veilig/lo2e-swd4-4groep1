@@ -73,42 +73,42 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <title>Admin - Gebruikersbeheer</title>
-    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <h1>Gebruikersbeheer</h1>
-    <table border="1">
+    <h1 class="admin-title">Gebruikersbeheer</h1>
+    <table class="admin-table">
         <thead>
-            <tr>
-                <th>User ID</th>
-                <th>E-mail</th>
-                <th>Voornaam</th>
-                <th>Tussenvoegsel</th>
-                <th>Achternaam</th>
-                <th>Foto</th>
-                <th>Wachtwoord</th>
-                <th>Telefoonnummer</th>
-                <th>Rol ID</th>
-                <th>Acties</th>
+            <tr class="table-header">
+                <th class="table-cell">User ID</th>
+                <th class="table-cell">E-mail</th>
+                <th class="table-cell">Voornaam</th>
+                <th class="table-cell">Tussenvoegsel</th>
+                <th class="table-cell">Achternaam</th>
+                <th class="table-cell">Foto</th>
+                <th class="table-cell">Wachtwoord</th>
+                <th class="table-cell">Telefoonnummer</th>
+                <th class="table-cell">Rol ID</th>
+                <th class="table-cell">Acties</th>
             </tr>
         </thead>
         <tbody>
             <?php while($row = $result->fetch_assoc()): ?>
-            <tr>
+            <tr class="table-row">
                 <form method="post">
-                    <td><?php echo $row['user_id']; ?></td>
-                    <td><input type="email" name="e_mail" value="<?php echo $row['e_mail']; ?>"></td>
-                    <td><input type="text" name="voor_naam" value="<?php echo $row['voor_naam']; ?>"></td>
-                    <td><input type="text" name="tussenvoegsel" value="<?php echo $row['tussenvoegsel']; ?>"></td>
-                    <td><input type="text" name="achter_naam" value="<?php echo $row['achter_naam']; ?>"></td>
-                    <td><input type="text" name="foto" value="<?php echo $row['foto']; ?>"></td>
-                    <td><input type="password" name="wachtwoord" value="<?php echo $row['wachtwoord']; ?>"></td>
-                    <td><input type="text" name="telefoon_nummer" value="<?php echo $row['telefoon_nummer']; ?>"></td>
-                    <td><input type="number" name="rol_id" value="<?php echo $row['rol_id']; ?>"></td>
-                    <td>
+                    <td class="table-cell"><?php echo $row['user_id']; ?></td>
+                    <td class="table-cell"><input type="email" name="e_mail" value="<?php echo $row['e_mail']; ?>"></td>
+                    <td class="table-cell"><input type="text" name="voor_naam" value="<?php echo $row['voor_naam']; ?>"></td>
+                    <td class="table-cell"><input type="text" name="tussenvoegsel" value="<?php echo $row['tussenvoegsel']; ?>"></td>
+                    <td class="table-cell"><input type="text" name="achter_naam" value="<?php echo $row['achter_naam']; ?>"></td>
+                    <td class="table-cell"><input type="text" name="foto" value="<?php echo $row['foto']; ?>"></td>
+                    <td class="table-cell"><input type="password" name="wachtwoord" value="<?php echo $row['wachtwoord']; ?>"></td>
+                    <td class="table-cell"><input type="text" name="telefoon_nummer" value="<?php echo $row['telefoon_nummer']; ?>"></td>
+                    <td class="table-cell"><input type="number" name="rol_id" value="<?php echo $row['rol_id']; ?>"></td>
+                    <td class="table-cell">
                         <input type="hidden" name="user_id" value="<?php echo $row['user_id']; ?>">
-                        <button type="submit" name="update">Update</button>
-                        <button type="submit" name="delete">Verwijderen</button>
+                        <button type="submit" name="update" class="btn btn-update">Update</button>
+                        <button type="submit" name="delete" class="btn btn-delete">Verwijderen</button>
                     </td>
                 </form>
             </tr>
@@ -116,8 +116,8 @@ $result = $stmt->get_result();
         </tbody>
     </table>
     <br>
-    <h2>Nieuwe gebruiker toevoegen</h2>
-    <form method="post">
+    <h2 class="admin-subtitle">Nieuwe gebruiker toevoegen</h2>
+    <form method="post" class="admin-form">
         <label for="e_mail">E-mail:</label>
         <input type="email" name="e_mail" required>
         <label for="voor_naam">Voornaam:</label>
@@ -132,7 +132,7 @@ $result = $stmt->get_result();
         <input type="password" name="wachtwoord" required>
         <label for="telefoon_nummer">Telefoonnummer:</label>
         <input type="text" name="telefoon_nummer">
-        <button type="submit" name="add">Toevoegen</button>
+        <button type="submit" name="add" class="btn btn-add">Toevoegen</button>
     </form>
 </body>
 </html>
