@@ -24,6 +24,7 @@
             throw new Exception("Rol ID niet gevonden.");
         }
 
+
         $role_id = $_SESSION['rol_id'];
         switch ($role_id) {
             case 0:
@@ -62,3 +63,16 @@
 </div>
 </body>
 </html>
+=======
+} catch (Exception $e) {
+    $_SESSION['error_message'] = $e->getMessage();
+    header("Location: inlog.php");
+    exit;
+}
+?>
+<head>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<a href="index.php">home</a>
+<a href="account.php">back</a>
+
