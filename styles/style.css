@@ -556,3 +556,239 @@ main {
 #account_main .logout-form button:hover {
   background-color: #a30722;
 }
+
+
+/* user acount */
+
+/* user account */
+.container {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.navigation {
+  margin-top: 30px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  background-color: #0056b3;
+}
+
+
+/* admin  */
+
+.admin-body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+.admin-title {
+  color: #333;
+  text-align: center;
+}
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.user-table th, .user-table td {
+  padding: 10px;
+  text-align: left;
+}
+.user-table th {
+  background-color: #f2f2f2;
+}
+.user-input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.user-button {
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+}
+.add-user-title {
+  color: #333;
+  text-align: center;
+}
+.add-user-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.add-user-label {
+  display: block;
+  margin: 10px 0 5px;
+}
+.add-user-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.add-user-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.add-user-button:hover {
+  background-color: #45a049;
+}
+body.admin-body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.admin-title {
+  text-align: center;
+  color: #333;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+.user-table th, .user-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.user-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.user-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.user-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+.user-button1 {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.user-button:hover {
+  background-color: #45a049;
+}
+
+.add-user-title {
+  text-align: center;
+  color: #333;
+}
+
+.add-user-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-user-label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.add-user-input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px;
+  box-sizing: border-box;
+}
+
+.add-user-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.add-user-button:hover {
+  background-color: #45a049;
+}
+
+/* pop up */
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #e0f7fa; /* Lichtblauwe achtergrond */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  border-radius: 10%;
+}
+.popup.active {
+  display: block;
+  opacity: 1;
+}
+.popup .close-btn {
+  background-color: #d90429;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
