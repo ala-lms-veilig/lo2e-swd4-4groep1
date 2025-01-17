@@ -37,35 +37,107 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enquête</title>
     <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
             color: #333;
+            margin: 0;
+            padding: 20px;
         }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
         form {
-            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
             margin: auto;
+            padding: 30px;
         }
+
         fieldset {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
+            border: none;
+            margin-bottom: 20px;
         }
+
         legend {
+            font-size: 1.2rem;
             font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
         }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #34495e;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 1rem;
+            background-color: #f9f9f9;
+        }
+
         button {
             background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            border-radius: 5px;
             cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
         }
+
         button:hover {
             background-color: #45a049;
         }
+
+        .survey-section {
+            margin-bottom: 30px;
+        }
+
+        .answer-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .answer-option input {
+            margin-right: 12px;
+        }
+
+        .answer-option select {
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -73,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="POST" action="survey.php">
         <?php foreach ($questions as $question): ?>
-            <fieldset>
+            <fieldset class="survey-section">
                 <legend><?= htmlspecialchars($question['vraag']) ?></legend>
                 
                 <?php if ($question['type'] == 'radio'): ?>
@@ -82,10 +154,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $options = explode(',', $question['opties']);
                     foreach ($options as $option):
                     ?>
-                        <label>
-                            <input type="radio" name="answers[<?= $question['id'] ?>]" value="<?= htmlspecialchars($option) ?>">
-                            <?= htmlspecialchars($option) ?>
-                        </label><br>
+                        <div class="answer-option">
+                            <input type="radio" name="answers[<?= $question['id'] ?>]" value="<?= htmlspecialchars($option) ?>" id="radio_<?= $question['id'] ?>_<?= htmlspecialchars($option) ?>">
+                            <label for="radio_<?= $question['id'] ?>_<?= htmlspecialchars($option) ?>"><?= htmlspecialchars($option) ?></label>
+                        </div>
                     <?php endforeach; ?>
 
                 <?php elseif ($question['type'] == 'checkbox'): ?>
@@ -94,14 +166,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $options = explode(',', $question['opties']);
                     foreach ($options as $option):
                     ?>
-                        <label>
-                            <input type="checkbox" name="answers[<?= $question['id'] ?>][]" value="<?= htmlspecialchars($option) ?>">
-                            <?= htmlspecialchars($option) ?>
-                        </label><br>
+                        <div class="answer-option">
+                            <input type="checkbox" name="answers[<?= $question['id'] ?>][]" value="<?= htmlspecialchars($option) ?>" id="checkbox_<?= $question['id'] ?>_<?= htmlspecialchars($option) ?>">
+                            <label for="checkbox_<?= $question['id'] ?>_<?= htmlspecialchars($option) ?>"><?= htmlspecialchars($option) ?></label>
+                        </div>
                     <?php endforeach; ?>
 
                 <?php elseif ($question['type'] == 'dropdown'): ?>
-                    <select name="answers[<?= $question['id'] ?>]">
+                    <select name="answers[<?= $question['id'] ?>]" id="dropdown_<?= $question['id'] ?>">
                         <?php
                         // Display dropdown options
                         $options = explode(',', $question['opties']);
