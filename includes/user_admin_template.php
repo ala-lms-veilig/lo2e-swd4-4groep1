@@ -99,7 +99,7 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Admin - Gebruikersbeheer</title>
 
-    <link rel="stylesheet" href="../styles/style.css">
+    
 
 </head>
 <body class="admin-body" id="admin-body">

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>accounts</title>
-    <link rel="stylesheet" href="./styles/style.css">
+   
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
 </head>
 <body>
 <?php require_once 'includes/header.php'; ?>
@@ -63,16 +65,8 @@
 </div>
 </body>
 </html>
-=======
-} catch (Exception $e) {
-    $_SESSION['error_message'] = $e->getMessage();
-    header("Location: inlog.php");
-    exit;
-}
-?>
-<head>
-    <link rel="stylesheet" href="./styles/style.css">
-</head>
+
+
 <a href="index.php">home</a>
 <a href="account.php">back</a>
 
