@@ -11,7 +11,7 @@
 <body>
 <?php require_once 'includes/header.php'; ?>
 
-<div class="container">
+<div class="adminsws">
     <?php
     try {
         if (session_status() == PHP_SESSION_NONE) {
@@ -67,6 +67,4 @@
 </html>
 
 
-<a href="index.php">home</a>
-<a href="account.php">back</a>
 

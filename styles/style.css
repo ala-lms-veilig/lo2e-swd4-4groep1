@@ -655,10 +655,10 @@ main {
 }
 
 
-/* user acount */
+
 
 /* user account */
-.container {
+.adminsws {
   padding: 20px;
   background-color: #f5f5f5;
   border-radius: 8px;
@@ -761,12 +761,7 @@ main {
 .add-user-button:hover {
   background-color: #45a049;
 }
-body.admin-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-}
+
 
 .admin-title {
   text-align: center;

@@ -8,21 +8,6 @@ function countAdmins($conn) {
     return $row['rol_id'];
 }
 
-// Controleer het aantal admins voordat je een gebruiker verwijdert of de rol wijzigt
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $userId = $_POST['user_id'];
-    $newRoleId = $_POST['rol_id'];
-
-    if ($newRoleId != 1 && countAdmins($conn) <= 1) {
-        $message = "Er moet minstens één admin zijn.";
-    } else {
-        // Voer de update of delete query uit
-        $stmt = $conn->prepare('UPDATE gebruikers SET rol_id = ? WHERE user_id = ?');
-        $stmt->bind_param('ii', $newRoleId, $userId);
-        $stmt->execute();
-        $message = "Gebruiker succesvol bijgewerkt.";
-    }
-}
 
 // Maak een nieuwe databaseverbinding
 $database = new Database();
