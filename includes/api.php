@@ -4,24 +4,23 @@ require 'dbconnect.php';
 
 header('Content-Type: application/json');
 $action = isset($_GET['action']) ? $_GET['action'] : null;
-$id = isset($_GET['id']) ? $_GET['id'] : null;
 
 if ($action === 'showIncidents') {
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
     if ($id == null) {
         try {
-            $stmt = $conn->prepare("SELECT i.*, c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id ORDER BY priority ASC");
-            $stmt->execute();
-
-            $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (in_array("view_incidents", $_SESSION['rights'])) {
-                echo json_encode($incidents);
-            } else {
-                $stmt = $conn->prepare("SELECT i.* , c.name, s.name FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE user_id = :userID");
-                $stmt->bindParam(':userID', $_SESSION['userID']);
+                $stmt = $conn->prepare("SELECT i.*, c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.id JOIN statuses s ON i.status_id = s.id ORDER BY priority ASC");
                 $stmt->execute();
 
                 $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                echo json_encode($incidents);
+            } else {
+                $stmt = $conn->prepare("SELECT i.* , c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.id JOIN statuses s ON i.status_id = s.id WHERE user_id = :userID");
+                $stmt->bindParam(':userID', $_SESSION['userID']);
+                $stmt->execute();
 
+                $incidents = $stmt->fetchAll(PDO::FETCH_ASSOC);;
                 echo json_encode($incidents);
             }
         } catch (PDOException $e) {
@@ -30,7 +29,7 @@ if ($action === 'showIncidents') {
         }
     } else {
         try {
-            $stmt = $conn->prepare("SELECT i.*, c.name as category, s.name as status FROM incidents i JOIN categories c ON i.category_id = c.category_id JOIN statuses s ON i.status_id = s.status_id WHERE i.id = :id ORDER BY priority ASC");
+            $stmt = $conn->prepare("SELECT i.*, DATE_FORMAT(i.create_date,'%d-%m-%Y %H:%m') create_date, DATE_FORMAT(i.last_updated,'%d-%m-%Y %H:%m') last_updated, u.first_name name, c.name category, s.name status FROM incidents i JOIN categories c ON i.category_id = c.id JOIN statuses s ON i.status_id = s.id JOIN users u ON u.id = i.user_id WHERE i.id = :id ORDER BY priority ASC");
             $stmt->bindParam(':id', $id);
             $stmt->execute();
 
@@ -46,8 +45,8 @@ if ($action === 'showIncidents') {
 if ($action === 'createIncident') {
     $data = json_decode(file_get_contents('php://input'), true);
     try {
-        $sql = "INSERT INTO incidents (user_id, priority, category, title, media, description, tower, floor, class_area, status) 
-                VALUES (:user_id, :priority, :category, :title, :media, :description, :tower, :floor, :class_area, :status)";
+        $sql = "INSERT INTO incidents (user_id, priority, category_id, title, media, description, tower, floor, class_area) 
+                VALUES (:user_id, :priority, :category, :title, :media, :description, :tower, :floor, :class_area)";
         $stmt = $conn->prepare($sql);
 
         $stmt->bindParam(':user_id', $_SESSION['userID'], PDO::PARAM_INT);
@@ -59,10 +58,9 @@ if ($action === 'createIncident') {
         $stmt->bindParam(':tower', $data['tower'], PDO::PARAM_STR);
         $stmt->bindParam(':floor', $data['floor'], PDO::PARAM_INT);
         $stmt->bindParam(':class_area', $data['class_area'], PDO::PARAM_STR);
-        $stmt->bindParam(':status', $data['status'], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
-            echo json_encode(['success' => true, 'message' => 'Incident created successfully']);
+            echo json_encode(['success' => true, 'message' => 'Incident created successfully', 'newIncidentID' => $conn->lastInsertId()]);
         } else {
             echo json_encode(['error' => 'Failed to create incident']);
             http_response_code(500);
@@ -80,7 +78,6 @@ if ($action === 'createIncident') {
 if ($action === "login") {
     $email = $_POST['email'];
     $password = $_POST['password'];
-
     try {
         $stmt = $conn->prepare("SELECT id, first_name, e_mail, password, role_id FROM users WHERE e_mail = :email AND password = :password");
         $stmt->bindParam(':email', $email);
@@ -93,7 +90,9 @@ if ($action === "login") {
             $_SESSION['firstName'] = $user['first_name'];
             $_SESSION['roleID'] = $user['role_id'];
 
-            $stmt = $conn->prepare("SELECT r.name FROM roles_rights rr JOIN rights r ON rr.right_id = r.id WHERE rr.role_id = :roleID");
+            $stmt = $conn->prepare("WITH RECURSIVE role_hierarchy AS (SELECT id AS role_id, parent_role_id FROM roles WHERE id = :roleID UNION ALL SELECT r.id AS role_id, r.parent_role_id FROM roles r INNER JOIN role_hierarchy rh ON r.parent_role_id = rh.role_id)
+            SELECT DISTINCT rights.name AS right_name FROM role_hierarchy INNER JOIN roles_rights rr ON role_hierarchy.role_id = rr.role_id INNER JOIN rights ON rr.right_id = rights.id ORDER BY rights.name;");
+
             $stmt->bindParam(':roleID', $user['role_id']);
             $stmt->execute();
             $_SESSION['rights'] = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -133,18 +132,62 @@ if ($action === 'deleteIncident') {
 }
 
 if ($action === 'getChatMessages') {
+    $incidentID = isset($_GET['id']) ? $_GET['id'] : null;
+    $loggedInUserID = $_SESSION['userID'];
     try {
-        $incidentID = $_GET['id'];
-        $stmt = $conn->prepare("SELECT ir.*, CONCAT(u.first_name, ' ', u.particle, ' ', u.last_name) AS fullName FROM incident_replies ir JOIN users u ON ir.user_id = u.id WHERE ir.incident_id = :incident_id ORDER BY create_date ASC");
-        $stmt->bindParam(':incident_id', $incidentID);
-        $stmt->execute();
+        if ($incidentID == null) {
+            $stmt = $conn->prepare("SELECT u.first_name name, r.name role, ir.user_id, ir.message FROM incident_replies ir JOIN users u ON ir.user_id = u.id JOIN roles r ON u.role_id = r.id ORDER BY ir.create_date;");
+            $stmt->execute();
 
-        $replies = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($replies);
+            $replies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            echo json_encode($replies);
+        } else {
+            $stmt = $conn->prepare("WITH RECURSIVE role_hierarchy AS (SELECT r.id AS role_id, r.parent_role_id FROM roles r JOIN roles_rights rr ON r.id = rr.role_id JOIN rights rt ON rr.right_id = rt.id WHERE rt.name = 'send_staff_messages' UNION ALL
+            SELECT r.id AS role_id, r.parent_role_id FROM roles r INNER JOIN role_hierarchy rh ON rh.parent_role_id = r.id)
+            SELECT DISTINCT u.id AS user_id FROM users u JOIN role_hierarchy rh ON u.role_id = rh.role_id ORDER BY u.id;");
+            $stmt->execute();
+
+            $staffMessagesUserIDs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt = $conn->prepare("SELECT u.first_name name, r.name role, ir.user_id, ir.message, ir.create_date time FROM incident_replies ir JOIN users u ON ir.user_id = u.id JOIN roles r ON u.role_id = r.id WHERE ir.incident_id = :incident_id ORDER BY ir.create_date;");
+            $stmt->bindParam(':incident_id', $incidentID, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $replies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            echo json_encode(['message' => $replies, 'loggedInUserID' => $_SESSION['userID'], 'staffMessagesUserIDs' => $staffMessagesUserIDs]);
+        }
     } catch (PDOException $e) {
         http_response_code(500);
         echo json_encode(['error' => 'Failed to fetch incidents: ' . $e->getMessage()]);
     }
 }
 
+if ($action === 'sendChatMessage') {
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    try {
+        $sql = "INSERT INTO incident_replies (incident_id, user_id, message, media)
+                VALUES (:incident_id, :user_id, :message, 'test')";
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindParam(':incident_id', $data['incidentID'], PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $_SESSION['userID'], PDO::PARAM_INT);
+        $stmt->bindParam(':message', $data['message'], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            echo json_encode(['success' => true, 'message' => 'Message successfully sent']);
+        } else {
+            echo json_encode(['error' => 'Failed to send message']);
+            http_response_code(500);
+        }
+
+    } catch (PDOException $e) {
+        echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+        http_response_code(500);
+    } catch (Exception $e) {
+        echo json_encode(['error' => 'An unexpected error occurred: ' . $e->getMessage()]);
+        http_response_code(500);
+    }
+}
 ?>

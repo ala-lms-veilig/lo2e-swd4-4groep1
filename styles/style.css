@@ -3,7 +3,75 @@
 /*
 *  html5resetcss
 */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -17,7 +85,17 @@ body {
   line-height: 1;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -25,11 +103,15 @@ nav ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: none;
 }
 
@@ -58,7 +140,8 @@ del {
   text-decoration: line-through;
 }
 
-abbr[title], dfn[title] {
+abbr[title],
+dfn[title] {
   border-bottom: 1px dotted;
   cursor: help;
 }
@@ -77,7 +160,8 @@ hr {
   padding: 0;
 }
 
-input, select {
+input,
+select {
   vertical-align: middle;
 }
 
@@ -88,25 +172,22 @@ input, select {
   font-family: "Montserrat";
 }
 
-html, body {
+html,
+body {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-html body, body body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
 
 header {
-  width: 100vw;
   height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f5f5f5;
-  padding: 15px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+  padding: 0px 20px;
+  z-index: 1;
+  box-shadow: 0 -5px 10px 2px black;
 }
 header .logo a {
   display: flex;
@@ -116,9 +197,14 @@ header .logo a h1 {
   font-size: 24px;
   color: #333;
 }
+header div {
+  height: 100%;
+}
+header div a {
+  height: 100%;
+}
 header div a .logo-img {
-  height: auto;
-  padding: 10px;
+  height: 80%;
 }
 header nav ul {
   list-style: none;
@@ -139,20 +225,16 @@ header nav ul li a {
 header nav ul li a:hover {
   background-color: #a30722;
 }
-header nav ul li:nth-child(4) a {
-  padding: 15px 20px;
-  font-size: 0.9rem;
-}
 
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: #333;
   padding: 15px 20px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-size: 0.875rem;
+  color: white;
 }
 footer > * {
   margin: 0 10px;
@@ -237,6 +319,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #333;
 }
 
 #news_main {
@@ -302,6 +385,61 @@ main {
   margin: 20px;
 }
 
+#main-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inlog {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+#inlog h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginForm label {
+  color: #555;
+}
+
+#email,
+#password {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-login {
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-login:hover {
+  background-color: #0056b3;
+}
+
+#message {
+  margin-top: 20px;
+  color: red;
+}
+
 #melding-maken_main {
   background-color: #333;
 }
@@ -338,12 +476,19 @@ main {
   border: 1px solid black;
   width: 60%;
 }
-#news_admin_main form article:nth-child(1), #news_admin_main form article:nth-child(2), #news_admin_main form article:nth-child(3) {
+#news_admin_main form article:nth-child(1),
+#news_admin_main form article:nth-child(2),
+#news_admin_main form article:nth-child(3) {
   display: flex;
   flex-direction: column;
   padding: 1%;
 }
-#news_admin_main form article:nth-child(1) input, #news_admin_main form article:nth-child(1) textarea, #news_admin_main form article:nth-child(2) input, #news_admin_main form article:nth-child(2) textarea, #news_admin_main form article:nth-child(3) input, #news_admin_main form article:nth-child(3) textarea {
+#news_admin_main form article:nth-child(1) input,
+#news_admin_main form article:nth-child(1) textarea,
+#news_admin_main form article:nth-child(2) input,
+#news_admin_main form article:nth-child(2) textarea,
+#news_admin_main form article:nth-child(3) input,
+#news_admin_main form article:nth-child(3) textarea {
   margin-bottom: 20px;
   width: 100%;
   padding: 10px;
@@ -403,7 +548,8 @@ main {
   font-size: 16px;
   text-align: left;
 }
-#news_admin_main table th, #news_admin_main table td {
+#news_admin_main table th,
+#news_admin_main table td {
   padding: 12px 15px;
   border: 1px solid #ddd;
 }
@@ -412,27 +558,34 @@ main {
   color: #333;
   font-weight: bold;
 }
-#news_admin_main table th:nth-child(1), #news_admin_main table td:nth-child(1) {
+#news_admin_main table th:nth-child(1),
+#news_admin_main table td:nth-child(1) {
   width: 5%;
 }
-#news_admin_main table th:nth-child(2), #news_admin_main table td:nth-child(2) {
+#news_admin_main table th:nth-child(2),
+#news_admin_main table td:nth-child(2) {
   width: 10%;
 }
-#news_admin_main table th:nth-child(3), #news_admin_main table td:nth-child(3) {
+#news_admin_main table th:nth-child(3),
+#news_admin_main table td:nth-child(3) {
   width: 20%;
 }
-#news_admin_main table th:nth-child(4), #news_admin_main table td:nth-child(4) {
+#news_admin_main table th:nth-child(4),
+#news_admin_main table td:nth-child(4) {
   width: auto;
 }
-#news_admin_main table th:nth-child(5), #news_admin_main table th:nth-child(6),
-#news_admin_main table td:nth-child(5), #news_admin_main table td:nth-child(6) {
+#news_admin_main table th:nth-child(5),
+#news_admin_main table th:nth-child(6),
+#news_admin_main table td:nth-child(5),
+#news_admin_main table td:nth-child(6) {
   width: 5%;
 }
 #news_admin_main table td img {
   max-width: 80px;
   height: auto;
 }
-#news_admin_main table button.update_button, #news_admin_main table button.delete_button {
+#news_admin_main table button.update_button,
+#news_admin_main table button.delete_button {
   padding: 5px 10px;
   font-size: 16px;
   border: none;
@@ -444,7 +597,10 @@ main {
   width: 100%;
   height: 40px;
 }
-#news_admin_main table button.update_button button.update_button:hover, #news_admin_main table button.update_button button.delete_button:hover, #news_admin_main table button.delete_button button.update_button:hover, #news_admin_main table button.delete_button button.delete_button:hover {
+#news_admin_main table button.update_button button.update_button:hover,
+#news_admin_main table button.update_button button.delete_button:hover,
+#news_admin_main table button.delete_button button.update_button:hover,
+#news_admin_main table button.delete_button button.delete_button:hover {
   background-color: #f1f1f1;
 }
 
@@ -497,9 +653,10 @@ main {
   font-size: 20px;
   font-family: "Montserrat";
   font-weight: bold;
+  color: #ec4a67;
 }
 
-.new-incident-input {
+#media-input {
   height: 4vh;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -509,6 +666,7 @@ main {
   font-family: "Montserrat";
   padding-left: 3px;
   font-size: 100%;
+  display: none;
 }
 
 #new-incident-media-button {
@@ -525,10 +683,26 @@ main {
   overflow: hidden;
   font-family: "Montserrat";
   font-size: 100%;
+  color: #333;
+  display: flex;
+  align-items: center;
 }
 
-#new-incident-media-input {
-  display: none;
+.new-incident-input {
+  background-color: white;
+  height: 4vh;
+  padding-left: 3px;
+  border-radius: 5px;
+  font-weight: normal;
+  font-family: "Montserrat";
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  width: 100%;
+  overflow: hidden;
+  font-family: "Montserrat";
+  font-size: 100%;
 }
 
 #new-incident-description-container {
@@ -543,14 +717,27 @@ main {
 
 #new-incident-description-input {
   height: 100%;
+  text-align: start;
+  padding: 5px;
 }
 
 #new-incident-button {
-  padding: 10px 20px;
   height: 15%;
   width: 20%;
   align-self: center;
   font-family: "Montserrat";
+  display: inline-block;
+  background-color: #d90429;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+  border: none;
+  font-size: 2cqh;
+}
+#new-incident-button:hover {
+  background-color: #a30722;
 }
 
 #new-incident-media-input-container {
@@ -587,6 +774,84 @@ main {
   row-gap: 10px;
 }
 
+#filters-container {
+  display: flex;
+  flex: 1;
+}
+#filters-container #filter-form {
+  display: flex;
+  align-items: center;
+  padding-right: 10vw;
+  justify-content: space-between;
+  flex: 1;
+  color: white;
+}
+#filters-container #filter-form .filter-column .filter-label {
+  font-size: 15px;
+}
+#filters-container #filter-form .filter-column .filter-input {
+  background-color: white;
+  padding-left: 3px;
+  border: none;
+  border-radius: 5px;
+  font-weight: normal;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  overflow: hidden;
+  font-family: "Montserrat";
+  font-size: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  background-color: white;
+  color: black;
+  padding: 2px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px black;
+}
+
+.dropdown-menu input[type=checkbox] {
+  margin-right: 10px;
+  color: black;
+}
+
+.dropdown-menu label {
+  display: block;
+  cursor: pointer;
+  color: black;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 #incidents-container {
   display: flex;
   flex-direction: column;
@@ -608,6 +873,7 @@ main {
   flex-direction: column;
   font-family: "Montserrat";
   font-size: 14px;
+  row-gap: 10px;
 }
 
 .column-title {
@@ -617,34 +883,40 @@ main {
   min-width: 15ch;
   font-family: "Montserrat";
   font-size: 14px;
+  row-gap: 10px;
 }
 
 .column-description {
-  display: block;
+  display: flex;
   flex-direction: column;
   flex: 1;
   font-family: "Montserrat";
   font-size: 14px;
+  row-gap: 10px;
 }
 
 .column-category {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
 }
 
 .column-priority {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
 }
 
 .column-actions {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
 }
 
 .column-status {
   display: flex;
   flex-direction: column;
+  row-gap: 10px;
 }
 
 .incident-button {
@@ -671,11 +943,12 @@ main {
   font-weight: normal;
   font-size: 14px;
   color: #ec4a67;
-  height: 25px;
   overflow: hidden;
   white-space: nowrap;
   text-wrap: nowrap;
   text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
 }
 
 .incident-titles {
@@ -719,17 +992,23 @@ main {
 
 #melding-aanmaken-button {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: red;
+  background-color: #d90429;
   color: white;
   text-decoration: none;
   border-radius: 5px;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease;
+}
+#melding-aanmaken-button:hover {
+  background-color: #a30722;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(5, 125px); /* Adjust based on your grid */
-  grid-template-rows: repeat(13, 25px); /* Adjust based on row needs */
+  grid-template-columns: repeat(5, 125px);
+  /* Adjust based on your grid */
+  grid-template-rows: repeat(13, 25px);
+  /* Adjust based on row needs */
 }
 
 /* Define cell colors */
@@ -761,17 +1040,24 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
 }
 
 .blueprint-title {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-weight: bold;
 }
 
 #main-incident-page {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 #main-incident-page #incident-info-container {
   display: flex;
@@ -825,7 +1111,23 @@ main {
 #main-incident-page #incident-info-container #single-incident-details-container .single-incident-detail-container .single-incident-details-text {
   margin-left: 3px;
 }
+#main-incident-page #incident-info-container #single-incident-details-container #single-incident-edit-button-container {
+  flex: 1;
+}
+#main-incident-page #incident-info-container #single-incident-details-container #single-incident-edit-button-container #single-incident-edit-button {
+  width: 50%;
+  padding: 0px 10px;
+  text-decoration: none;
+  background-color: #d90429;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: none;
+}
 #main-incident-page #chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
   width: 20vw;
   margin: 35px;
   border: solid black 1px;
@@ -846,35 +1148,129 @@ main {
 #main-incident-page #chat-container #chat-top-bar-text {
   font-size: 16px;
 }
-#main-incident-page #chat-container #chat-messages-container .message.own {
+#main-incident-page #chat-container #chat-messages-container-reverse {
+  display: flex;
+  flex-direction: column-reverse;
+  flex: 1;
+  overflow: auto;
+}
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container {
+  display: flex;
+  flex-direction: column;
+}
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message-date {
+  padding: 5px;
+  text-align: center;
+}
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message.own {
   padding: 10px;
   padding-left: 30%;
 }
-#main-incident-page #chat-container #chat-messages-container .message.own .chat-name {
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message.own .chat-message-details {
+  display: flex;
+  flex-direction: row-reverse;
+  -moz-column-gap: 3px;
+       column-gap: 3px;
+}
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message.own .chat-message-details .chat-name {
   justify-self: flex-end;
 }
-#main-incident-page #chat-container #chat-messages-container .message.own .chat-message {
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message.own .chat-message {
   background-color: gray;
   border-radius: 7.5px;
   -webkit-border-radius: 7.5px;
   -moz-border-radius: 7.5px;
   -ms-border-radius: 7.5px;
   -o-border-radius: 7.5px;
-  padding: 5px;
+  padding: 5px 10px;
   justify-self: flex-end;
+  width: -moz-fit-content;
+  width: fit-content;
 }
-#main-incident-page #chat-container #chat-messages-container .message {
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message {
   padding: 10px;
   padding-right: 30%;
 }
-#main-incident-page #chat-container #chat-messages-container .message .chat-message {
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message .chat-message-details {
+  display: flex;
+  flex-direction: row;
+  -moz-column-gap: 3px;
+       column-gap: 3px;
+}
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message .chat-message-details .chat-time {
+  font-size: 70%;
+  align-self: flex-end;
+}
+#main-incident-page #chat-container #chat-messages-container-reverse #chat-messages-container .message .chat-message {
   background-color: gray;
   border-radius: 7.5px;
   -webkit-border-radius: 7.5px;
   -moz-border-radius: 7.5px;
   -ms-border-radius: 7.5px;
   -o-border-radius: 7.5px;
-  padding: 5px;
+  padding: 5px 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#main-incident-page #chat-container #message-media-path-container {
+  height: 3vh;
+  display: none;
+  border-top: solid black 1px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#main-incident-page #chat-container #message-media-path-container #media-delete-button {
+  height: 100%;
+  width: auto;
+}
+#main-incident-page #chat-container #message-media-path-container #media-delete-button img {
+  height: 100%;
+  width: auto;
+}
+#main-incident-page #chat-container #message-input-container {
+  height: 5vh;
+  border-top: solid black 1px;
+}
+#main-incident-page #chat-container #message-input-container #message-input-form {
+  display: flex;
+}
+#main-incident-page #chat-container #message-input-container #message-input-form #message-media-input-container {
+  height: 5vh;
+  width: 5vh;
+}
+#main-incident-page #chat-container #message-input-container #message-input-form #message-media-input-container #media-button {
+  height: 5vh;
+  display: flex;
+  border: none;
+  border-right: solid black 1px;
+  justify-content: center;
+  align-items: center;
+  width: 5vh;
+  font-weight: lighter;
+  font-family: "Montserrat";
+  width: 100%;
+  overflow: hidden;
+  font-family: "Montserrat";
+  font-size: 2rem;
+}
+#main-incident-page #chat-container #message-input-container #message-input-form #message-media-input-container #media-input {
+  display: none;
+}
+#main-incident-page #chat-container #message-input-container #message-input-form #message-media-input-container #media-delete-button {
+  display: none;
+}
+#main-incident-page #chat-container #message-input-container #message-input-form #message-input {
+  all: unset;
+  flex: 1;
+}
+#main-incident-page #chat-container #message-input-container #message-input-form #message-send-button {
+  height: 5vh;
+  width: 5vh;
+  background: none;
+  border: none;
+  border-left: solid black 1px;
+  font-size: 2rem;
+  font-weight: lighter;
 }
 
 @media (max-width: 960px) {

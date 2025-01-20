@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body onload="showIncidents()" >
-    
     <?php require 'includes/header.php';
     require './includes/auth.php';
     ?>
@@ -51,7 +50,46 @@
         <section id="main-container">
             <section id="melding-top">
                 <article id="filters-container">
-
+                    <form id="filter-form">
+                        <section class="filter-column">
+                            <div class="dropdown">
+                                <button class="dropdown-button">Prioriteit<h1>⯆</h1></button>
+                                <div class="dropdown-menu">
+                                    <label><input type="checkbox" value="Option 1">Prioriteit 1</label>
+                                    <label><input type="checkbox" value="Option 2">Prioriteit 2</label>
+                                    <label><input type="checkbox" value="Option 3">Prioriteit 3</label>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="filter-column">
+                            <div class="dropdown">
+                                <button class="dropdown-button">Categorie<h1>⯆</h1></button>
+                                <div class="dropdown-menu">
+                                    <label><input type="checkbox" value="Option 1">ICT</label>
+                                    <label><input type="checkbox" value="Option 2">Sanitair</label>
+                                    <label><input type="checkbox" value="Option 3">Helpdesk</label>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="filter-column">
+                            <div class="dropdown">
+                                <button class="dropdown-button">Status<h1>⯆</h1></button>
+                                <div class="dropdown-menu">
+                                    <label><input type="checkbox" value="Option 1">Open</label>
+                                    <label><input type="checkbox" value="Option 2">In Progress</label>
+                                    <label><input type="checkbox" value="Option 3">Closed</label>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="filter-column">
+                            <label class="filter-label" for="filter-date-start">Na:</label>
+                            <input class="filter-input" type="date" id="filter-date-start" name="date_start">
+                        </section>
+                        <section class="filter-column">
+                            <label class="filter-label" for="filter-date-end">Voor:</label>
+                            <input class="filter-input" type="date" id="filter-date-end" name="date_end">
+                        </section>
+                    </form>
                 </article>
                 <article id="melding-aanmaken-container">
                     <a id="melding-aanmaken-button" href="plattegrond.php">Nieuwe melding</a>

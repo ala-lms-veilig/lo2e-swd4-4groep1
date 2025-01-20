@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/styling-v2.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="index-body">
     <?php require_once 'includes/header.php'; ?>
