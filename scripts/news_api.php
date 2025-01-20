@@ -12,6 +12,7 @@ $jsonFile = 'api/news.json';
 $newsManager = new NewsManager($host, $dbname, $username, $password, $jsonFile);
 
 header('Content-Type: application/json');
+header('Allow: POST, PATCH, DELETE');
 
 
 $method = $_SERVER['REQUEST_METHOD'];
