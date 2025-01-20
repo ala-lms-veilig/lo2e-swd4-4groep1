@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "vraag": "Wat is uw favoriete kleur?",
+        "type": "radio",
+        "opties": "Rood,Blauw,Groen"
+    },
+    {
+        "id": "8",
+        "vraag": "wat is tim?",
+        "type": "radio",
+        "opties": "tim,tata,wit,jongen, they\/them"
+    }
+]
