@@ -1,4 +1,49 @@
 // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
+// If server doesn't work use newsInfo.newsInfo
+// api/news.json & newsInfo.news
+
+// Table contents from json file //
+async function showNewsInfo() {
+    const response = await fetch('api/news.json');
+    const jsonData = await response.json();
+    const { news } = jsonData;
+
+    console.log(news);
+
+    const template = document.getElementById("news_template");
+    const newsTable = document.getElementById("news_table");
+
+
+    for (let newsItem of news) {
+        const clone = template.content.cloneNode(true);
+
+        const id        = clone.querySelector(".news_id");
+        const img       = clone.querySelector(".news_img");
+        const title     = clone.querySelector(".news_title");
+        const text      = clone.querySelector(".news_text");
+
+        const updateBtn = clone.querySelector(".update_button");
+        const deleteBtn = clone.querySelector(".delete_button");
+
+         // For the delete visual
+        clone.querySelector("tr").setAttribute("data-id", newsItem.id);
+
+        id.innerHTML        = newsItem.id;
+        img.innerHTML       = `<img src="images/${newsItem.img}" alt="${newsItem.title}">`;
+        title.innerHTML     = newsItem.title;
+        text.innerHTML      = newsItem.txt;
+
+        updateBtn.addEventListener("click", function() { 
+            updateNewsForm(newsItem.id, newsItem.img, newsItem.title, newsItem.txt);
+        });
+        deleteBtn.addEventListener("click", function() { 
+            deleteNews(newsItem.id); 
+        });
+
+        newsTable.appendChild(clone);
+    }
+}
+/*
 async function showNewsInfo() {
     const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news`);
     const newsInfo = await response.json();
@@ -6,9 +51,9 @@ async function showNewsInfo() {
     console.log(newsInfo);
 
     const template = document.getElementById("news_template");
-    const container = document.getElementById("news_table");
+    const newsTable = document.getElementById("news_table");
 
-    // If server doesn't work use newsInfo.newsInfo
+    
     for (let news of newsInfo) {
         const clone = template.content.cloneNode(true);
 
@@ -20,6 +65,8 @@ async function showNewsInfo() {
         const updateBtn = clone.querySelector(".update_button");
         const deleteBtn = clone.querySelector(".delete_button");
 
+        // For the delete visual
+        clone.querySelector("tr").setAttribute("data-id", news.id);
 
         id.innerHTML        = news.id;
         img.innerHTML       = `<img src="images/${news.img}" alt="${news.title}">`;
@@ -29,20 +76,53 @@ async function showNewsInfo() {
         updateBtn.addEventListener("click", function() {updateNewsForm(news.id, news.img, news.title, news.txt);});
         deleteBtn.addEventListener("click", function() {deleteNews(news.id);});
 
-        container.appendChild(clone);
+        newsTable.appendChild(clone);
     }
 }
+*/
 
-async function updateNewsForm(id, img, title, text) {
+showNewsInfo();
+
+// Create button //
+
+function createNewsForm() {
+    const form = document.getElementById("news_form");
+    form.style.display = "block";
+
+    const newsImgInput = document.getElementById("news_img_input");
+    const newsTitleInput = document.getElementById("news_title_input");
+    const newsTextInput = document.getElementById("news_text_input");
+
+    newsImgInput.value = '';  
+    newsTitleInput.value = '';
+    newsTextInput.value = ''; 
+
+    newsImgInput.disabled = false;
+    newsTitleInput.disabled = false;
+    newsTextInput.disabled = false;
+
+    const newsIdInput = document.getElementById("news_id_input");
+    newsIdInput.value = '';
+}
+
+const createBtn = document.querySelector("#create_button");
+createBtn.addEventListener("click", createNewsForm);
+
+///////////////////
+// Table buttons //
+///////////////////
+
+// Update button //
+function updateNewsForm(id, img, title, text) {
     console.log(id);
 
     const form = document.getElementById("news_form");
 
     form.style.display = "block";
 
-    const newsImgInput = document.getElementById("news_img_input")
-    const newsTitleInput = document.getElementById("news_title_input")
-    const newsTextInput = document.getElementById("news_text_input")
+    const newsImgInput = document.getElementById("news_img_input");
+    const newsTitleInput = document.getElementById("news_title_input");
+    const newsTextInput = document.getElementById("news_text_input");
 
     newsImgInput.disabled = false;
     newsTitleInput.disabled = false;
@@ -52,18 +132,112 @@ async function updateNewsForm(id, img, title, text) {
     newsTitleInput.value = title;
     newsTextInput.value = text;
 
-    //Where to store id, to give to the OK button.
+    const newsIdInput = document.getElementById("news_id_input");
+    newsIdInput.value = id;
 }
 
+// Delete button //
 async function deleteNews(id) {
     console.log(id);
+
+    const response = await fetch(`api/NewsManager.php${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }); 
+
+    if (response.ok) {
+        console.log(`id ${id} deleted successfully.`);
+
+        // For the delete visual
+        const rowToDelete = document.querySelector(`tr[data-id='${id}']`);
+            if (rowToDelete) {
+                rowToDelete.remove();
+            }
+    } else {
+        console.log(`Failed to delete id ${id}.`);
+    }
 }
 
-async function createNewsForm() {
-    console.log(created);
+//////////////////
+// Form buttons //
+//////////////////
+
+// Cancel button //
+
+function cancelForm() {
+    const form = document.getElementById("news_form");
+    form.style.display = "none";
+
+
+    const newsImgInput = document.getElementById("news_img_input");
+    const newsTitleInput = document.getElementById("news_title_input");
+    const newsTextInput = document.getElementById("news_text_input");
+
+    newsImgInput.value = '';
+    newsTitleInput.value = '';
+    newsTextInput.value = '';
+
+    newsImgInput.disabled = true;
+    newsTitleInput.disabled = true;
+    newsTextInput.disabled = true;
+
+
+    const newsIdInput = document.getElementById("news_id_input");
+    if (newsIdInput) {
+        newsIdInput.value = '';
+    }
 }
 
-//const createBtn = document.querySelector(".create_button");
-//createBtn.addEventListener("click", createNewsForm);
+const cancelBtn = document.querySelector("#cancel_button");
+cancelBtn.addEventListener("click", cancelForm);
 
-showNewsInfo();
+// Submit button //
+
+async function submitForm() {
+    const form = document.getElementById('news_form');
+    const formData = {
+        id:     form.news_id_input.value,  
+        img:    form.news_img_input.value, 
+        naam:   form.news_title_input.value, 
+        txt:    form.news_text_input.value, 
+    };
+    
+    console.log(formData.id);
+    let response;
+
+    if (formData.id) {
+        response = await fetch('../api/news_api.php', {
+            method: 'PATCH',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+    } else {
+        response = await fetch('../api/news_api.php', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+    }
+
+    const record = await response.json();
+    console.log(record);
+
+    cancelForm();
+
+    const newsTable = document.getElementById("news_table");
+    let rows = newsTable.querySelectorAll("tr:not(:first-child)");
+    for (let i = 0; i < rows.length; i++) {
+        rows[i].remove();
+    }
+
+    showNewsInfo();
+}
+
+const okBtn = document.querySelector("#ok_button");
+okBtn.addEventListener("click", submitForm);

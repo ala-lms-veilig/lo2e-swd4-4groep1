@@ -5,86 +5,316 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-html body,
-body body {
+html body, body body {
   font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #58bccc;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+header .logo a {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: #58bccc;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+header .logo a:hover {
+  background-color: #a30722;
+}
+header .logo a img {
+  width: 11vw;
+  height: auto;
+}
+header .logo a h1 {
+  font-size: 24px;
+  color: #333;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+header nav ul li {
+  display: inline;
+}
+header nav ul li a {
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #d90429;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+header nav ul li a:hover {
+  background-color: #a30722;
+}
+header nav ul li:nth-child(4) a {
+  padding: 15px 20px;
+  font-size: 0.9rem;
+}
 
-
-
-/* index page  */
-#index_main {
-  flex: 1;
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #58bccc;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 0.875rem;
+}
+footer p {
+  color: white;
+}
+footer > * {
+  margin: 0 10px;
 }
 
-.main-tile {
+main {
+  flex: 1;
+}
+
+#index_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
   text-align: center;
 }
-
-.main-tile h1 {
-  font-size: 2em;
+#index_main section {
+  max-width: 600px;
+  width: 100%;
+}
+#index_main section p {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #333;
+}
+#index_main section article {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   margin-bottom: 20px;
 }
-
-a#meldingMaken, a#incidentenBekijken, a#enquête {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: red;
-  color: white;
-  text-align: center;
-  text-decoration: none;
+#index_main section article #meldingMaken {
+  width: 150px;
+  height: 45px;
+  padding: 10px 30px;
+  background-color: #d90429;
+  color: #f5f5f5;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+#index_main section article #meldingMaken:hover {
+  background-color: #a30722;
+}
+#index_main section article #incidentenBekijken {
+  width: 150px;
+  height: 45px;
+  padding: 10px 30px;
+  background-color: #d90429;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+#index_main section article #incidentenBekijken:hover {
+  background-color: #a30722;
+}
+#index_main section #enquête {
+  width: 150px;
+  height: 50px;
+  padding: 10px 30px;
+  background-color: #d90429;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
-a#meldingMaken:hover, a#incidentenBekijken:hover, a#enquête:hover {
-  background-color: darkred;
+
+
+#index_main section #enquête:hover {
+  background-color: #a30722;
 }
 
-.main-tile article {
+#plattegrond_main {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
-#enquête {
-  display: block;
-  margin: 10px auto;
+#news_main {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align: start;
+  margin: 0 auto;
+  padding: 5vh 0vh;
 }
-.news-admin-main {
+#news_main section {
+  margin: 2vh 2vw;
+  max-width: 600px;
+  width: 100%;
+  border: 2px solid black;
+  padding: 1vh 1vw;
+}
+#news_main section div {
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  border: 2px solid black;
+}
+#news_main section div img {
+  max-width: 100%;
+  height: auto;
+}
+
+#contact_main {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  text-align: start;
+  margin: 0 auto;
+  padding: 5vh 0vh;
+}
+#contact_main section {
+  margin: 2vh 2vw;
+  max-width: 600px;
+  width: 100%;
+  padding: 1vh 1vw;
+}
+#contact_main section div {
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  border: 2px solid black;
+}
+#contact_main section div img {
+  max-width: 100%;
+  height: auto;
+}
+#contact_main section article {
+  margin: 20px;
+}
+#contact_main section article div {
+  border: 0;
+  display: contents;
+  margin: 20px;
+}
+
+#melding-maken_main {
+  background-color: #333;
+}
+
+#meldingen_main {
+  background-color: #333;
+}
+
+#enquêtes_main {
+  padding: 10% 0%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.news-admin-main form {
+
+#account_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#inlog_main {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 400px;
+  text-align: center;
+  margin: 50px auto;
+}
+#inlog_main h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+#inlog_main form {
+  display: flex;
+  flex-direction: column;
+}
+#inlog_main form label {
+  color: #555;
+}
+#inlog_main form input[type=text], #inlog_main form input[type=password] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#inlog_main form .button-login {
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#inlog_main form .button-login:hover {
+  background-color: #0056b3;
+}
+#inlog_main #message {
+  margin-top: 20px;
+  color: red;
+}
+
+#news_admin_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#news_admin_main form {
   margin: 2% 0%;
   padding: 1%;
   border: 1px solid black;
   width: 60%;
 }
-.news-admin-main form article:nth-child(1),
-.news-admin-main form article:nth-child(2),
-.news-admin-main form article:nth-child(3) {
+#news_admin_main form article:nth-child(1), #news_admin_main form article:nth-child(2), #news_admin_main form article:nth-child(3) {
   display: flex;
   flex-direction: column;
   padding: 1%;
 }
-.news-admin-main form article:nth-child(1) input,
-.news-admin-main form article:nth-child(1) textarea,
-.news-admin-main form article:nth-child(2) input,
-.news-admin-main form article:nth-child(2) textarea,
-.news-admin-main form article:nth-child(3) input,
-.news-admin-main form article:nth-child(3) textarea {
+#news_admin_main form article:nth-child(1) input, #news_admin_main form article:nth-child(1) textarea, #news_admin_main form article:nth-child(2) input, #news_admin_main form article:nth-child(2) textarea, #news_admin_main form article:nth-child(3) input, #news_admin_main form article:nth-child(3) textarea {
   margin-bottom: 20px;
   width: 100%;
   padding: 10px;
@@ -92,51 +322,51 @@ a#meldingMaken:hover, a#incidentenBekijken:hover, a#enquête:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.news-admin-main form article:nth-child(3) textarea {
+#news_admin_main form article:nth-child(3) textarea {
   height: 150px;
   resize: vertical;
 }
-.news-admin-main form article:nth-child(4) {
+#news_admin_main form article:nth-child(4) {
   display: flex;
   justify-content: space-between;
   padding: 1%;
   width: 100%;
 }
-.news-admin-main form button {
+#news_admin_main form button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border: none;
-  background-color: #007bff;
+  background-color: #007BFF;
   color: white;
   border-radius: 4px;
 }
-.news-admin-main form button:hover {
+#news_admin_main form button:hover {
   background-color: #0056b3;
 }
-.news-admin-main form button:nth-child(1) {
+#news_admin_main form button:nth-child(1) {
   background-color: #dc3545;
 }
-.news-admin-main form button:nth-child(1):hover {
+#news_admin_main form button:nth-child(1):hover {
   background-color: #c82333;
 }
-.news-admin-main section {
+#news_admin_main section {
   align-self: flex-end;
   margin: 2%;
 }
-.news-admin-main section button {
+#news_admin_main section button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border: none;
-  background-color: #007bff;
+  background-color: #007BFF;
   color: white;
   border-radius: 4px;
 }
-.news-admin-main section button:hover {
+#news_admin_main section button:hover {
   background-color: #0056b3;
 }
-.news-admin-main table {
+#news_admin_main table {
   width: 90%;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
@@ -144,44 +374,36 @@ a#meldingMaken:hover, a#incidentenBekijken:hover, a#enquête:hover {
   font-size: 16px;
   text-align: left;
 }
-.news-admin-main table th,
-.news-admin-main table td {
+#news_admin_main table th, #news_admin_main table td {
   padding: 12px 15px;
   border: 1px solid #ddd;
 }
-.news-admin-main table th {
+#news_admin_main table th {
   background-color: #f4f4f4;
   color: #333;
   font-weight: bold;
 }
-.news-admin-main table th:nth-child(1),
-.news-admin-main table td:nth-child(1) {
+#news_admin_main table th:nth-child(1), #news_admin_main table td:nth-child(1) {
   width: 5%;
 }
-.news-admin-main table th:nth-child(2),
-.news-admin-main table td:nth-child(2) {
+#news_admin_main table th:nth-child(2), #news_admin_main table td:nth-child(2) {
   width: 10%;
 }
-.news-admin-main table th:nth-child(3),
-.news-admin-main table td:nth-child(3) {
+#news_admin_main table th:nth-child(3), #news_admin_main table td:nth-child(3) {
   width: 20%;
 }
-.news-admin-main table th:nth-child(4),
-.news-admin-main table td:nth-child(4) {
+#news_admin_main table th:nth-child(4), #news_admin_main table td:nth-child(4) {
   width: auto;
 }
-.news-admin-main table th:nth-child(5),
-.news-admin-main table th:nth-child(6),
-.news-admin-main table td:nth-child(5),
-.news-admin-main table td:nth-child(6) {
+#news_admin_main table th:nth-child(5), #news_admin_main table th:nth-child(6),
+#news_admin_main table td:nth-child(5), #news_admin_main table td:nth-child(6) {
   width: 5%;
 }
-.news-admin-main table td img {
+#news_admin_main table td img {
   max-width: 80px;
   height: auto;
 }
-.news-admin-main table button.update-button,
-.news-admin-main table button.delete-button {
+#news_admin_main table button.update_button, #news_admin_main table button.delete_button {
   padding: 5px 10px;
   font-size: 16px;
   border: none;
@@ -193,15 +415,475 @@ a#meldingMaken:hover, a#incidentenBekijken:hover, a#enquête:hover {
   width: 100%;
   height: 40px;
 }
-.news-admin-main table button.update-button:hover,
-.news-admin-main table button.delete-button:hover {
+#news_admin_main table button.update_button button.update_button:hover, #news_admin_main table button.update_button button.delete_button:hover, #news_admin_main table button.delete_button button.update_button:hover, #news_admin_main table button.delete_button button.delete_button:hover {
   background-color: #f1f1f1;
 }
 
-.contact-admin-main {
+#contact_admin_main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-/*# sourceMappingURL=style.css.map */
+
+
+
+#admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table_header {
+  background-color: #333;
+  color: #fff;
+}
+
+.table_cell {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table__row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table__row:hover {
+  background-color: #ddd;
+}
+
+.table__cell {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.table__cell a {
+  color: #333;
+  text-decoration: none;
+}
+
+.table__cell a:hover {
+  text-decoration: underline;
+}
+
+
+
+.admin-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.admin-subtitle {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-header {
+  background-color: #333;
+  color: #fff;
+}
+
+.table-cell {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-row:hover {
+  background-color: #ddd;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.admin-form label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.admin-form input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.btn-update {
+  background-color: #007BFF;
+  color: white;
+}
+
+.btn-update:hover {
+  background-color: #0056b3;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+.btn-add {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-add:hover {
+  background-color: #218838;
+}
+
+/*  account pagina styling  */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation ease 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#account_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+#account_main .title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#account_main .welcome-text {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+#account_main h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#account_main .links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+#account_main .links a {
+  display: block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#account_main .links a:hover {
+  background-color: #0056b3;
+}
+
+#account_main .logout-form {
+  margin-top: 30px;
+}
+
+#account_main .logout-form button {
+  padding: 10px 20px;
+  background-color: #d90429;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#account_main .logout-form button:hover {
+  background-color: #a30722;
+
+}
+
+
+
+
+/* user account */
+.adminsws {
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.navigation {
+  margin-top: 30px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.nav-link:hover {
+  background-color: #0056b3;
+}
+
+
+/* admin  */
+
+.admin-body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+.admin-title {
+  color: #333;
+  text-align: center;
+}
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+.user-table th, .user-table td {
+  padding: 10px;
+  text-align: left;
+}
+.user-table th {
+  background-color: #f2f2f2;
+}
+.user-input {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.user-button {
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+}
+.add-user-title {
+  color: #333;
+  text-align: center;
+}
+.add-user-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.add-user-label {
+  display: block;
+  margin: 10px 0 5px;
+}
+.add-user-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.add-user-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.add-user-button:hover {
+  background-color: #45a049;
+}
+
+
+.admin-title {
+  text-align: center;
+  color: #333;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+.user-table th, .user-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.user-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.user-input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.user-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+.user-button1 {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.user-button:hover {
+  background-color: #45a049;
+}
+
+.add-user-title {
+  text-align: center;
+  color: #333;
+}
+
+.add-user-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.add-user-label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.add-user-input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px;
+  box-sizing: border-box;
+}
+
+.add-user-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.add-user-button:hover {
+  background-color: #45a049;
+}
+
+/* pop up */
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #e0f7fa; /* Lichtblauwe achtergrond */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 0;
+  border-radius: 10%;
+}
+.popup.active {
+  display: block;
+  opacity: 1;
+}
+.popup .close-btn {
+  background-color: #d90429;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+
+
+
+}

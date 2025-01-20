@@ -1,24 +1,25 @@
 // http://localhost/Github_PHP/lo2e-swd4-4groep1/db.json
+// https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news
 async function showNewsInfo() {
-    const response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news`);
-    const newsInfo = await response.json();
+    const response = await fetch('api/news.json');
+    const jsonData = await response.json();
+    const { news } = jsonData;
 
-    console.log(newsInfo);
+    console.log(news);
 
     const template = document.getElementById("news_template");
     const container = document.getElementById("news_main");
 
-    // If server doesn't work use newsInfo.newsInfo
-    for (let news of newsInfo) {
+    for (let newsItem of news) {
         const clone = template.content.cloneNode(true);
 
         const img       = clone.querySelector(".news_img");
         const title     = clone.querySelector(".news_title");
         const text      = clone.querySelector(".news_text");
 
-        img.innerHTML       = `<img src="images/${news.img}" alt="${news.title}">`;
-        title.innerHTML     = news.title;
-        text.innerHTML      = news.txt;
+        img.innerHTML       = `<img src="images/${newsItem.img}" alt="${newsItem.title}">`;
+        title.innerHTML     = newsItem.title;
+        text.innerHTML      = newsItem.txt;
 
         container.appendChild(clone);
     }

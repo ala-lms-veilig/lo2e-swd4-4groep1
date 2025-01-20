@@ -1,0 +1,26 @@
+{
+    "contacts": 
+    [
+        {
+            "id": 1,
+            "img": "logo.png",
+            "beroep": "Doctor",
+            "naam": "John Doe",
+            "telNummer": 123456789
+        },
+        {
+            "id": 2,
+            "img": "logo.png",
+            "beroep": "Politie",
+            "naam": "Barry wheeler",
+            "telNummer": 987654321
+        },
+        {
+            "id": 3,
+            "img": "logo.png",
+            "beroep": "Baker",
+            "naam": "Mark Makelaar",
+            "telNummer": 555666777
+        }
+    ]
+}
