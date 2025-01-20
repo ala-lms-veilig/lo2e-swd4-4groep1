@@ -1,29 +1,28 @@
 <?php
-// Include the EnqueteCRUD class
+
 require_once 'EnqueteCRUD.php';
 
-// Create an instance of EnqueteCRUD
+
 $crud = new EnqueteCRUD();
 
-// Handle deletion of a question
+
 if (isset($_GET['delete'])) {
     $id = (int)$_GET['delete'];
-    $crud->delete($id); // Delete question from the database and update JSON file
-    header("Location: enquete_admin.php"); // Redirect to avoid resubmission
+    $crud->delete($id); 
+    header("Location: enquete_admin.php"); 
     exit;
 }
 
-// Handle form submission for adding a question
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add-question'])) {
     $vraag = $_POST['vraag'];
     $type = $_POST['type'];
     $opties = $_POST['opties'] ?? null;
-    $crud->addQuestion($vraag, $type, $opties); // Add question to the database
-    header("Location: enquete_admin.php"); // Refresh the page
+    $crud->addQuestion($vraag, $type, $opties); 
+    header("Location: enquete_admin.php"); 
     exit;
 }
 
-// Fetch all questions from the database
 $questions = $crud->getQuestionsFromDB();
 ?>
 
@@ -132,7 +131,7 @@ $questions = $crud->getQuestionsFromDB();
 <body>
     <h1>Beheer van Enquête Vragen</h1>
 
-    <!-- Table displaying questions -->
+
     <table>
         <thead>
             <tr>
@@ -158,7 +157,7 @@ $questions = $crud->getQuestionsFromDB();
         </tbody>
     </table>
 
-    <!-- Form to add new questions -->
+   
     <h2>Nieuwe Vraag Toevoegen</h2>
     <form method="POST" action="enquete_admin.php">
         <label for="vraag">Vraag:</label>
