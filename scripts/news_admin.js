@@ -208,7 +208,7 @@ async function submitForm() {
     let response;
 
     if (formData.id) {
-        response = await fetch(`https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news/${formData.id}`, {
+        response = await fetch('../api/news_api.php', {
             method: 'PATCH',
             body: JSON.stringify(formData),
             headers: {
@@ -216,7 +216,7 @@ async function submitForm() {
             },
         });
     } else {
-        response = await fetch('https://my-json-server.typicode.com/ala-lms-veilig/lo2e-swd4-4groep1/news', {
+        response = await fetch('../api/news_api.php', {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
