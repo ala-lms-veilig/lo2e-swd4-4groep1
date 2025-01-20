@@ -1,6 +1,6 @@
 <?php
 
-require_once "NewsManager.php";
+require_once "../api/NewsManager.php";
 
 
 $host = 'localhost';
@@ -12,6 +12,7 @@ $jsonFile = 'api/news.json';
 $newsManager = new NewsManager($host, $dbname, $username, $password, $jsonFile);
 
 header('Content-Type: application/json');
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $data = json_decode(file_get_contents('php://input'), true);
