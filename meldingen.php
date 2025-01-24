@@ -7,7 +7,7 @@
     <title>Meldingen</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body onload="showIncidents()" >
+<body onload="showIncidents(); incidentsEventListeners()" >
     <?php require 'includes/header.php';
     require './includes/auth.php';
     ?>
@@ -55,9 +55,11 @@
                             <div class="dropdown">
                                 <button class="dropdown-button">Prioriteit<h1>⯆</h1></button>
                                 <div class="dropdown-menu">
-                                    <label><input type="checkbox" value="Option 1">Prioriteit 1</label>
-                                    <label><input type="checkbox" value="Option 2">Prioriteit 2</label>
-                                    <label><input type="checkbox" value="Option 3">Prioriteit 3</label>
+                                    <label><input class="filter-input" type="checkbox" value="1">Prioriteit 1</label>
+                                    <label><input class="filter-input" type="checkbox" value="2">Prioriteit 2</label>
+                                    <label><input class="filter-input" type="checkbox" value="3">Prioriteit 3</label>
+                                    <label><input class="filter-input" type="checkbox" value="4">Prioriteit 4</label>
+                                    <label><input class="filter-input" type="checkbox" value="5">Prioriteit 5</label>
                                 </div>
                             </div>
                         </section>
@@ -65,9 +67,11 @@
                             <div class="dropdown">
                                 <button class="dropdown-button">Categorie<h1>⯆</h1></button>
                                 <div class="dropdown-menu">
-                                    <label><input type="checkbox" value="Option 1">ICT</label>
-                                    <label><input type="checkbox" value="Option 2">Sanitair</label>
-                                    <label><input type="checkbox" value="Option 3">Helpdesk</label>
+                                    <label><input class="filter-input" type="checkbox" value="1">Sanitair</label>
+                                    <label><input class="filter-input" type="checkbox" value="2">Beveiliging</label>
+                                    <label><input class="filter-input" type="checkbox" value="3">ICT</label>
+                                    <label><input class="filter-input" type="checkbox" value="4">Helpdesk</label>
+                                    <label><input class="filter-input" type="checkbox" value="5">Ongecategoriseerd</label>
                                 </div>
                             </div>
                         </section>
@@ -75,15 +79,16 @@
                             <div class="dropdown">
                                 <button class="dropdown-button">Status<h1>⯆</h1></button>
                                 <div class="dropdown-menu">
-                                    <label><input type="checkbox" value="Option 1">Open</label>
-                                    <label><input type="checkbox" value="Option 2">In Progress</label>
-                                    <label><input type="checkbox" value="Option 3">Closed</label>
+                                    <label><input class="filter-input" type="checkbox" value="1">Open</label>
+                                    <label><input class="filter-input" type="checkbox" value="2">Wachtend op medewerker</label>
+                                    <label><input class="filter-input" type="checkbox" value="5">Wachtend op gebruiker</label>
+                                    <label><input class="filter-input" type="checkbox" value="3">Afgerond</label>
                                 </div>
                             </div>
                         </section>
                         <section class="filter-column">
                             <label class="filter-label" for="filter-date-start">Na:</label>
-                            <input class="filter-input" type="date" id="filter-date-start" name="date_start">
+                            <input class="filter-input" type="date" id="filter-date-start" placeholder="na:" name="date_start">
                         </section>
                         <section class="filter-column">
                             <label class="filter-label" for="filter-date-end">Voor:</label>

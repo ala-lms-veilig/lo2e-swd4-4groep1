@@ -13,13 +13,17 @@
             <section id="info-container">
                 <section id="texts-container">
                     <section id="incident-infos-container">
-                        <h1 class="single-incident-titles">Titel</h1>
-                        <h1 class="single-incident-texts">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, officia dolore. Tempora eum fuga autem quae excepturi quod, laboriosam tenetur eaque officia earum illum consequuntur nisi quisquam nostrum, eligendi impedit?</h1>
+                        <template class="incident-title-template">
+                            <h1 class="single-incident-titles editable">Titel</h1>
+                            <h1 class="single-incident-texts editable"></h1>
+                        </template>
                     </section>
-                    <section id="incident-notes-container">
-                        <h1 class="single-incident-titles">Interne notitie</h1>
-                        <h1 class="single-incident-texts">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam rem fugiat cum quasi enim necessitatibus nostrum perspiciatis, placeat laborum repellat exercitationem architecto nobis quidem? Eaque odit omnis inventore possimus perferendis.</h1>
-                    </section>
+                        <template class="incident-notes-container-template">
+                            <section id="incident-notes-container">
+                                <h1 class="single-incident-titles">Interne notitie</h1>
+                                <h1 class="single-incident-texts internal-note editable"></h1>
+                            </section>
+                        </template>
                 </section>
                 <section id="img-container">
 
@@ -33,11 +37,11 @@
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Categorie:</p>
-                        <p class="single-incident-details-text id-category"></p>
+                        <p class="single-incident-details-text id-category editable"></p>
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Prioriteit:</p>
-                        <p class="single-incident-details-text id-priority"></p>
+                        <p class="single-incident-details-text id-priority editable"></p>
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Gemaakt:</p>
@@ -45,27 +49,29 @@
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Status:</p>
-                        <p class="single-incident-details-text id-status"></p>
+                        <p class="single-incident-details-text id-status editable"></p>
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Toren:</p>
-                        <p class="single-incident-details-text id-tower"></p>
+                        <p class="single-incident-details-text id-tower editable"></p>
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Verdieping:</p>
-                        <p class="single-incident-details-text id-floor"></p>
+                        <p class="single-incident-details-text id-floor editable"></p>
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Lokaal:</p>
-                        <p class="single-incident-details-text id-class_area"></p>
+                        <p class="single-incident-details-text id-class_area editable"></p>
                     </section>
                     <section class="single-incident-detail-container">
                         <p class="single-incident-details-title">Geupdate:</p>
                         <p class="single-incident-details-text id-update_date"></p>
                     </section>
-                    <section class="single-incident-detail-container" id="single-incident-edit-button-container">
-                        <button type="button" id="single-incident-edit-button">Bewerk</button>
-                    </section>
+                    <template class="edit-button-template">
+                        <section class="single-incident-detail-container" id="single-incident-edit-button-container">
+                            <button type="button" onclick="editIncident()" id="single-incident-edit-button">Bewerk</button>
+                        </section>
+                    </template>
                 </template>
             </section>
         </section>

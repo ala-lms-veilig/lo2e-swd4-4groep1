@@ -11,6 +11,7 @@ async function createIncident() {
             class_area: document.getElementById("new-incident-class_area-input").value
         }
         console.log(data);
+        console.log(JSON.stringify(data));
         const response = await fetch('./includes/api.php?action=createIncident', {
             method: 'POST',
             headers: {
@@ -20,6 +21,7 @@ async function createIncident() {
         });
 
         const result = await responseHandler(response);
+        console.log(result);
         window.location.href = `melding.php?id=${result.newIncidentID}`;
         } catch (error) {
             console.log(JSON.stringify(data));
@@ -71,6 +73,98 @@ function incidentEventListeners() {
         document.getElementById("media-input").addEventListener("change", (event) => getFileName(event, "single_incident"));
 }
 
+function incidentsEventListeners() {
+    const filterInputs = document.querySelectorAll(".filter-input");
+    console.log(filterInputs);
+    const dropdownButtons = document.querySelectorAll(".dropdown-button");
+    const dropdownMenus = document.querySelectorAll(".dropdown-menu");
+
+    dropdownButtons.forEach((button, index) => {
+        const menu = dropdownMenus[index];
+
+        const setRadius = (isHovered) => {
+            if (isHovered) {
+                button.style.borderBottomLeftRadius = "0";
+                button.style.borderBottomRightRadius = "0";
+                menu.style.borderTopLeftRadius = "0";
+                menu.style.borderTopRightRadius = "0";
+            } else {
+                button.style.borderBottomLeftRadius = "5px";
+                button.style.borderBottomRightRadius = "5px";
+                menu.style.borderTopLeftRadius = "5px";
+                menu.style.borderTopRightRadius = "5px";
+            }
+        };
+
+        button.addEventListener("mouseenter", () => setRadius(true));
+        button.addEventListener("mouseleave", () => setRadius(false));
+
+        menu.addEventListener("mouseenter", () => setRadius(true));
+        menu.addEventListener("mouseleave", () => setRadius(false));
+    });
+
+    filterInputs.forEach((element) => {
+        element.addEventListener("change", getFilters());
+    })
+}
+
+function getFilters() {
+    console.log("hi")
+}
+
+function editIncident() {
+    id = new URLSearchParams(window.location.search).get("id");
+    editableElements = document.querySelectorAll(".editable")
+    editableElements.forEach(makeEditable);
+
+    document.getElementById("single-incident-edit-button").innerHTML = "Opslaan";
+    document.getElementById("single-incident-edit-button").setAttribute( "onClick", "javascript:saveEdits("+ id + ")")
+}
+
+async function saveEdits(id) {
+    inputs = document.querySelectorAll(".editable-input");
+    console.log(inputs)
+    data = {
+        title: inputs[0].value,
+        description: inputs[1].value,
+        note: inputs[2].value,
+        category: inputs[3].value,
+        priority: inputs[4].value,
+        status: inputs[5].value,
+        tower: inputs[6].value,
+        floor: inputs[7].value,
+        class_area: inputs[8].value,
+        id: id
+    }
+    try {
+    const response = await fetch('./includes/api.php?action=editIncident', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+
+        const result = await responseHandler(response);
+        
+        location.reload();
+    }   catch (error) {
+        errorHandler(error, 'editIncident');
+    }
+}
+
+function makeEditable(element) {
+    const input = document.createElement('input');
+    
+    input.type = "text";
+    input.value = element.textContent
+    
+    input.className = "editable-input";
+    
+    element.parentNode.replaceChild(input, element);
+}
+
+
 async function showIncidents() {
     id = new URLSearchParams(window.location.search).get("id");
     console.log(id);
@@ -107,25 +201,53 @@ async function showIncidents() {
         console.log("id detected")
         try {
             const response = await fetch(`./includes/api.php?action=showIncidents&id=${id}`);
-            const incident = await responseHandler(response);
+            const incidentDetails = await responseHandler(response);
+            const incident = incidentDetails.incident;
+            const rights = incidentDetails.rights;
+
+            if (rights.includes("view_notes") == true) {
+                const incidentNotesContainer = document.getElementById("texts-container");
+                const incidentNotesTemplate = document.querySelector(".incident-notes-container-template");
+                const notesClone = incidentNotesTemplate.content.cloneNode(true);
+                notesClone.querySelector(".internal-note").textContent = incident.note;
+                incidentNotesContainer.appendChild(notesClone)
+            }
+
+            const incidentTitleContainer = document.getElementById("incident-infos-container");
+            const incidentTitleTemplate = document.querySelector(".incident-title-template");
+
+            titleClone = incidentTitleTemplate.content.cloneNode(true);
+            titleClone.querySelector(".single-incident-titles").textContent = incident.title;
+            titleClone.querySelector(".single-incident-texts").textContent = incident.description;
+            incidentTitleContainer.appendChild(titleClone)
 
             const incidentDetailsContainer = document.getElementById('single-incident-details-container');
             const incidentDetailsTemplate = document.querySelector('.single-incident-details-template');
 
-            const clone = incidentDetailsTemplate.content.cloneNode(true);
+            const detailsClone = incidentDetailsTemplate.content.cloneNode(true);
             console.log(incident);
-            clone.querySelector('.id-author').textContent = incident.name;
-            clone.querySelector(".id-category").textContent = incident.category;
-            clone.querySelector(".id-priority").textContent = incident.priority;
-            clone.querySelector(".id-create_date").textContent = incident.create_date;
-            clone.querySelector(".id-status").textContent = incident.status;
-            clone.querySelector(".id-tower").textContent = incident.tower;
-            clone.querySelector(".id-floor").textContent = incident.floor;
-            clone.querySelector(".id-class_area").textContent = incident.class_area;
-            clone.querySelector(".id-update_date").textContent = incident.last_updated;
+            detailsClone.querySelector('.id-author').textContent = incident.name;
+            detailsClone.querySelector(".id-category").textContent = incident.category;
+            detailsClone.querySelector(".id-priority").textContent = incident.priority;
+            detailsClone.querySelector(".id-create_date").textContent = incident.create_date;
+            detailsClone.querySelector(".id-status").textContent = incident.status;
+            detailsClone.querySelector(".id-tower").textContent = incident.tower;
+            detailsClone.querySelector(".id-floor").textContent = incident.floor;
+            detailsClone.querySelector(".id-class_area").textContent = incident.class_area;
+            detailsClone.querySelector(".id-update_date").textContent = incident.last_updated;
 
-            incidentDetailsContainer.appendChild(clone);
-            console.log(incident);
+            incidentDetailsContainer.appendChild(detailsClone);
+            console.log(rights);
+
+            if (rights.includes("manage_incidents") == true) {
+                console.log("true")
+                const editButtonContainer = document.getElementById("single-incident-details-container");
+                const editButtonTemplate = document.querySelector(".edit-button-template");
+                const editClone = editButtonTemplate.content.cloneNode(true);
+                editButtonContainer.appendChild(editClone)
+            } else {
+                console.log("false")
+            }
         } catch (error) {
             errorHandler(error, 'showIncidents')
         }
@@ -178,7 +300,6 @@ async function login() {
                 password: password,
             }),
         });
-        
         console.log(response);
         const result = await responseHandler(response);
 

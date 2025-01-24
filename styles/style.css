@@ -221,6 +221,10 @@ header nav ul li a {
   color: white;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 header nav ul li a:hover {
   background-color: #a30722;
@@ -786,21 +790,29 @@ main {
   flex: 1;
   color: white;
 }
+#filters-container #filter-form .filter-column {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
 #filters-container #filter-form .filter-column .filter-label {
-  font-size: 15px;
+  font-weight: normal;
+  font-size: 100%;
 }
 #filters-container #filter-form .filter-column .filter-input {
   background-color: white;
-  padding-left: 3px;
+  color: black;
+  padding: 2px;
+  padding-left: 7.5px;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
   font-weight: normal;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  overflow: hidden;
-  font-family: "Montserrat";
   font-size: 100%;
 }
 
@@ -813,6 +825,7 @@ main {
   background-color: white;
   color: black;
   padding: 2px;
+  padding-left: 7.5px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -1053,11 +1066,22 @@ main {
   font-weight: bold;
 }
 
+.single-incident-titles {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.single-incident-texts {
+  color: white;
+  font-weight: normal;
+}
+
 #main-incident-page {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #333;
 }
 #main-incident-page #incident-info-container {
   display: flex;
@@ -1072,14 +1096,18 @@ main {
   flex: 1;
 }
 #main-incident-page #incident-info-container #info-container #texts-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  row-gap: 3vh;
 }
 #main-incident-page #incident-info-container #info-container #texts-container #incident-infos-container {
   display: flex;
   flex-direction: column;
   height: 50%;
   padding: 10px;
+  row-gap: 1vh;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1803921569);
 }
 #main-incident-page #incident-info-container #info-container #texts-container #incident-infos-container h1 {
   width: auto;
@@ -1089,6 +1117,9 @@ main {
   flex-direction: column;
   height: 50%;
   padding: 10px;
+  margin-bottom: 3vh;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1803921569);
+  row-gap: 1vh;
 }
 #main-incident-page #incident-info-container #info-container #texts-container #incident-notes-container h1 {
   width: auto;
@@ -1101,12 +1132,19 @@ main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  background-color: gray;
+  background-color: #333;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1803921569);
   padding: 10px;
 }
 #main-incident-page #incident-info-container #single-incident-details-container .single-incident-detail-container {
   display: flex;
   flex-direction: row;
+}
+#main-incident-page #incident-info-container #single-incident-details-container .single-incident-detail-container p {
+  color: white;
+}
+#main-incident-page #incident-info-container #single-incident-details-container .single-incident-detail-container .single-incident-details-title {
+  font-weight: bold;
 }
 #main-incident-page #incident-info-container #single-incident-details-container .single-incident-detail-container .single-incident-details-text {
   margin-left: 3px;
@@ -1130,7 +1168,7 @@ main {
   height: 75vh;
   width: 20vw;
   margin: 35px;
-  border: solid black 1px;
+  border: solid white 1px;
   border-radius: 25px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
@@ -1143,10 +1181,11 @@ main {
   flex-direction: row;
   align-items: center;
   padding: 20px;
-  border-bottom: solid black 1px;
+  border-bottom: solid white 1px;
 }
 #main-incident-page #chat-container #chat-top-bar-text {
   font-size: 16px;
+  color: white;
 }
 #main-incident-page #chat-container #chat-messages-container-reverse {
   display: flex;
@@ -1215,7 +1254,7 @@ main {
 #main-incident-page #chat-container #message-media-path-container {
   height: 3vh;
   display: none;
-  border-top: solid black 1px;
+  border-top: solid white 1px;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -1229,7 +1268,7 @@ main {
 }
 #main-incident-page #chat-container #message-input-container {
   height: 5vh;
-  border-top: solid black 1px;
+  border-top: solid white 1px;
 }
 #main-incident-page #chat-container #message-input-container #message-input-form {
   display: flex;
@@ -1242,7 +1281,7 @@ main {
   height: 5vh;
   display: flex;
   border: none;
-  border-right: solid black 1px;
+  border-right: solid white 1px;
   justify-content: center;
   align-items: center;
   width: 5vh;
@@ -1262,15 +1301,18 @@ main {
 #main-incident-page #chat-container #message-input-container #message-input-form #message-input {
   all: unset;
   flex: 1;
+  margin-left: 0.5vw;
+  color: white;
 }
 #main-incident-page #chat-container #message-input-container #message-input-form #message-send-button {
   height: 5vh;
   width: 5vh;
   background: none;
   border: none;
-  border-left: solid black 1px;
+  border-left: solid white 1px;
   font-size: 2rem;
   font-weight: lighter;
+  color: white;
 }
 
 @media (max-width: 960px) {
