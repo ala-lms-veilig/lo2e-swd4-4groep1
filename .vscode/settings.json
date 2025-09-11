@@ -1,5 +1,15 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "editor.defaultFoldingRangeProvider": "formulahendry.auto-rename-tag",
+    "editor.defaultFormatter": "GitHub.copilot-chat",
+    "php.format.codeStyle": "PHP Tools",
+    "phpConstructor.chooseConstructorVisibility": true,
+    "phpConstructor.choosePropertyVisibility": true,
+    "phpConstructor.visibility": "public",
+    "namespaceResolver.highlightOnOpen": true,
+    "namespaceResolver.highlightOnSave": true,
+    "namespaceResolver.showMessageOnStatusBar": true,
+    "namespaceResolver.sortAlphabetically": true
 }
 
 // iemand heeft niet goed opgelet op school 
